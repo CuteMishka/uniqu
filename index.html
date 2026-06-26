@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNIQU — поступление за рубеж и гранты</title>
+    <meta
+      name="description"
+      content="UNIQU помогает поступить за рубеж, получить грант, подобрать университет и пройти все этапы оформления."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Wix+Madefor+Display:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="preloader" aria-hidden="true">
+      <div class="preloader__mark">
+        <span class="brand-mark">U</span>
+        <span class="brand-word">UNIQU</span>
+      </div>
+    </div>
+
+    <canvas id="lava-canvas" aria-hidden="true"></canvas>
+    <div class="lava-cursor" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="logo" href="#top" aria-label="UNIQU">
+        <span class="brand-mark">U</span>
+        <span>
+          <span class="brand-word">UNIQU</span>
+          <small>education & grants</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Главная навигация">
+        <a href="#programs">Программы</a>
+        <a href="#countries">Страны</a>
+        <a href="#services">Услуги</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switcher" aria-label="Выбор языка">
+          <button class="is-active" type="button">RU</button>
+          <button type="button">KZ</button>
+        </div>
+        <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <aside class="mobile-menu" data-menu>
+      <button class="icon-button menu-close" type="button" aria-label="Закрыть меню">
+        <i data-lucide="x"></i>
+      </button>
+      <a href="#programs">Программы</a>
+      <a href="#countries">Страны</a>
+      <a href="#services">Услуги</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+      <button class="primary-button" type="button" data-open-modal>
+        Оставить заявку
+        <i data-lucide="arrow-right"></i>
+      </button>
+    </aside>
+
+    <main id="top">
+      <section class="hero section-dark">
+        <div class="ambient-lava" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="hero__media" aria-hidden="true"></div>
+        <div class="hero__content reveal">
+          <p class="eyebrow"><span>UNIQU</span> — мост к обучению за рубежом</p>
+          <h1>
+            Получите грант и поступите
+            <em>за границу</em>
+            с нашей помощью
+          </h1>
+          <p class="hero__lead">
+            Подберём страну, программу и университет, подготовим документы, поможем с визой и будем рядом до начала учёбы.
+          </p>
+          <div class="hero__actions">
+            <button class="primary-button" type="button" data-open-modal>
+              Оставить заявку
+              <i data-lucide="arrow-right"></i>
+            </button>
+            <a class="ghost-link" href="tel:+77005002146">
+              <i data-lucide="phone"></i>
+              +7 (700) 500-21-46
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="program-strip" id="programs" aria-label="Программы обучения">
+        <article class="program-card reveal">
+          <i data-lucide="graduation-cap"></i>
+          <h3>Гранты</h3>
+          <p>Подбор программ со стипендией и бесплатным обучением.</p>
+        </article>
+        <article class="program-card reveal">
+          <i data-lucide="languages"></i>
+          <h3>Foundation</h3>
+          <p>Языковой курс и академическая подготовка перед университетом.</p>
+        </article>
+        <article class="program-card reveal">
+          <i data-lucide="school"></i>
+          <h3>Бакалавриат</h3>
+          <p>Поступление после 11 класса или колледжа без лишней суеты.</p>
+        </article>
+        <article class="program-card reveal">
+          <i data-lucide="badge-check"></i>
+          <h3>Магистратура</h3>
+          <p>Стратегия поступления, эссе, документы и дедлайны.</p>
+        </article>
+      </section>
+
+      <section class="section universities" id="universities">
+        <div class="section-head reveal">
+          <p class="eyebrow">— Учебные заведения</p>
+          <h2>Подбираем университет под цель, бюджет и шансы</h2>
+        </div>
+        <div class="university-shell reveal">
+          <button class="carousel-button" type="button" data-carousel-prev aria-label="Предыдущие университеты">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <div class="university-track" data-university-track>
+            <article class="university-card">
+              <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=780&q=85" alt="University of Bologna" />
+              <div>
+                <span>Италия</span>
+                <h3>University of Bologna</h3>
+                <p>Гранты, бакалавриат, магистратура</p>
+              </div>
+            </article>
+            <article class="university-card">
+              <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=780&q=85" alt="Istanbul University" />
+              <div>
+                <span>Турция</span>
+                <h3>Istanbul University</h3>
+                <p>Подготовительные и основные программы</p>
+              </div>
+            </article>
+            <article class="university-card">
+              <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=780&q=85" alt="Zhejiang University" />
+              <div>
+                <span>Китай</span>
+                <h3>Zhejiang University</h3>
+                <p>Стипендии и международные факультеты</p>
+              </div>
+            </article>
+            <article class="university-card">
+              <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=780&q=85" alt="Sapienza University of Rome" />
+              <div>
+                <span>Италия</span>
+                <h3>Sapienza University</h3>
+                <p>Европейский диплом и грантовые программы</p>
+              </div>
+            </article>
+            <article class="university-card">
+              <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&w=780&q=85" alt="Tsinghua University" />
+              <div>
+                <span>Китай</span>
+                <h3>Tsinghua University</h3>
+                <p>Сильные инженерные и бизнес-направления</p>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-button" type="button" data-carousel-next aria-label="Следующие университеты">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="section-head reveal">
+          <p class="eyebrow">— Услуги</p>
+          <h2>Ведём <em>индивидуально</em> на всех этапах поступления</h2>
+        </div>
+        <p class="section-copy reveal">
+          Мы не отправляем документы “веером”. Сначала понимаем цель, академический профиль и бюджет, затем строим понятный маршрут поступления.
+        </p>
+        <div class="service-grid">
+          <article class="service-item reveal">
+            <span><i data-lucide="compass"></i></span>
+            <h3>Профориентация</h3>
+            <p>Определяем сильные стороны, подходящие специальности и страны.</p>
+          </article>
+          <article class="service-item reveal">
+            <span><i data-lucide="file-check-2"></i></span>
+            <h3>Документы</h3>
+            <p>Собираем пакет, переводим, редактируем эссе и рекомендации.</p>
+          </article>
+          <article class="service-item reveal">
+            <span><i data-lucide="badge-check"></i></span>
+            <h3>Виза</h3>
+            <p>Готовим анкету, финансовые документы и план интервью.</p>
+          </article>
+          <article class="service-item reveal">
+            <span><i data-lucide="home"></i></span>
+            <h3>Адаптация</h3>
+            <p>Помогаем с жильём, перелётом, заселением и первыми неделями.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="facts section-dark">
+        <div class="ambient-lava" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="section-head reveal">
+          <p class="eyebrow">— Результаты</p>
+          <h2>Помогаем поступить и получить <em>реальный грант</em></h2>
+        </div>
+        <p class="section-copy reveal">
+          В центре работы — не обещания, а понятная стратегия, дедлайны и сопровождение до результата.
+        </p>
+        <div class="fact-grid">
+          <div class="fact reveal"><strong data-counter="970">0</strong><span>довольных студентов</span></div>
+          <div class="fact reveal"><strong data-counter="3">0</strong><span>ключевые страны</span></div>
+          <div class="fact reveal"><strong data-counter="100000">0</strong><span>тг стипендия от</span></div>
+          <div class="fact reveal"><strong data-counter="90">0</strong><span>% точность подбора</span></div>
+        </div>
+      </section>
+
+      <section class="section countries" id="countries">
+        <div class="section-head reveal">
+          <p class="eyebrow">— Направления</p>
+          <h2>Выберите подходящую <em>страну</em> для обучения</h2>
+        </div>
+        <div class="country-grid">
+          <article class="country country--china reveal">
+            <div>
+              <p>4 года + Foundation</p>
+              <h3>Китай</h3>
+            </div>
+            <ul>
+              <li>Полный грант</li>
+              <li>Бесплатное обучение</li>
+              <li>Международный диплом</li>
+            </ul>
+            <span>240+ студентов</span>
+          </article>
+          <article class="country country--turkey reveal">
+            <div>
+              <p>4 года + Foundation</p>
+              <h3>Турция</h3>
+            </div>
+            <ul>
+              <li>Доступное образование</li>
+              <li>Полное сопровождение</li>
+              <li>Программа обмена</li>
+            </ul>
+            <span>660+ студентов</span>
+          </article>
+          <article class="country country--italy reveal">
+            <div>
+              <p>3 года + Foundation</p>
+              <h3>Италия</h3>
+            </div>
+            <ul>
+              <li>Грант на весь период</li>
+              <li>Европейский диплом</li>
+              <li>Ежемесячная стипендия</li>
+            </ul>
+            <span>70+ студентов</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="consult-band section-dark">
+        <div class="ambient-lava" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="consult-band__text reveal">
+          <p class="eyebrow">— Бесплатная первая встреча</p>
+          <h2>Готовы понять свои шансы?</h2>
+          <p>Оставьте заявку, и эксперт UNIQU разберёт вашу ситуацию, страны, бюджет и ближайшие дедлайны.</p>
+        </div>
+        <button class="primary-button reveal" type="button" data-open-modal>
+          Получить консультацию
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </section>
+
+      <section class="section calculator" id="calculator">
+        <div class="calculator__intro reveal">
+          <p class="eyebrow">— Калькулятор</p>
+          <h2>Сколько может стоить обучение?</h2>
+          <p>Выберите уровень и страну — покажем ориентировочный диапазон. Точный план эксперт рассчитает после консультации.</p>
+        </div>
+        <div class="calculator__panel reveal">
+          <label>
+            Уровень образования
+            <select id="levelSelect">
+              <option value="foundation">Foundation / языковой курс</option>
+              <option value="bachelor">Бакалавриат</option>
+              <option value="master">Магистратура</option>
+            </select>
+          </label>
+          <label>
+            Страна
+            <select id="countrySelect">
+              <option value="china">Китай</option>
+              <option value="turkey">Турция</option>
+              <option value="italy">Италия</option>
+            </select>
+          </label>
+          <div class="result-box">
+            <span>Ориентировочный бюджет</span>
+            <strong id="budgetResult">от 0 ₸</strong>
+            <p>в год · обучение, сопровождение и базовые расходы обсуждаются отдельно</p>
+          </div>
+          <button class="primary-button" type="button" data-open-modal>
+            Получить точный расчёт
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="section reviews" id="reviews">
+        <div class="section-head reveal">
+          <p class="eyebrow">— Отзывы</p>
+          <h2>Студенты, которые доверились <em>UNIQU</em></h2>
+        </div>
+        <div class="review-grid">
+          <article class="review reveal">
+            <p>“Команда помогла выбрать Китай, собрать документы и пройти все этапы без ЕНТ. Я поступила на грант и спокойно уехала учиться.”</p>
+            <strong>Аружан К.</strong>
+            <span>Китай · бакалавриат</span>
+          </article>
+          <article class="review reveal">
+            <p>“Больше всего понравилось, что со мной не просто заполнили форму, а объяснили, почему именно эта программа подходит.”</p>
+            <strong>Мади С.</strong>
+            <span>Турция · Foundation</span>
+          </article>
+          <article class="review reveal">
+            <p>“Италия казалась сложной из-за документов. UNIQU всё разложили по шагам, помогли с дедлайнами и визой.”</p>
+            <strong>Дана Т.</strong>
+            <span>Италия · грант</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="steps section-dark">
+        <div class="ambient-lava" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="section-head reveal">
+          <p class="eyebrow">— Как начать</p>
+          <h2>Три шага до первой консультации</h2>
+        </div>
+        <div class="step-grid">
+          <article class="step reveal">
+            <span>01</span>
+            <h3>Оставьте заявку</h3>
+            <p>Расскажите класс, город, страну и цель обучения.</p>
+          </article>
+          <article class="step reveal">
+            <span>02</span>
+            <h3>Пройдите собеседование</h3>
+            <p>Эксперт оценит шансы, документы и подходящие программы.</p>
+          </article>
+          <article class="step reveal">
+            <span>03</span>
+            <h3>Получите план</h3>
+            <p>Список университетов, дедлайны, бюджет и следующий шаг.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+      <div>
+        <a class="logo" href="#top" aria-label="UNIQU">
+          <span class="brand-mark">U</span>
+          <span>
+            <span class="brand-word">UNIQU</span>
+            <small>education & grants</small>
+          </span>
+        </a>
+        <p>Помогаем поступить за рубеж и получить грант.</p>
+      </div>
+      <div>
+        <h3>Контакты</h3>
+        <a href="tel:+77005002146">+7 (700) 500-21-46</a>
+        <a href="tel:+77005008926">+7 (700) 500-89-26</a>
+        <a href="https://wa.me/77005002146">WhatsApp</a>
+      </div>
+      <div>
+        <h3>Навигация</h3>
+        <a href="#countries">Страны</a>
+        <a href="#services">Услуги</a>
+        <a href="#reviews">Отзывы</a>
+      </div>
+    </footer>
+
+    <div class="modal" data-modal aria-hidden="true">
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="icon-button modal__close" type="button" data-close-modal aria-label="Закрыть">
+          <i data-lucide="x"></i>
+        </button>
+        <p class="eyebrow">— Бесплатная консультация</p>
+        <h2 id="modal-title">Пройдите собеседование с экспертом</h2>
+        <p>Заполните форму, чтобы мы связались с вами и подсказали лучший маршрут поступления.</p>
+        <form class="lead-form" id="leadForm">
+          <label>
+            Имя
+            <input name="name" type="text" placeholder="Ваше имя" required />
+          </label>
+          <label>
+            Телефон
+            <input name="phone" type="tel" placeholder="+7 (___) ___-__-__" required />
+          </label>
+          <label>
+            В каком вы классе?
+            <select name="grade">
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>Выпускник колледжа</option>
+            </select>
+          </label>
+          <label>
+            Интересует
+            <select name="interest">
+              <option>Грант</option>
+              <option>Китай</option>
+              <option>Турция</option>
+              <option>Италия</option>
+              <option>Пока не определился</option>
+            </select>
+          </label>
+          <button class="primary-button" type="submit">
+            Отправить заявку
+            <i data-lucide="send"></i>
+          </button>
+          <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</small>
+        </form>
+        <div class="success-state" data-success>
+          <i data-lucide="check-circle-2"></i>
+          <h3>Заявка принята!</h3>
+          <p>Эксперт свяжется с вами в рабочее время и расскажет о подходящих программах.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
