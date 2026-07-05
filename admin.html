@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNIQU CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Wix+Madefor+Display:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div>
+        <p>UNIQU CMS</p>
+        <h1>Панель управления сайтом</h1>
+      </div>
+      <nav>
+        <a href="/">Сайт</a>
+        <button type="button" data-save>Сохранить</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="status-card">
+        <strong data-status>Загрузка контента...</strong>
+        <span>Изменения сохраняются в файл <code>data/site-content.json</code>, заявки — в <code>data/leads.json</code>.</span>
+      </section>
+
+      <section class="toolbar">
+        <div class="tabs" data-language-tabs></div>
+        <div class="toolbar-actions">
+          <button type="button" data-reload>Обновить</button>
+          <button type="button" data-export>Экспорт JSON</button>
+        </div>
+      </section>
+
+      <section class="admin-layout">
+        <article class="panel">
+          <h2>Общие настройки</h2>
+          <div data-settings-editor></div>
+        </article>
+
+        <article class="panel">
+          <h2>Контент выбранного языка</h2>
+          <div data-translation-editor></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Импорт / экспорт</h2>
+        <textarea data-json-area spellcheck="false" placeholder="Здесь появится JSON для экспорта или вставьте сюда JSON для импорта"></textarea>
+        <div class="toolbar-actions">
+          <button type="button" data-import>Импортировать из поля</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Заявки с сайта</h2>
+        <div class="leads" data-leads>Заявок пока нет.</div>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

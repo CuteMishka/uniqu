@@ -171,40 +171,55 @@ document.querySelectorAll(".lang-switcher button").forEach((button) => {
 });
 
 const lavaCursor = document.querySelector(".lava-cursor");
+const canUseLavaCursor =
+  lavaCursor &&
+  window.matchMedia("(pointer: fine)").matches &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 let pointerX = window.innerWidth * 0.5;
 let pointerY = window.innerHeight * 0.5;
 let currentX = pointerX;
 let currentY = pointerY;
 
-const movePointer = (x, y) => {
-  pointerX = x;
-  pointerY = y;
-};
+if (canUseLavaCursor) {
+  body.classList.add("has-lava-cursor");
 
-window.addEventListener(
-  "pointermove",
-  (event) => {
-    movePointer(event.clientX, event.clientY);
-  },
-  { passive: true }
-);
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      lavaCursor.classList.add("is-active");
+    },
+    { passive: true }
+  );
 
-const cursorTargets = [
-  { selector: "button, .primary-button", state: "is-button" },
-  {
-    selector:
-      ".country, .program-card, .review, .university-card, .service-item, .fact, .step, .calculator__panel, .result-box",
-    state: "is-media",
-  },
-  { selector: "a, input, select", state: "is-link" },
-];
-
-cursorTargets.forEach(({ selector, state }) => {
-  document.querySelectorAll(selector).forEach((element) => {
-    element.addEventListener("pointerenter", () => lavaCursor.classList.add(state));
-    element.addEventListener("pointerleave", () => lavaCursor.classList.remove(state));
+  document.documentElement.addEventListener("mouseleave", () => {
+    lavaCursor.classList.remove("is-active", "is-button", "is-link", "is-media", "is-hidden");
   });
-});
+
+  const cursorTargets = [
+    { selector: "button, .primary-button, .carousel-button, .icon-button", state: "is-button" },
+    {
+      selector:
+        ".country, .program-card, .review, .university-card, .service-item, .fact, .step, .calculator__panel, .result-box",
+      state: "is-media",
+    },
+    { selector: "a, [role='button']", state: "is-link" },
+  ];
+
+  cursorTargets.forEach(({ selector, state }) => {
+    document.querySelectorAll(selector).forEach((element) => {
+      element.addEventListener("pointerenter", () => lavaCursor.classList.add(state));
+      element.addEventListener("pointerleave", () => lavaCursor.classList.remove(state));
+    });
+  });
+
+  document.querySelectorAll("input, select, textarea").forEach((element) => {
+    element.addEventListener("pointerenter", () => lavaCursor.classList.add("is-hidden"));
+    element.addEventListener("pointerleave", () => lavaCursor.classList.remove("is-hidden"));
+  });
+}
 
 const tiltCards = document.querySelectorAll(
   ".program-card, .university-card, .country, .review, .service-item, .calculator__panel"
@@ -233,15 +248,16 @@ tiltCards.forEach((card) => {
 });
 
 const animateLava = () => {
+  if (!canUseLavaCursor) return;
   currentX += (pointerX - currentX) * 0.12;
   currentY += (pointerY - currentY) * 0.12;
-  const size = lavaCursor.offsetWidth || 76;
+  const size = lavaCursor.offsetWidth || 8;
   lavaCursor.style.transform = `translate3d(${currentX - size / 2}px, ${currentY - size / 2}px, 0)`;
 
   requestAnimationFrame(animateLava);
 };
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if (canUseLavaCursor) {
   animateLava();
 }
 
