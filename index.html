@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Wix+Madefor+Display:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Wix+Madefor+Display:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
@@ -34,8 +34,13 @@
   <body>
     <div class="preloader" aria-hidden="true">
       <div class="preloader__mark">
-        <span class="brand-mark">U</span>
-        <span class="brand-word">UNIQU</span>
+        <img
+          class="brand-logo brand-logo--stacked"
+          src="assets/brand/uniqu-logo-white-stacked.svg"
+          alt=""
+          width="180"
+          height="180"
+        />
       </div>
     </div>
 
@@ -44,11 +49,13 @@
 
     <header class="site-header" data-header>
       <a class="logo" href="#top" aria-label="UNIQU">
-        <span class="brand-mark">U</span>
-        <span>
-          <span class="brand-word">UNIQU</span>
-          <small>education & grants</small>
-        </span>
+        <img
+          class="brand-logo brand-logo--horizontal"
+          src="assets/brand/uniqu-logo-white-horizontal.svg"
+          alt=""
+          width="172"
+          height="44"
+        />
       </a>
       <nav class="desktop-nav" aria-label="Главная навигация">
         <a href="#about">О компании</a>
@@ -62,8 +69,10 @@
       </nav>
       <div class="header-actions">
         <div class="lang-switcher" aria-label="Выбор языка">
-          <button class="is-active" type="button">RU</button>
-          <button type="button">KZ</button>
+          <button class="lang-current" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span>RU</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
         </div>
         <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню">
           <i data-lucide="menu"></i>
@@ -84,653 +93,593 @@
       <a href="#cases">Кейсы</a>
       <a href="#faq">FAQ</a>
       <a href="#contacts">Контакты</a>
-      <button class="primary-button" type="button" data-open-modal>
-        Оставить заявку
-        <i data-lucide="arrow-right"></i>
-      </button>
-    </aside>
+</aside>
 
     <main id="top">
+
       <section class="hero section-dark">
-        <div class="ambient-lava" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="hero__media" aria-hidden="true"></div>
-        <div class="hero__content reveal">
-          <p class="eyebrow"><span>UniQ</span> - мост к обучению за рубежом</p>
-          <h1>
-            Ваш путь к обучению
-            <em>за рубежом</em>
-            начинается здесь
-          </h1>
-          <p class="hero__lead">
-            Помогаем выбрать страну и университет, подготовить документы, подать заявку и пройти все этапы поступления.
-          </p>
-          <div class="hero__actions">
-            <button class="primary-button" type="button" data-open-modal>
-              Оставить заявку
-              <i data-lucide="arrow-right"></i>
-            </button>
-            <a class="ghost-link" href="tel:+77005002146">
-              <i data-lucide="phone"></i>
-              +7 (700) 500-21-46
-            </a>
-          </div>
-        </div>
-      </section>
+              <div class="ambient-lava" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="hero__media" aria-hidden="true"></div>
+              <div class="hero__content reveal">
+                <p class="eyebrow"><span>UniQ</span> - мост к обучению за рубежом</p>
+                <h1>
+                  Ваш путь к обучению
+                  <em>за рубежом</em>
+                  начинается здесь
+                </h1>
+                <p class="hero__lead">
+                  Помогаем выбрать страну и университет, подготовить документы, подать заявку и пройти все этапы поступления.
+                </p>
+                <div class="hero__actions">
+                  <button class="primary-button" type="button" data-open-modal>
+                    Оставить заявку
+                    <i data-lucide="arrow-right"></i>
+                  </button>
+                  <a class="ghost-link" href="tel:+77005002146">
+                    <i data-lucide="phone"></i>
+                    +7 (700) 500-21-46
+                  </a>
+                </div>
+              </div>
+            </section>
 
       <section class="program-strip" id="programs" aria-label="Программы обучения">
-        <article class="program-card reveal">
-          <i data-lucide="graduation-cap"></i>
-          <h3>Бакалавриат</h3>
-          <p>Для выпускников школ и колледжей, которые хотят получить первое высшее образование за рубежом.</p>
-        </article>
-        <article class="program-card reveal">
-          <i data-lucide="languages"></i>
-          <h3>Магистратура</h3>
-          <p>Для выпускников вузов, которые хотят получить международную степень и усилить карьеру.</p>
-        </article>
-        <article class="program-card reveal">
-          <i data-lucide="book-open-check"></i>
-          <h3>Foundation</h3>
-          <p>Подготовительная программа перед поступлением в университет.</p>
-        </article>
-        <article class="program-card reveal">
-          <i data-lucide="languages"></i>
-          <h3>Языковые курсы</h3>
-          <p>Интенсивная подготовка по китайскому языку до отъезда и адаптации.</p>
-        </article>
-        <article class="program-card reveal">
-          <i data-lucide="route"></i>
-          <h3>Поступление под ключ</h3>
-          <p>От выбора страны и документов до зачисления, визы, прилета и кампуса.</p>
-        </article>
-      </section>
+              <article class="program-card reveal">
+                <i data-lucide="graduation-cap"></i>
+                <h3>Бакалавриат</h3>
+                <p>Для выпускников школ и колледжей, которые хотят получить первое высшее образование за рубежом.</p>
+              </article>
+              <article class="program-card reveal">
+                <i data-lucide="languages"></i>
+                <h3>Магистратура</h3>
+                <p>Для выпускников вузов, которые хотят получить международную степень и усилить карьеру.</p>
+              </article>
+              <article class="program-card reveal">
+                <i data-lucide="book-open-check"></i>
+                <h3>Foundation</h3>
+                <p>Подготовительная программа перед поступлением в университет.</p>
+              </article>
+              <article class="program-card reveal">
+                <i data-lucide="award"></i>
+                <h3>Гранты</h3>
+                <p>Подбираем гранты, скидки и стипендии по профилю студента, стране и дедлайнам.</p>
+              </article>
+              <article class="program-card reveal">
+                <i data-lucide="languages"></i>
+                <h3>Языковые курсы</h3>
+                <p>Интенсивная подготовка по китайскому языку до отъезда и адаптации.</p>
+              </article>
+              <article class="program-card reveal">
+                <i data-lucide="route"></i>
+                <h3>Поступление под ключ</h3>
+                <p>От выбора страны и документов до зачисления, визы, прилета и кампуса.</p>
+              </article>
+            </section>
 
       <section class="section about" id="about">
-        <div class="about-layout">
-          <div class="section-head reveal">
-            <p class="eyebrow">О компании</p>
-            <h2>University Quest для студентов и родителей</h2>
-          </div>
-          <div class="about-copy reveal">
-            <p>UniQ - образовательный центр, который помогает студентам получить качественное образование за рубежом. Мы сопровождаем абитуриентов на всех этапах: от выбора страны и программы до подачи документов и зачисления.</p>
-            <p>Мы работаем с университетами Китая, Турции и Италии, подбираем решение под цель, уровень языка, академическую подготовку и бюджет каждого студента.</p>
-            <p>После зачисления команда остается рядом: встреча в аэропорту, заселение в общежитие, банковская карта, SIM-карта, медосмотр и адаптация в кампусе.</p>
-          </div>
-        </div>
-        <div class="about-photos">
-          <figure class="about-photo reveal">
-            <img src="assets/photos/students-airport.webp" alt="Студенты UniQ в аэропорту перед вылетом" loading="lazy" />
-          </figure>
-          <figure class="about-photo reveal">
-            <img src="assets/photos/students-turkey-street.webp" alt="Студенты UniQ за рубежом" loading="lazy" />
-          </figure>
-          <figure class="about-photo reveal">
-            <img src="assets/photos/student-bank-card.webp" alt="Студент UniQ после оформления банковской карты" loading="lazy" />
-          </figure>
-        </div>
-      </section>
+              <div class="about-layout">
+                <div class="section-head reveal">
+                  <p class="eyebrow">О компании</p>
+                  <h2>University Quest для студентов и родителей</h2>
+                </div>
+                <div class="about-copy reveal">
+                  <p>UniQ - образовательный центр, который помогает студентам получить качественное образование за рубежом. Мы сопровождаем абитуриентов на всех этапах: от выбора страны и программы до подачи документов и зачисления.</p>
+                  <p>Мы работаем с университетами Китая, Турции и Италии, подбираем решение под цель, уровень языка, академическую подготовку и бюджет каждого студента.</p>
+                  <p>После зачисления команда остается рядом: встреча в аэропорту, заселение в общежитие, банковская карта, SIM-карта, медосмотр и адаптация в кампусе.</p>
+                </div>
+              </div>
+              <div class="about-photos">
+                <figure class="about-photo reveal">
+                  <img src="assets/photos/students-airport.webp" alt="Студенты UniQ в аэропорту перед вылетом" loading="lazy" />
+                </figure>
+                <figure class="about-photo reveal">
+                  <img src="assets/photos/students-turkey-street.webp" alt="Студенты UniQ за рубежом" loading="lazy" />
+                </figure>
+                <figure class="about-photo reveal">
+                  <img src="assets/photos/student-bank-card.webp" alt="Студент UniQ после оформления банковской карты" loading="lazy" />
+                </figure>
+              </div>
+            </section>
 
       <section class="why-section section-dark">
-        <div class="ambient-lava" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </div>
-        <div class="section-head reveal">
-          <h2>Почему выбирают UniQ</h2>
-        </div>
-        <div class="why-grid">
-          <article class="why-card reveal"><strong>2000+</strong><span>студентов уже начали обучение за рубежом</span></article>
-          <article class="why-card reveal"><strong>7+</strong><span>лет опыта в международном поступлении</span></article>
-          <article class="why-card reveal"><strong>34</strong><span>ключевых навыка и качества учитываем при профориентации</span></article>
-          <article class="why-card reveal"><strong>3</strong><span>направления: Китай, Турция и Италия</span></article>
-        </div>
-        <ul class="why-list reveal">
-          <li>Индивидуальный подбор университета и программы.</li>
-          <li>Полное сопровождение на каждом этапе поступления.</li>
-          <li>Помощь с Foundation и языковыми курсами.</li>
-          <li>Поддержка до зачисления, прилета и адаптации.</li>
-        </ul>
-      </section>
-
-      <section class="section universities" id="universities">
-        <div class="section-head reveal">
-          <p class="eyebrow">- Учебные заведения</p>
-          <h2>Подбираем университет под цель, бюджет и шансы</h2>
-        </div>
-        <div class="university-shell reveal">
-          <button class="carousel-button" type="button" data-carousel-prev aria-label="Предыдущие университеты">
-            <i data-lucide="chevron-left"></i>
-          </button>
-          <div class="university-track" data-university-track>
-            <article class="university-card">
-              <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=780&q=85" alt="University of Bologna" />
-              <div>
-                <span>Италия</span>
-                <h3>University of Bologna</h3>
-                <p>Гранты, бакалавриат, магистратура</p>
+              <div class="ambient-lava" aria-hidden="true">
+                <span></span>
+                <span></span>
               </div>
-            </article>
-            <article class="university-card">
-              <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=780&q=85" alt="Istanbul University" />
-              <div>
-                <span>Турция</span>
-                <h3>Istanbul University</h3>
-                <p>Подготовительные и основные программы</p>
+              <div class="section-head reveal">
+                <h2>Почему выбирают UniQ</h2>
               </div>
-            </article>
-            <article class="university-card">
-              <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=780&q=85" alt="Zhejiang University" />
-              <div>
-                <span>Китай</span>
-                <h3>Zhejiang University</h3>
-                <p>Стипендии и международные факультеты</p>
+              <div class="why-grid">
+                <article class="why-card reveal"><strong data-counter="2000">2000+</strong><span>студентов уже начали обучение за рубежом</span></article>
+                <article class="why-card reveal"><strong data-counter="7">7+</strong><span>лет опыта в международном поступлении</span></article>
+                <article class="why-card reveal"><strong data-counter="34">34</strong><span>ключевых навыка и качества учитываем при профориентации</span></article>
+                <article class="why-card reveal"><strong data-counter="3">3</strong><span>направления: Китай, Турция и Италия</span></article>
               </div>
-            </article>
-            <article class="university-card">
-              <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=780&q=85" alt="Sapienza University of Rome" />
-              <div>
-                <span>Италия</span>
-                <h3>Sapienza University</h3>
-                <p>Европейский диплом и грантовые программы</p>
-              </div>
-            </article>
-            <article class="university-card">
-              <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&w=780&q=85" alt="Tsinghua University" />
-              <div>
-                <span>Китай</span>
-                <h3>Tsinghua University</h3>
-                <p>Сильные инженерные и бизнес-направления</p>
-              </div>
-            </article>
-          </div>
-          <button class="carousel-button" type="button" data-carousel-next aria-label="Следующие университеты">
-            <i data-lucide="chevron-right"></i>
-          </button>
-        </div>
-      </section>
+              <ul class="why-list reveal">
+                <li>Индивидуальный подбор университета и программы.</li>
+                <li>Полное сопровождение на каждом этапе поступления.</li>
+                <li>Помощь с Foundation и языковыми курсами.</li>
+                <li>Поддержка до зачисления, прилета и адаптации.</li>
+              </ul>
+            </section>
 
       <section class="section services" id="services">
-        <div class="section-head reveal">
-          <p class="eyebrow">- Услуги</p>
-          <h2>Ведём <em>индивидуально</em> на всех этапах поступления</h2>
-        </div>
-        <p class="section-copy reveal">
-          Мы не отправляем документы “веером”. Сначала понимаем цель, академический профиль и бюджет, затем строим понятный маршрут поступления.
-        </p>
-        <div class="service-grid">
-          <article class="service-item reveal">
-            <span><i data-lucide="compass"></i></span>
-            <h3>Профориентация</h3>
-            <p>Определяем сильные стороны, подходящие специальности и страны.</p>
-          </article>
-          <article class="service-item reveal">
-            <span><i data-lucide="file-check-2"></i></span>
-            <h3>Документы</h3>
-            <p>Собираем пакет, переводим, редактируем эссе и рекомендации.</p>
-          </article>
-          <article class="service-item reveal">
-            <span><i data-lucide="badge-check"></i></span>
-            <h3>Виза</h3>
-            <p>Готовим анкету, финансовые документы и план интервью.</p>
-          </article>
-          <article class="service-item reveal">
-            <span><i data-lucide="home"></i></span>
-            <h3>Адаптация</h3>
-            <p>Помогаем с жильём, перелётом, заселением и первыми неделями.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section move-fear" id="move-without-fear">
-        <div class="move-fear__head reveal">
-          <div class="section-head">
-            <p class="eyebrow">Move Without Fear</p>
-            <h2>Переезд без страха: UniQ держит бюрократию под контролем</h2>
-          </div>
-          <p class="section-copy">Самая большая тревога не в выборе университета, а в вопросе: что будет после зачисления. Мы показываем весь маршрут переезда и берем на себя каждую точку, где обычно возникает хаос.</p>
-        </div>
-        <div class="move-fear__board reveal">
-          <article class="move-fear__summary">
-            <span>Тревога закрыта</span>
-            <strong>Документы, виза, прилет и первые 72 часа уже разложены по шагам</strong>
-            <p>Родители видят не обещание, а конкретную карту: кто готовит документ, кто встречает, где студент спит в первую ночь и что делается на кампусе.</p>
-            <button class="primary-button" type="button" data-open-modal>
-              Получить карту переезда
-              <i data-lucide="arrow-right"></i>
-            </button>
-          </article>
-          <div class="move-fear__timeline" aria-label="Маршрут переезда">
-            <div><span>01</span><strong>До вылета</strong><p>Приглашение, виза, билеты, чек-лист документов.</p></div>
-            <div><span>02</span><strong>В дороге</strong><p>Понятная связь с командой и встреча после прилета.</p></div>
-            <div><span>03</span><strong>На месте</strong><p>Общежитие, SIM, банковская карта, медосмотр.</p></div>
-            <div><span>04</span><strong>В кампусе</strong><p>Регистрация, бытовые вопросы и адаптация.</p></div>
-          </div>
-        </div>
-        <div class="move-fear__grid">
-          <article class="move-card reveal">
-            <i data-lucide="file-check-2"></i>
-            <h3>Пакет документов</h3>
-            <p>Собираем, проверяем, переводим и держим дедлайны по каждому этапу подачи.</p>
-          </article>
-          <article class="move-card reveal">
-            <i data-lucide="badge-check"></i>
-            <h3>Виза и приглашение</h3>
-            <p>Готовим анкету, финансовые документы и объясняем, что делать до интервью.</p>
-          </article>
-          <article class="move-card reveal">
-            <i data-lucide="plane"></i>
-            <h3>Прилет и встреча</h3>
-            <p>Студент не остается один в аэропорту: команда помогает с первым маршрутом.</p>
-          </article>
-          <article class="move-card reveal">
-            <i data-lucide="home"></i>
-            <h3>Общежитие</h3>
-            <p>Помогаем заселиться, понять правила кампуса и закрыть бытовые вопросы.</p>
-          </article>
-          <article class="move-card reveal">
-            <i data-lucide="credit-card"></i>
-            <h3>SIM, банк, медосмотр</h3>
-            <p>Разбираем локальные формальности, без которых студенту сложно стартовать.</p>
-          </article>
-          <article class="move-card reveal">
-            <i data-lucide="map"></i>
-            <h3>Адаптация</h3>
-            <p>Остаемся рядом, пока студент привыкает к стране, кампусу и учебному ритму.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="facts section-dark">
-        <div class="ambient-lava" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="section-head reveal">
-          <p class="eyebrow">- Результаты</p>
-          <h2>Помогаем поступить и получить <em>реальный грант</em></h2>
-        </div>
-        <p class="section-copy reveal">
-          В центре работы - не обещания, а понятная стратегия, дедлайны и сопровождение до результата.
-        </p>
-        <div class="fact-grid">
-          <div class="fact reveal"><strong data-counter="970">0</strong><span>довольных студентов</span></div>
-          <div class="fact reveal"><strong data-counter="3">0</strong><span>ключевые страны</span></div>
-          <div class="fact reveal"><strong data-counter="100000">0</strong><span>тг стипендия от</span></div>
-          <div class="fact reveal"><strong data-counter="90">0</strong><span>% точность подбора</span></div>
-        </div>
-      </section>
+              <div class="section-head reveal">
+                <p class="eyebrow">- Услуги</p>
+                <h2>Ведём <em>индивидуально</em> на всех этапах поступления</h2>
+              </div>
+              <p class="section-copy reveal">
+                Мы не отправляем документы “веером”. Сначала понимаем цель, академический профиль и бюджет, затем строим понятный маршрут поступления.
+              </p>
+              <div class="service-grid">
+                <article class="service-item reveal">
+                  <span><i data-lucide="compass"></i></span>
+                  <h3>Профориентация</h3>
+                  <p>Определяем сильные стороны, подходящие специальности и страны.</p>
+                </article>
+                <article class="service-item reveal">
+                  <span><i data-lucide="file-check-2"></i></span>
+                  <h3>Документы</h3>
+                  <p>Собираем пакет, переводим, редактируем эссе и рекомендации.</p>
+                </article>
+                <article class="service-item reveal">
+                  <span><i data-lucide="badge-check"></i></span>
+                  <h3>Виза</h3>
+                  <p>Готовим анкету, финансовые документы и план интервью.</p>
+                </article>
+                <article class="service-item reveal">
+                  <span><i data-lucide="home"></i></span>
+                  <h3>Адаптация</h3>
+                  <p>Помогаем с жильём, перелётом, заселением и первыми неделями.</p>
+                </article>
+              </div>
+            </section>
 
       <section class="section countries" id="countries">
-        <div class="section-head reveal">
-          <p class="eyebrow">Страны обучения</p>
-          <h2>Китай, Италия и Турция под вашу цель</h2>
-        </div>
-        <div class="country-grid">
-          <article class="country country--china reveal">
-            <div>
-              <p>Бакалавриат, магистратура, Foundation, язык</p>
-              <h3>Китай</h3>
-            </div>
-            <ul>
-              <li>Бесплатный курс китайского языка</li>
-              <li>Зачисление без экзаменов</li>
-              <li>Полное сопровождение в Китае</li>
-            </ul>
-            <span>Кампус, документы и адаптация</span>
-          </article>
-          <article class="country country--italy reveal">
-            <div>
-              <p>Бакалавриат и магистратура</p>
-              <h3>Италия</h3>
-            </div>
-            <ul>
-              <li>Европейский диплом</li>
-              <li>Программы на английском и итальянском</li>
-              <li>Культурная и студенческая среда</li>
-            </ul>
-            <span>Подбор требований и дедлайнов</span>
-          </article>
-          <article class="country country--turkey reveal">
-            <div>
-              <p>Бакалавриат и магистратура</p>
-              <h3>Турция</h3>
-            </div>
-            <ul>
-              <li>Доступная стоимость</li>
-              <li>Удобное расположение</li>
-              <li>Современные университеты</li>
-            </ul>
-            <span>Подбор по бюджету и языку</span>
-          </article>
-        </div>
-      </section>
+              <div class="section-head reveal">
+                <p class="eyebrow">Страны обучения</p>
+                <h2>Китай, Италия и Турция под вашу цель</h2>
+              </div>
+              <div class="country-grid">
+                <article class="country country--china reveal">
+                  <div>
+                    <p>Бакалавриат, магистратура, Foundation, язык</p>
+                    <h3>Китай</h3>
+                  </div>
+                  <ul>
+                    <li>Бесплатный курс китайского языка</li>
+                    <li>Зачисление без экзаменов</li>
+                    <li>Полное сопровождение в Китае</li>
+                  </ul>
+                  <span>Кампус, документы и адаптация</span>
+                </article>
+                <article class="country country--italy reveal">
+                  <div>
+                    <p>Бакалавриат и магистратура</p>
+                    <h3>Италия</h3>
+                  </div>
+                  <ul>
+                    <li>Европейский диплом</li>
+                    <li>Программы на английском и итальянском</li>
+                    <li>Культурная и студенческая среда</li>
+                  </ul>
+                  <span>Подбор требований и дедлайнов</span>
+                </article>
+                <article class="country country--turkey reveal">
+                  <div>
+                    <p>Бакалавриат и магистратура</p>
+                    <h3>Турция</h3>
+                  </div>
+                  <ul>
+                    <li>Доступная стоимость</li>
+                    <li>Удобное расположение</li>
+                    <li>Современные университеты</li>
+                  </ul>
+                  <span>Подбор по бюджету и языку</span>
+                </article>
+              </div>
+            </section>
 
       <section class="section country-details">
-        <div class="section-head reveal">
-          <p class="eyebrow">Направления подробно</p>
-          <h2>Что важно знать по каждой стране</h2>
-        </div>
-        <div class="country-detail-grid">
-          <article class="country-detail reveal">
-            <div>
-              <h3>Китай</h3>
-              <p>Современное образование, доступная стоимость и широкий выбор университетов. Китай становится все более популярным направлением среди иностранных студентов.</p>
-            </div>
-            <div class="country-detail__columns">
-              <div>
-                <strong>Программы</strong>
-                <ul>
-                  <li>Бакалавриат на английском или китайском</li>
-                  <li>Магистратура для международной карьеры</li>
-                  <li>Foundation для академической подготовки</li>
-                  <li>Языковые курсы для адаптации</li>
-                </ul>
+              <div class="section-head reveal">
+                <p class="eyebrow">Направления подробно</p>
+                <h2>Что важно знать по каждой стране</h2>
               </div>
-              <div>
-                <strong>Преимущества</strong>
-                <ul>
-                  <li>Рейтинговые университеты</li>
-                  <li>Доступное обучение и проживание</li>
-                  <li>Международная среда</li>
-                  <li>Кампусы с общежитиями и лабораториями</li>
-                </ul>
+              <div class="country-detail-tabs reveal" data-country-tabs>
+                <div class="country-detail-nav" role="tablist" aria-label="Страны обучения">
+                  <button class="country-detail-tab is-active" id="country-tab-china" type="button" role="tab" aria-selected="true" aria-controls="country-panel-china" data-country-tab="china">
+                    <span>01</span>
+                    <strong>Китай</strong>
+                    <small>язык, кампус, гранты</small>
+                  </button>
+                  <button class="country-detail-tab" id="country-tab-italy" type="button" role="tab" aria-selected="false" aria-controls="country-panel-italy" data-country-tab="italy">
+                    <span>02</span>
+                    <strong>Италия</strong>
+                    <small>Европа и дедлайны</small>
+                  </button>
+                  <button class="country-detail-tab" id="country-tab-turkey" type="button" role="tab" aria-selected="false" aria-controls="country-panel-turkey" data-country-tab="turkey">
+                    <span>03</span>
+                    <strong>Турция</strong>
+                    <small>бюджет и логистика</small>
+                  </button>
+                </div>
+                <div class="country-detail-stage">
+                  <article class="country-detail-panel is-active" id="country-panel-china" role="tabpanel" aria-labelledby="country-tab-china" data-country-panel="china" style="--country-detail-image: url('https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1100&q=85')">
+                    <div class="country-detail-visual" aria-hidden="true">
+                      <span>01</span>
+                      <strong>China</strong>
+                    </div>
+                    <div class="country-detail-content">
+                      <h3>Китай</h3>
+                      <p>Современное образование, доступная стоимость и широкий выбор университетов. Китай становится все более популярным направлением среди иностранных студентов.</p>
+                      <div class="country-detail__columns">
+                        <div>
+                          <strong>Программы</strong>
+                          <ul>
+                            <li>Бакалавриат на английском или китайском</li>
+                            <li>Магистратура для международной карьеры</li>
+                            <li>Foundation для академической подготовки</li>
+                            <li>Языковые курсы для адаптации</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <strong>Преимущества</strong>
+                          <ul>
+                            <li>Рейтинговые университеты</li>
+                            <li>Доступное обучение и проживание</li>
+                            <li>Международная среда</li>
+                            <li>Кампусы с общежитиями и лабораториями</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="country-detail-panel" id="country-panel-italy" role="tabpanel" aria-labelledby="country-tab-italy" data-country-panel="italy" style="--country-detail-image: url('https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1100&q=85')">
+                    <div class="country-detail-visual" aria-hidden="true">
+                      <span>02</span>
+                      <strong>Italy</strong>
+                    </div>
+                    <div class="country-detail-content">
+                      <h3>Италия</h3>
+                      <p>Европейское образование, богатая культура и доступные программы для иностранных студентов в исторических университетах.</p>
+                      <div class="country-detail__columns">
+                        <div>
+                          <strong>Программы</strong>
+                          <ul>
+                            <li>Бакалавриат для первого высшего образования</li>
+                            <li>Магистратура для усиления специальности</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <strong>Преимущества</strong>
+                          <ul>
+                            <li>Престижные университеты</li>
+                            <li>Диплом европейского образца</li>
+                            <li>Перспективы международной карьеры</li>
+                            <li>Комфортная студенческая среда</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="country-detail-panel" id="country-panel-turkey" role="tabpanel" aria-labelledby="country-tab-turkey" data-country-panel="turkey" style="--country-detail-image: url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1100&q=85')">
+                    <div class="country-detail-visual" aria-hidden="true">
+                      <span>03</span>
+                      <strong>Turkey</strong>
+                    </div>
+                    <div class="country-detail-content">
+                      <h3>Турция</h3>
+                      <p>Современное образование, доступная стоимость обучения и дипломы международного уровня рядом с Казахстаном.</p>
+                      <div class="country-detail__columns">
+                        <div>
+                          <strong>Программы</strong>
+                          <ul>
+                            <li>Бакалавриат на английском или турецком</li>
+                            <li>Магистратура для профессионального роста</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <strong>Преимущества</strong>
+                          <ul>
+                            <li>Международное признание</li>
+                            <li>Доступная стоимость жизни</li>
+                            <li>Удобная логистика</li>
+                            <li>Насыщенная студенческая жизнь</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
               </div>
-            </div>
-            <button class="text-button" type="button" data-open-modal>Узнать шанс поступления</button>
-          </article>
-          <article class="country-detail reveal">
-            <div>
-              <h3>Италия</h3>
-              <p>Европейское образование, богатая культура и доступные программы для иностранных студентов в исторических университетах.</p>
-            </div>
-            <div class="country-detail__columns">
-              <div>
-                <strong>Программы</strong>
-                <ul>
-                  <li>Бакалавриат для первого высшего образования</li>
-                  <li>Магистратура для усиления специальности</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Преимущества</strong>
-                <ul>
-                  <li>Престижные университеты</li>
-                  <li>Диплом европейского образца</li>
-                  <li>Перспективы международной карьеры</li>
-                  <li>Комфортная студенческая среда</li>
-                </ul>
-              </div>
-            </div>
-            <button class="text-button" type="button" data-open-modal>Получить консультацию</button>
-          </article>
-          <article class="country-detail reveal">
-            <div>
-              <h3>Турция</h3>
-              <p>Современное образование, доступная стоимость обучения и дипломы международного уровня рядом с Казахстаном.</p>
-            </div>
-            <div class="country-detail__columns">
-              <div>
-                <strong>Программы</strong>
-                <ul>
-                  <li>Бакалавриат на английском или турецком</li>
-                  <li>Магистратура для профессионального роста</li>
-                </ul>
-              </div>
-              <div>
-                <strong>Преимущества</strong>
-                <ul>
-                  <li>Международное признание</li>
-                  <li>Доступная стоимость жизни</li>
-                  <li>Удобная логистика</li>
-                  <li>Насыщенная студенческая жизнь</li>
-                </ul>
-              </div>
-            </div>
-            <button class="text-button" type="button" data-open-modal>Подобрать университет</button>
-          </article>
-        </div>
-      </section>
+            </section>
 
-      <section class="consult-band section-dark">
-        <div class="ambient-lava" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </div>
-        <div class="consult-band__text reveal">
-          <p class="eyebrow">- Бесплатная первая встреча</p>
-          <h2>Готовы понять свои шансы?</h2>
-          <p>Оставьте заявку, и эксперт UNIQU разберёт вашу ситуацию, страны, бюджет и ближайшие дедлайны.</p>
-        </div>
-        <button class="primary-button reveal" type="button" data-open-modal>
-          Получить консультацию
-          <i data-lucide="arrow-right"></i>
-        </button>
-      </section>
+      <section class="section universities" id="universities">
+              <div class="section-head reveal">
+                <p class="eyebrow">- Учебные заведения</p>
+                <h2>Подбираем университет под цель, бюджет и шансы</h2>
+              </div>
+              <div class="university-shell reveal">
+                <button class="carousel-button" type="button" data-carousel-prev aria-label="Предыдущие университеты">
+                  <i data-lucide="chevron-left"></i>
+                </button>
+                <div class="university-track" data-university-track>
+                  <article class="university-card">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=780&q=85" alt="University of Bologna" />
+                    <div>
+                      <span>Италия</span>
+                      <h3>University of Bologna</h3>
+                      <p>Гранты, бакалавриат, магистратура</p>
+                    </div>
+                  </article>
+                  <article class="university-card">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=780&q=85" alt="Istanbul University" />
+                    <div>
+                      <span>Турция</span>
+                      <h3>Istanbul University</h3>
+                      <p>Подготовительные и основные программы</p>
+                    </div>
+                  </article>
+                  <article class="university-card">
+                    <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=780&q=85" alt="Zhejiang University" />
+                    <div>
+                      <span>Китай</span>
+                      <h3>Zhejiang University</h3>
+                      <p>Стипендии и международные факультеты</p>
+                    </div>
+                  </article>
+                  <article class="university-card">
+                    <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=780&q=85" alt="Sapienza University of Rome" />
+                    <div>
+                      <span>Италия</span>
+                      <h3>Sapienza University</h3>
+                      <p>Европейский диплом и грантовые программы</p>
+                    </div>
+                  </article>
+                  <article class="university-card">
+                    <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&w=780&q=85" alt="Tsinghua University" />
+                    <div>
+                      <span>Китай</span>
+                      <h3>Tsinghua University</h3>
+                      <p>Сильные инженерные и бизнес-направления</p>
+                    </div>
+                  </article>
+                </div>
+                <button class="carousel-button" type="button" data-carousel-next aria-label="Следующие университеты">
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+            </section>
 
-      <section class="section calculator" id="calculator">
-        <div class="calculator__intro reveal">
-          <p class="eyebrow">- Калькулятор</p>
-          <h2>Сколько может стоить обучение?</h2>
-          <p>Выберите уровень и страну - покажем ориентировочный диапазон. Точный план эксперт рассчитает после консультации.</p>
-        </div>
-        <div class="calculator__panel reveal">
-          <label>
-            Уровень образования
-            <select id="levelSelect">
-              <option value="foundation">Foundation / языковой курс</option>
-              <option value="bachelor">Бакалавриат</option>
-              <option value="master">Магистратура</option>
-            </select>
-          </label>
-          <label>
-            Страна
-            <select id="countrySelect">
-              <option value="china">Китай</option>
-              <option value="turkey">Турция</option>
-              <option value="italy">Италия</option>
-            </select>
-          </label>
-          <div class="result-box">
-            <span>Ориентировочный бюджет</span>
-            <strong id="budgetResult">от 0 ₸</strong>
-            <p>в год · обучение, сопровождение и базовые расходы обсуждаются отдельно</p>
-          </div>
-          <button class="primary-button" type="button" data-open-modal>
-            Получить точный расчёт
-            <i data-lucide="arrow-right"></i>
-          </button>
-        </div>
-      </section>
+      <section class="section move-fear" id="move-without-fear">
+              <div class="move-fear__head reveal">
+                <div class="section-head">
+                  <p class="eyebrow">Move Without Fear</p>
+                  <h2>Переезд без страха: UniQ держит бюрократию под контролем</h2>
+                </div>
+                <p class="section-copy">Самая большая тревога не в выборе университета, а в вопросе: что будет после зачисления. Мы показываем весь маршрут переезда и берем на себя каждую точку, где обычно возникает хаос.</p>
+              </div>
+              <div class="move-fear__board reveal">
+                <article class="move-fear__summary">
+                  <span>Тревога закрыта</span>
+                  <strong>Документы, виза, прилет и первые 72 часа уже разложены по шагам</strong>
+                  <p>Родители видят не обещание, а конкретную карту: кто готовит документ, кто встречает, где студент спит в первую ночь и что делается на кампусе.</p>
+                </article>
+                <div class="move-fear__timeline" aria-label="Маршрут переезда">
+                  <div><span>01</span><strong>До вылета</strong><p>Приглашение, виза, билеты, чек-лист документов.</p></div>
+                  <div><span>02</span><strong>В дороге</strong><p>Понятная связь с командой и встреча после прилета.</p></div>
+                  <div><span>03</span><strong>На месте</strong><p>Общежитие, SIM, банковская карта, медосмотр.</p></div>
+                  <div><span>04</span><strong>В кампусе</strong><p>Регистрация, бытовые вопросы и адаптация.</p></div>
+                </div>
+              </div>
+              <div class="move-fear__grid">
+                <article class="move-card reveal">
+                  <i data-lucide="file-check-2"></i>
+                  <h3>Пакет документов</h3>
+                  <p>Собираем, проверяем, переводим и держим дедлайны по каждому этапу подачи.</p>
+                </article>
+                <article class="move-card reveal">
+                  <i data-lucide="badge-check"></i>
+                  <h3>Виза и приглашение</h3>
+                  <p>Готовим анкету, финансовые документы и объясняем, что делать до интервью.</p>
+                </article>
+                <article class="move-card reveal">
+                  <i data-lucide="plane"></i>
+                  <h3>Прилет и встреча</h3>
+                  <p>Студент не остается один в аэропорту: команда помогает с первым маршрутом.</p>
+                </article>
+                <article class="move-card reveal">
+                  <i data-lucide="home"></i>
+                  <h3>Общежитие</h3>
+                  <p>Помогаем заселиться, понять правила кампуса и закрыть бытовые вопросы.</p>
+                </article>
+                <article class="move-card reveal">
+                  <i data-lucide="credit-card"></i>
+                  <h3>SIM, банк, медосмотр</h3>
+                  <p>Разбираем локальные формальности, без которых студенту сложно стартовать.</p>
+                </article>
+                <article class="move-card reveal">
+                  <i data-lucide="map"></i>
+                  <h3>Адаптация</h3>
+                  <p>Остаемся рядом, пока студент привыкает к стране, кампусу и учебному ритму.</p>
+                </article>
+              </div>
+            </section>
 
       <section class="section student-channel reviews" id="reviews">
-        <div class="section-head reveal">
-          <p class="eyebrow">Student Channel</p>
-          <h2>Поступление глазами студентов <em>UniQ</em></h2>
-        </div>
-        <p class="section-copy reveal">Отзывы собраны как живая лента: видео, короткие истории, результат поступления и момент, где студент понял, что не один в процессе.</p>
-        <div class="student-channel__layout reveal">
-          <div class="student-channel__player">
-            <div class="youtube-player" id="youtube-player" aria-label="Видео отзывы студентов UniQ">
-              <iframe
-                src="https://www.youtube.com/embed/videoseries?list=PLEOk7i53gLOZgN_8MM_aB9ycJ_aZwY6Rp&rel=0&modestbranding=1"
-                title="Видео отзывы студентов UniQ"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-          <aside class="student-channel__panel">
-            <span>Сейчас в канале</span>
-            <strong class="video-card-title">30 видео отзывов</strong>
-            <p>Студенты рассказывают про выбор страны, документы, прилет, общежитие и первые недели в новом университете.</p>
-            <button class="primary-button" type="button" data-open-modal>
-              Хочу так же поступить
-              <i data-lucide="arrow-right"></i>
-            </button>
-            <a class="integration-link youtube-fallback" href="https://youtube.com/playlist?list=PLEOk7i53gLOZgN_8MM_aB9ycJ_aZwY6Rp" target="_blank" rel="noopener">Открыть плейлист на YouTube</a>
-          </aside>
-        </div>
-        <div class="student-feed review-grid">
-          <article class="review reveal">
-            <div class="student-avatar">АК</div>
-            <p>“Команда помогла выбрать Китай, собрать документы и пройти все этапы без лишней паники. Я поступила и спокойно уехала учиться.”</p>
-            <strong>Аружан К.</strong>
-            <span>Китай, бакалавриат</span>
-            <small>момент доверия: понятный план до вылета</small>
-          </article>
-          <article class="review reveal">
-            <div class="student-avatar">МС</div>
-            <p>“Мне объяснили, почему программа подходит именно под мой профиль, а не просто заполнили форму.”</p>
-            <strong>Мади С.</strong>
-            <span>Турция, Foundation</span>
-            <small>момент доверия: выбор программы по профилю</small>
-          </article>
-          <article class="review reveal">
-            <div class="student-avatar">ДТ</div>
-            <p>“Сложные дедлайны и документы по Италии разложили по шагам. Было понятно, что делать дальше.”</p>
-            <strong>Дана Т.</strong>
-            <span>Италия, грант</span>
-            <small>момент доверия: документы без хаоса</small>
-          </article>
-        </div>
-        <div class="video-rail" aria-label="Быстрые ссылки на видео отзывы"></div>
-      </section>
+              <div class="section-head reveal">
+                <p class="eyebrow">Student Channel</p>
+                <h2>Поступление глазами студентов <em>UniQ</em></h2>
+              </div>
+              <p class="section-copy reveal">Отзывы собраны как живая лента: видео, короткие истории, результат поступления и момент, где студент понял, что не один в процессе.</p>
+              <div class="student-channel__layout reveal">
+                <div class="student-channel__player">
+                  <div class="youtube-player" id="youtube-player" aria-label="Видео отзывы студентов UniQ">
+                    <iframe
+                      src="https://www.youtube.com/embed/videoseries?list=PLEOk7i53gLOZgN_8MM_aB9ycJ_aZwY6Rp&rel=0&modestbranding=1"
+                      title="Видео отзывы студентов UniQ"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+                <aside class="student-channel__panel">
+                  <span>Сейчас в канале</span>
+                  <strong class="video-card-title">30 видео отзывов</strong>
+                  <p>Студенты рассказывают про выбор страны, документы, прилет, общежитие и первые недели в новом университете.</p>
+                  <a class="integration-link youtube-fallback" href="https://youtube.com/playlist?list=PLEOk7i53gLOZgN_8MM_aB9ycJ_aZwY6Rp" target="_blank" rel="noopener">Открыть плейлист на YouTube</a>
+                </aside>
+              </div>
+            </section>
 
       <section class="section cases" id="cases">
-        <div class="section-head reveal">
-          <p class="eyebrow">Кейсы</p>
-          <h2>Реальные поступления и гранты</h2>
-        </div>
-        <p class="section-copy reveal">Показываем конкретные результаты студентов: академический профиль, университет, программа и полученная поддержка.</p>
-        <div class="case-grid">
-          <article class="case-card reveal">
-            <div><strong>Галина Оверчук</strong><span>GPA 97/100, IELTS 8.5, SAT 1420</span></div>
-            <h3>Northwestern Polytechnical University</h3>
-            <p>Полный грант + стипендия 1500 RMB/мес</p>
-            <small>Computer Science and Technology, бакалавриат на английском</small>
-          </article>
-          <article class="case-card reveal">
-            <div><strong>Динмухаммед Тасанбаев</strong><span>GPA 100/100, NU GPA 74/100, IELTS 8.0, SAT 1430</span></div>
-            <h3>Harbin Institute of Technology, Shenzhen</h3>
-            <p>70% скидка на обучение</p>
-            <small>MBA, магистратура на английском</small>
-          </article>
-          <article class="case-card reveal">
-            <div><strong>Нурмакова Ясмин</strong><span>GPA 90/100, IELTS 6.0</span></div>
-            <h3>Harbin Institute of Technology, Shenzhen</h3>
-            <p>70% скидка на обучение</p>
-            <small>Economics, бакалавриат на английском</small>
-          </article>
-          <article class="case-card reveal">
-            <div><strong>Бекберген Исахан</strong><span>GPA 100/100, IELTS 7.0</span></div>
-            <h3>Harbin Institute of Technology, Shenzhen</h3>
-            <p>100% скидка + стипендия 1000 RMB/мес</p>
-            <small>Economics, бакалавриат на английском</small>
-          </article>
-          <article class="case-card reveal">
-            <div><strong>Ахунов Тимур</strong><span>GPA 100/100, IELTS 6.5</span></div>
-            <h3>Beihang University</h3>
-            <p>100% скидка на обучение</p>
-            <small>Mechanical Engineering, бакалавриат на английском</small>
-          </article>
-          <article class="case-card reveal">
-            <div><strong>Газизов Амир</strong><span>GPA 100/100, IELTS 6.0</span></div>
-            <h3>Harbin Institute of Technology, Shenzhen</h3>
-            <p>100% скидка на обучение</p>
-            <small>Electrical Engineering and Automation, бакалавриат на английском</small>
-          </article>
-          <article class="case-card case-card--wide reveal">
-            <div><strong>Тайбек Ботагоз</strong><span>GPA 85/100, Duolingo 100/160</span></div>
-            <h3>Nanjing University of Science and Technology</h3>
-            <p>Бесплатное обучение, проживание, страховка + 3000 RMB/мес</p>
-            <small>Computer Science and Technology, магистратура на английском</small>
-          </article>
-        </div>
-      </section>
+              <div class="section-head reveal">
+                <p class="eyebrow">Кейсы</p>
+                <h2>Реальные поступления и гранты</h2>
+              </div>
+              <p class="section-copy reveal">Показываем конкретные результаты студентов: академический профиль, университет, программа и полученная поддержка.</p>
+              <div class="case-grid">
+
+                <article class="case-card reveal">
+                  <div class="case-card__top">
+                    <div><strong>Галина Оверчук</strong><span>GPA 97/100, IELTS 8.5, SAT 1420</span></div>
+                    <span class="case-card__brand" aria-hidden="true">
+                      <img src="assets/brand/uniqu-logo-white-stacked.svg" alt="" loading="lazy" />
+                    </span>
+                  </div>
+                  <h3>Northwestern Polytechnical University</h3>
+                  <p>Полный грант + стипендия 1500 RMB/мес</p>
+                  <small>Computer Science and Technology, бакалавриат на английском</small>
+                </article>
+
+                <article class="case-card reveal">
+                  <div class="case-card__top">
+                    <div><strong>Динмухаммед Тасанбаев</strong><span>GPA 100/100, NU GPA 74/100, IELTS 8.0, SAT 1430</span></div>
+                    <span class="case-card__brand" aria-hidden="true">
+                      <img src="assets/brand/uniqu-logo-white-stacked.svg" alt="" loading="lazy" />
+                    </span>
+                  </div>
+                  <h3>Harbin Institute of Technology, Shenzhen</h3>
+                  <p>70% скидка на обучение</p>
+                  <small>MBA, магистратура на английском</small>
+                </article>
+
+                <article class="case-card reveal">
+                  <div class="case-card__top">
+                    <div><strong>Нурмакова Ясмин</strong><span>GPA 90/100, IELTS 6.0</span></div>
+                    <span class="case-card__brand" aria-hidden="true">
+                      <img src="assets/brand/uniqu-logo-white-stacked.svg" alt="" loading="lazy" />
+                    </span>
+                  </div>
+                  <h3>Harbin Institute of Technology, Shenzhen</h3>
+                  <p>70% скидка на обучение</p>
+                  <small>Economics, бакалавриат на английском</small>
+                </article>
+              </div>
+            </section>
 
       <section class="steps section-dark">
-        <div class="ambient-lava" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </div>
-        <div class="section-head reveal">
-          <p class="eyebrow">- Как начать</p>
-          <h2>Три шага до первой консультации</h2>
-        </div>
-        <div class="step-grid">
-          <article class="step reveal">
-            <span>01</span>
-            <h3>Оставьте заявку</h3>
-            <p>Расскажите класс, город, страну и цель обучения.</p>
-          </article>
-          <article class="step reveal">
-            <span>02</span>
-            <h3>Пройдите собеседование</h3>
-            <p>Эксперт оценит шансы, документы и подходящие программы.</p>
-          </article>
-          <article class="step reveal">
-            <span>03</span>
-            <h3>Получите план</h3>
-            <p>Список университетов, дедлайны, бюджет и следующий шаг.</p>
-          </article>
-        </div>
-      </section>
+              <div class="ambient-lava" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="section-head reveal">
+                <p class="eyebrow">- Как начать</p>
+                <h2>Три шага до первой консультации</h2>
+              </div>
+              <div class="step-grid">
+                <article class="step reveal">
+                  <span>01</span>
+                  <h3>Оставьте заявку</h3>
+                  <p>Расскажите класс, город, страну и цель обучения.</p>
+                </article>
+                <article class="step reveal">
+                  <span>02</span>
+                  <h3>Пройдите собеседование</h3>
+                  <p>Эксперт оценит шансы, документы и подходящие программы.</p>
+                </article>
+                <article class="step reveal">
+                  <span>03</span>
+                  <h3>Получите план</h3>
+                  <p>Список университетов, дедлайны, бюджет и следующий шаг.</p>
+                </article>
+              </div>
+            </section>
 
       <section class="section faq" id="faq">
-        <div class="section-head reveal">
-          <p class="eyebrow">FAQ</p>
-          <h2>Вопросы, которые чаще всего задают родители и студенты</h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal" open>
-            <summary>Почему выбирают UniQ?</summary>
-            <p>Мы ведем студента под ключ: от выбора страны и университета до прилета, заселения и адаптации.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Можно ли получить грант или скидку?</summary>
-            <p>Да, мы подбираем грантовые и скидочные варианты, если профиль студента подходит под требования программы.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Кто встретит студента после прилета?</summary>
-            <p>Команда помогает на месте: встреча, заселение, SIM-карта, банковская карта, медосмотр и первые бытовые вопросы.</p>
-          </details>
-        </div>
-      </section>
+              <div class="section-head reveal">
+                <p class="eyebrow">FAQ</p>
+                <h2>Частые вопросы</h2>
+                <p class="section-copy">Коротко о грантах, документах и сопровождении.</p>
+              </div>
+              <div class="faq-list">
+                <details class="faq-item reveal" open>
+                  <summary>Почему выбирают UniQ?</summary>
+                  <p>Мы ведем студента под ключ: от выбора страны и университета до прилета, заселения и адаптации.</p>
+                </details>
+                <details class="faq-item reveal">
+                  <summary>Можно ли получить грант или скидку?</summary>
+                  <p>Да, мы подбираем грантовые и скидочные варианты, если профиль студента подходит под требования программы.</p>
+                </details>
+                <details class="faq-item reveal">
+                  <summary>Кто встретит студента после прилета?</summary>
+                  <p>Команда помогает на месте: встреча, заселение, SIM-карта, банковская карта, медосмотр и первые бытовые вопросы.</p>
+                </details>
+              </div>
+            </section>
 
       <section class="section map-section" id="map">
-        <div class="section-head reveal">
-          <p class="eyebrow">Контакты</p>
-          <h2>Офисы UniQ в Алматы и Ташкенте</h2>
-        </div>
-        <p class="section-copy reveal">Алматы: Абая 52В, БЦ «Байзак», 332 офис. Ташкент: City Plaza, Махтумкули 79, 5 этаж, 501 офис.</p>
-        <div class="integration-shell reveal">
-          <iframe
-            class="map-frame"
-            title="Карта UNIQU"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%20%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%B1%D0%B0%D1%8F%2052%D0%92&output=embed"
-          ></iframe>
-          <a class="integration-link map-link" href="https://www.google.com/maps/search/?api=1&query=%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%20%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%B1%D0%B0%D1%8F%2052%D0%92" target="_blank" rel="noopener">Открыть карту</a>
-        </div>
-      </section>
+              <div class="section-head reveal">
+                <p class="eyebrow">Контакты</p>
+                <h2>Офисы UniQ в Алматы и Ташкенте</h2>
+              </div>
+              <p class="section-copy reveal">Алматы: Абая 52В, БЦ «Байзак», 332 офис. Ташкент: City Plaza, Махтумкули 79, 5 этаж, 501 офис.</p>
+              <div class="integration-shell reveal">
+                <iframe
+                  class="map-frame"
+                  title="Карта UNIQU"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%20%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%B1%D0%B0%D1%8F%2052%D0%92&output=embed"
+                ></iframe>
+                <a class="integration-link map-link" href="https://www.google.com/maps/search/?api=1&query=%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%20%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%B1%D0%B0%D1%8F%2052%D0%92" target="_blank" rel="noopener">Открыть карту</a>
+              </div>
+            </section>
+
+      <section class="consult-band section-dark">
+              <div class="ambient-lava" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="consult-band__text reveal">
+                <p class="eyebrow">Бесплатная первая встреча</p>
+                <h2>Не знаете, какой университет выбрать?</h2>
+                <p>Оставьте заявку, и мы подберем программу с учетом целей, успеваемости, уровня языка, бюджета и сроков поступления.</p>
+              </div>
+              <button class="primary-button reveal" type="button" data-open-modal>
+                Подобрать университет
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </section>
+
     </main>
 
     <footer class="footer" id="contacts">
       <div>
         <a class="logo" href="#top" aria-label="UNIQU">
-          <span class="brand-mark">U</span>
-          <span>
-            <span class="brand-word">UNIQU</span>
-            <small>education & grants</small>
-          </span>
+          <img
+            class="brand-logo brand-logo--horizontal"
+            src="assets/brand/uniqu-logo-white-horizontal.svg"
+            alt=""
+            width="172"
+            height="44"
+          />
         </a>
         <p>Помогаем поступить за рубеж и пройти путь до адаптации в кампусе.</p>
       </div>

@@ -34,6 +34,12 @@
     button.innerHTML = `${escapeHtml(label)} <i data-lucide="${escapeHtml(icon)}"></i>`;
   };
 
+  const counterAttributes = (value) => {
+    const match = String(value ?? "").match(/\d[\d\s.,]*/);
+    const target = match?.[0]?.replace(/\D/g, "");
+    return target ? ` data-counter="${escapeHtml(target)}"` : "";
+  };
+
   const openLeadModal = () => {
     const modal = qs("[data-modal]");
     if (!modal) return;
@@ -54,6 +60,47 @@
     state.lang = available.includes(lang) ? lang : state.content.settings.defaultLanguage;
     localStorage.setItem("uniqu-lang", state.lang);
     document.documentElement.lang = state.lang === "kz" ? "kk" : state.lang;
+  };
+
+  const getCurrentLanguage = () => {
+    const languages = state.content?.settings?.languages || [];
+    return languages.find((language) => language.code === state.lang) || languages[0] || { code: "ru", label: "RU", name: "Русский" };
+  };
+
+  const closeLanguageMenus = () => {
+    qsa(".lang-switcher.is-open").forEach((switcher) => {
+      switcher.classList.remove("is-open");
+      qs(".lang-current", switcher)?.setAttribute("aria-expanded", "false");
+    });
+  };
+
+  const selectLanguage = (lang) => {
+    setCurrentLang(lang);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", state.lang);
+    history.replaceState(null, "", url);
+    renderSite();
+    closeLanguageMenus();
+
+    const mobileMenu = qs("[data-menu]");
+    if (mobileMenu?.classList.contains("is-open")) {
+      mobileMenu.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+  };
+
+  const bindLanguageGlobalEvents = () => {
+    if (document.documentElement.dataset.langMenuBound === "true") return;
+    document.documentElement.dataset.langMenuBound = "true";
+
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Element) || event.target.closest(".lang-switcher")) return;
+      closeLanguageMenus();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLanguageMenus();
+    });
   };
 
   const fetchContent = async () => {
@@ -139,24 +186,50 @@
   };
 
   const renderLanguages = () => {
-    qsa(".lang-switcher, .mobile-lang-switcher").forEach((switcher) => {
-      switcher.innerHTML = state.content.settings.languages
-        .map(
-          (language) =>
-            `<button class="${language.code === state.lang ? "is-active" : ""}" type="button" data-lang="${language.code}" title="${escapeHtml(language.name)}">${escapeHtml(language.label)}</button>`
-        )
-        .join("");
+    const languages = state.content.settings.languages || [];
+    const current = getCurrentLanguage();
 
-      qsa("[data-lang]", switcher).forEach((button) => {
-        button.addEventListener("click", () => {
-          setCurrentLang(button.dataset.lang);
-          renderSite();
-          const url = new URL(window.location.href);
-          url.searchParams.set("lang", state.lang);
-          history.replaceState(null, "", url);
-        });
+    qsa(".lang-switcher").forEach((switcher) => {
+      switcher.innerHTML = `
+        <button class="lang-current" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Выбрать язык, сейчас ${escapeHtml(current.name)}">
+          <span>${escapeHtml(current.label)}</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="lang-menu" role="listbox" aria-label="Выбор языка">
+          ${languages
+            .map((language) => {
+              const isActive = language.code === state.lang;
+              return `<button class="lang-option${isActive ? " is-active" : ""}" type="button" role="option" aria-selected="${isActive}" data-lang="${escapeHtml(language.code)}">
+                <span>${escapeHtml(language.name)}</span>
+                <small>${escapeHtml(language.label)}</small>
+              </button>`;
+            })
+            .join("")}
+        </div>`;
+
+      const currentButton = qs(".lang-current", switcher);
+      currentButton?.addEventListener("click", () => {
+        const shouldOpen = !switcher.classList.contains("is-open");
+        closeLanguageMenus();
+        switcher.classList.toggle("is-open", shouldOpen);
+        currentButton.setAttribute("aria-expanded", String(shouldOpen));
       });
     });
+
+    qsa(".mobile-lang-switcher").forEach((switcher) => {
+      switcher.innerHTML = languages
+        .map(
+          (language) =>
+            `<button class="lang-option${language.code === state.lang ? " is-active" : ""}" type="button" data-lang="${escapeHtml(language.code)}" title="${escapeHtml(language.name)}">${escapeHtml(language.label)}</button>`
+        )
+        .join("");
+    });
+
+    qsa("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => selectLanguage(button.dataset.lang));
+    });
+
+    bindLanguageGlobalEvents();
   };
 
   const renderNav = (t) => {
@@ -185,11 +258,11 @@
     );
     text(".hero__lead", t.hero.lead);
     setButton(qs(".hero [data-open-modal]"), t.hero.cta);
-    setButton(qs(".mobile-menu [data-open-modal]"), t.hero.cta);
 
     const media = qs(".hero__media");
     if (media) {
-      media.style.background = `linear-gradient(90deg, rgba(7, 9, 18, 0.9) 0%, rgba(7, 9, 18, 0.42) 50%, rgba(7, 9, 18, 0.85) 100%), url("${t.hero.image}") center / cover`;
+      media.style.background =
+        "radial-gradient(circle at 78% 28%, rgba(223, 141, 0, 0.18), transparent 36%), radial-gradient(circle at 12% 74%, rgba(233, 194, 125, 0.1), transparent 32%), linear-gradient(135deg, #070912, #101827 58%, #15100c)";
     }
   };
 
@@ -199,7 +272,7 @@
     strip.innerHTML = t.programs
       .map(
         (item) => `
-          <article class="program-card reveal is-visible">
+          <article class="program-card reveal">
             <i data-lucide="${escapeHtml(item.icon)}"></i>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.text)}</p>
@@ -226,7 +299,7 @@
       photos.innerHTML = about.images
         .map(
           (image) => `
-            <figure class="about-photo reveal is-visible">
+            <figure class="about-photo reveal">
               <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" />
             </figure>
           `
@@ -243,8 +316,8 @@
       whyGrid.innerHTML = why.items
         .map(
           (item) => `
-            <article class="why-card reveal is-visible">
-              <strong>${escapeHtml(item.value)}</strong>
+            <article class="why-card reveal">
+              <strong${counterAttributes(item.value)}>${escapeHtml(item.value)}</strong>
               <span>${escapeHtml(item.label)}</span>
             </article>
           `
@@ -288,7 +361,7 @@
     grid.innerHTML = t.services.items
       .map(
         (item) => `
-          <article class="service-item reveal is-visible">
+          <article class="service-item reveal">
             <span><i data-lucide="${escapeHtml(item.icon)}"></i></span>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.text)}</p>
@@ -308,7 +381,6 @@
     text(".move-fear__summary > span", section.summaryLabel);
     text(".move-fear__summary > strong", section.summaryTitle);
     text(".move-fear__summary > p", section.summaryCopy);
-    setButton(qs(".move-fear [data-open-modal]"), section.cta);
 
     const timeline = qs(".move-fear__timeline");
     if (timeline) {
@@ -330,7 +402,7 @@
       grid.innerHTML = section.items
         .map(
           (item) => `
-            <article class="move-card reveal is-visible">
+            <article class="move-card reveal">
               <i data-lucide="${escapeHtml(item.icon)}"></i>
               <h3>${escapeHtml(item.title)}</h3>
               <p>${escapeHtml(item.text)}</p>
@@ -350,8 +422,8 @@
     grid.innerHTML = t.facts.items
       .map(
         (item) => `
-          <div class="fact reveal is-visible">
-            <strong>${Number(item.value).toLocaleString("ru-RU")}${escapeHtml(item.suffix || "")}</strong>
+          <div class="fact reveal">
+            <strong${counterAttributes(item.value)}>${Number(item.value).toLocaleString("ru-RU")}${escapeHtml(item.suffix || "")}</strong>
             <span>${escapeHtml(item.label)}</span>
           </div>
         `
@@ -367,7 +439,7 @@
     grid.innerHTML = t.countries.items
       .map(
         (item) => `
-          <article class="country reveal is-visible" style="--country-image: url('${escapeHtml(item.image)}')">
+          <article class="country reveal" style="--country-image: url('${escapeHtml(item.image)}')">
             <div>
               <p>${escapeHtml(item.meta)}</p>
               <h3>${escapeHtml(item.name)}</h3>
@@ -387,31 +459,62 @@
     text(".country-details .eyebrow", section.eyebrow);
     text(".country-details h2", section.title);
 
-    const grid = qs(".country-detail-grid");
-    if (!grid) return;
-    grid.innerHTML = section.items
-      .map(
-        (item) => `
-          <article class="country-detail reveal is-visible">
-            <div>
+    const tabs = qs(".country-detail-tabs");
+    if (!tabs) return;
+
+    const keys = ["china", "italy", "turkey"];
+    const images = [
+      "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1100&q=85",
+      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1100&q=85",
+      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1100&q=85"
+    ];
+
+    const nav = section.items
+      .map((item, index) => {
+        const key = keys[index] || `country-${index + 1}`;
+        return `
+          <button class="country-detail-tab ${index === 0 ? "is-active" : ""}" id="country-tab-${escapeHtml(key)}" type="button" role="tab" aria-selected="${index === 0 ? "true" : "false"}" aria-controls="country-panel-${escapeHtml(key)}" data-country-tab="${escapeHtml(key)}">
+            <span>${String(index + 1).padStart(2, "0")}</span>
+            <strong>${escapeHtml(item.name)}</strong>
+            <small>${escapeHtml(item.benefits?.[0] || item.programs?.[0] || "")}</small>
+          </button>
+        `;
+      })
+      .join("");
+
+    const panels = section.items
+      .map((item, index) => {
+        const key = keys[index] || `country-${index + 1}`;
+        return `
+          <article class="country-detail-panel ${index === 0 ? "is-active" : ""}" id="country-panel-${escapeHtml(key)}" role="tabpanel" aria-labelledby="country-tab-${escapeHtml(key)}" data-country-panel="${escapeHtml(key)}" style="--country-detail-image: url('${escapeHtml(images[index] || images[0])}')">
+            <div class="country-detail-visual" aria-hidden="true">
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <strong>${escapeHtml(item.name)}</strong>
+            </div>
+            <div class="country-detail-content">
               <h3>${escapeHtml(item.name)}</h3>
               <p>${escapeHtml(item.copy)}</p>
-            </div>
-            <div class="country-detail__columns">
-              <div>
-                <strong>Программы</strong>
-                <ul>${item.programs.map((program) => `<li>${escapeHtml(program)}</li>`).join("")}</ul>
+              <div class="country-detail__columns">
+                <div>
+                  <strong>Программы</strong>
+                  <ul>${item.programs.map((program) => `<li>${escapeHtml(program)}</li>`).join("")}</ul>
+                </div>
+                <div>
+                  <strong>Преимущества</strong>
+                  <ul>${item.benefits.map((benefit) => `<li>${escapeHtml(benefit)}</li>`).join("")}</ul>
+                </div>
               </div>
-              <div>
-                <strong>Преимущества</strong>
-                <ul>${item.benefits.map((benefit) => `<li>${escapeHtml(benefit)}</li>`).join("")}</ul>
-              </div>
             </div>
-            <button class="text-button" type="button" data-open-modal>${escapeHtml(item.cta)}</button>
           </article>
-        `
-      )
+        `;
+      })
       .join("");
+
+    tabs.innerHTML = `
+      <div class="country-detail-nav" role="tablist" aria-label="${escapeHtml(section.title)}">${nav}</div>
+      <div class="country-detail-stage">${panels}</div>
+    `;
+    window.initCountryTabs?.(tabs);
   };
 
   const renderConsult = (t) => {
@@ -470,14 +573,13 @@
     text(".student-channel__panel > span", section.panelLabel || "");
     text(".student-channel__panel > strong", section.panelTitle || "");
     text(".student-channel__panel > p", section.panelCopy || "");
-    setButton(qs(".student-channel__panel [data-open-modal]"), section.cta || t.hero.cta);
 
     const grid = qs(".review-grid");
     if (!grid) return;
     grid.innerHTML = section.items
       .map(
         (item) => `
-          <article class="review reveal is-visible">
+          <article class="review reveal">
             <div class="student-avatar">${escapeHtml(item.initials || item.name.slice(0, 2).toUpperCase())}</div>
             <p>“${escapeHtml(item.quote)}”</p>
             <strong>${escapeHtml(item.name)}</strong>
@@ -495,13 +597,14 @@
 
     text(".faq .eyebrow", section.eyebrow);
     text(".faq h2", section.title);
+    text(".faq .section-copy", section.copy || "");
 
     const list = qs(".faq-list");
     if (!list) return;
     list.innerHTML = section.items
       .map(
         (item, index) => `
-          <details class="faq-item reveal is-visible" ${index === 0 ? "open" : ""}>
+          <details class="faq-item reveal" ${index === 0 ? "open" : ""}>
             <summary>${escapeHtml(item.question)}</summary>
             <p>${escapeHtml(item.answer)}</p>
           </details>
@@ -523,10 +626,15 @@
     grid.innerHTML = section.items
       .map(
         (item) => `
-          <article class="case-card reveal is-visible">
-            <div>
-              <strong>${escapeHtml(item.name)}</strong>
-              <span>${escapeHtml(item.profile)}</span>
+          <article class="case-card reveal">
+            <div class="case-card__top">
+              <div>
+                <strong>${escapeHtml(item.name)}</strong>
+                <span>${escapeHtml(item.profile)}</span>
+              </div>
+              <span class="case-card__brand" aria-hidden="true">
+                <img src="assets/brand/uniqu-logo-white-stacked.svg" alt="" loading="lazy" />
+              </span>
             </div>
             <h3>${escapeHtml(item.university)}</h3>
             <p>${escapeHtml(item.result)}</p>
@@ -545,7 +653,7 @@
     grid.innerHTML = t.steps.items
       .map(
         (item) => `
-          <article class="step reveal is-visible">
+          <article class="step reveal">
             <span>${escapeHtml(item.number)}</span>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.text)}</p>
@@ -731,28 +839,6 @@
     });
   };
 
-  const bindDynamicCards = () => {
-    qsa(".program-card, .university-card, .country, .review, .service-item, .move-card, .move-fear__summary, .calculator__panel, .case-card, .country-detail, .why-card, .about-photo").forEach((card) => {
-      if (card.dataset.cmsTiltBound) return;
-      card.dataset.cmsTiltBound = "true";
-      card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width;
-        const y = (event.clientY - rect.top) / rect.height;
-        card.style.setProperty("--tilt-x", `${(x - 0.5) * 7}deg`);
-        card.style.setProperty("--tilt-y", `${(0.5 - y) * 7}deg`);
-        card.style.setProperty("--spot-x", `${x * 100}%`);
-        card.style.setProperty("--spot-y", `${y * 100}%`);
-      });
-      card.addEventListener("pointerleave", () => {
-        card.style.setProperty("--tilt-x", "0deg");
-        card.style.setProperty("--tilt-y", "0deg");
-        card.style.setProperty("--spot-x", "50%");
-        card.style.setProperty("--spot-y", "50%");
-      });
-    });
-  };
-
   const renderSite = () => {
     const t = getTranslation();
     updateSeo(t);
@@ -779,7 +865,8 @@
     bindLeadForm();
     bindCalculator();
     bindModalTriggers();
-    bindDynamicCards();
+    window.initMotionSystem?.();
+    window.initCounters?.();
 
     if (window.lucide) {
       window.lucide.createIcons();

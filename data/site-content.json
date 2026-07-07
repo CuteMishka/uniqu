@@ -81,7 +81,7 @@
         "titleAfter": "начинается здесь",
         "lead": "Помогаем выбрать страну и университет, подготовить документы, подать заявку и пройти все этапы поступления.",
         "cta": "Оставить заявку",
-        "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85"
+        "image": ""
       },
       "programs": [
         {
@@ -98,6 +98,11 @@
           "icon": "book-open-check",
           "title": "Foundation",
           "text": "Подготовительная программа перед поступлением в университет."
+        },
+        {
+          "icon": "award",
+          "title": "Гранты",
+          "text": "Подбираем гранты, скидки и стипендии по профилю студента, стране и дедлайнам."
         },
         {
           "icon": "languages",
@@ -590,7 +595,8 @@
       },
       "faq": {
         "eyebrow": "FAQ",
-        "title": "Вопросы, которые чаще всего задают родители и студенты",
+        "title": "Частые вопросы",
+        "copy": "Коротко о грантах, документах и сопровождении.",
         "items": [
           {
             "question": "Почему выбирают UniQ?",
@@ -681,6 +687,1902 @@
           "Италия",
           "Грант",
           "Пока не определился"
+        ]
+      }
+    },
+    "en": {
+      "seo": {
+        "title": "UniQ - turnkey study abroad admissions",
+        "description": "UniQ helps students choose a country and university, prepare documents, apply to China, Turkey and Italy, and adapt after arrival.",
+        "keywords": "study abroad admissions, UniQ, University Quest, China, Turkey, Italy, grants, Foundation, language courses"
+      },
+      "nav": {
+        "about": "About",
+        "programs": "Programs",
+        "countries": "Countries",
+        "services": "Services",
+        "reviews": "Reviews",
+        "cases": "Cases",
+        "faq": "FAQ",
+        "contacts": "Contacts"
+      },
+      "hero": {
+        "eyebrow": "UniQ - your bridge to studying abroad",
+        "titleBefore": "Your path to study",
+        "titleAccent": "abroad",
+        "titleAfter": "starts here",
+        "lead": "We help you choose a country and university, prepare documents, apply and pass every admission step.",
+        "cta": "Submit request",
+        "image": ""
+      },
+      "programs": [
+        {
+          "icon": "school",
+          "title": "Bachelor degree",
+          "text": "For school and college graduates who want their first higher education abroad."
+        },
+        {
+          "icon": "badge-check",
+          "title": "Master degree",
+          "text": "For university graduates who want an international degree and stronger career options."
+        },
+        {
+          "icon": "book-open-check",
+          "title": "Foundation",
+          "text": "A preparatory program before entering university."
+        },
+        {
+          "icon": "award",
+          "title": "Grants",
+          "text": "We match grants, discounts and scholarships by student profile, country and deadlines."
+        },
+        {
+          "icon": "languages",
+          "title": "Language courses",
+          "text": "Intensive Chinese preparation before departure and adaptation."
+        },
+        {
+          "icon": "route",
+          "title": "Turnkey admission",
+          "text": "From country choice and documents to enrollment, visa, arrival and campus life."
+        }
+      ],
+      "about": {
+        "eyebrow": "About UniQ",
+        "title": "University Quest for students and parents",
+        "copy": [
+          "UniQ is an education center that helps students receive quality education abroad. We guide applicants through every stage: from choosing a country and program to documents and enrollment.",
+          "We work with universities in China, Turkey and Italy, matching each student by goal, language level, academic background and budget.",
+          "After enrollment, the team stays close: airport pickup, dormitory, bank card, SIM card, medical check and campus adaptation."
+        ],
+        "images": [
+          {
+            "src": "assets/photos/students-airport.webp",
+            "alt": "UniQ students at the airport before departure"
+          },
+          {
+            "src": "assets/photos/students-turkey-street.webp",
+            "alt": "UniQ students abroad"
+          },
+          {
+            "src": "assets/photos/student-bank-card.webp",
+            "alt": "UniQ student after opening a bank card"
+          }
+        ]
+      },
+      "why": {
+        "title": "Why students choose UniQ",
+        "items": [
+          {
+            "value": "2000+",
+            "label": "students have already started studying abroad"
+          },
+          {
+            "value": "7+",
+            "label": "years of international admission experience"
+          },
+          {
+            "value": "34",
+            "label": "skills and qualities considered during career guidance"
+          },
+          {
+            "value": "3",
+            "label": "destinations: China, Turkey and Italy"
+          }
+        ],
+        "points": [
+          "Individual university and program matching.",
+          "Full support at every admission stage.",
+          "Help with Foundation and language courses.",
+          "Support through enrollment, arrival and adaptation."
+        ]
+      },
+      "universities": {
+        "eyebrow": "Partner universities",
+        "title": "We match a university to your goal, budget and chances",
+        "items": [
+          {
+            "country": "China",
+            "name": "Nanjing University of Science and Technology",
+            "text": "Engineering, Computer Science and master programs",
+            "image": "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "China University of Mining and Technology",
+            "text": "Technical and international programs",
+            "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "Hubei University of Technology",
+            "text": "Bachelor, master and Foundation tracks",
+            "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "Kunming Medical University",
+            "text": "Medical programs and campus support",
+            "image": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "Hefei University of Technology",
+            "text": "Engineering and applied specialties",
+            "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "Northwestern Polytechnical University",
+            "text": "Grants, scholarships and English-taught programs",
+            "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "Wenzhou University",
+            "text": "Programs for international students",
+            "image": "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "Hubei University",
+            "text": "Program matching by academic profile",
+            "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "China",
+            "name": "Heilongjiang University",
+            "text": "Language and academic tracks",
+            "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=780&q=85"
+          }
+        ]
+      },
+      "services": {
+        "eyebrow": "Services",
+        "title": "Individual support through every admission stage",
+        "copy": "We do not send documents blindly. First we understand the goal, academic profile and budget, then build a clear admission route.",
+        "items": [
+          {
+            "icon": "compass",
+            "title": "Career guidance",
+            "text": "We analyze talents, goals and strengths to choose the right country and specialty."
+          },
+          {
+            "icon": "file-check-2",
+            "title": "Documents and application",
+            "text": "We prepare documents, translations, applications, essays and recommendations."
+          },
+          {
+            "icon": "badge-check",
+            "title": "Enrollment and visa",
+            "text": "We support submission, invitation, forms, financial documents and interviews."
+          },
+          {
+            "icon": "home",
+            "title": "Adaptation after arrival",
+            "text": "We meet students and help with dormitory, SIM card, bank card and medical check."
+          }
+        ]
+      },
+      "moveFear": {
+        "eyebrow": "Move Without Fear",
+        "title": "Relocation without panic: UniQ keeps paperwork under control",
+        "copy": "The biggest anxiety is not choosing a university, but what happens after enrollment. We show the full relocation route and cover the points where chaos usually starts.",
+        "summaryLabel": "Anxiety closed",
+        "summaryTitle": "Documents, visa, arrival and the first 72 hours are already planned",
+        "summaryCopy": "Parents see a concrete map: who prepares each document, who meets the student, where the first night is spent and what happens on campus.",
+        "cta": "Get relocation map",
+        "timeline": [
+          {
+            "number": "01",
+            "title": "Before departure",
+            "text": "Invitation, visa, tickets and document checklist."
+          },
+          {
+            "number": "02",
+            "title": "On the way",
+            "text": "Clear contact with the team and pickup after arrival."
+          },
+          {
+            "number": "03",
+            "title": "On site",
+            "text": "Dormitory, SIM, bank card and medical check."
+          },
+          {
+            "number": "04",
+            "title": "On campus",
+            "text": "Registration, daily questions and adaptation."
+          }
+        ],
+        "items": [
+          {
+            "icon": "file-check-2",
+            "title": "Document package",
+            "text": "We collect, check, translate and keep deadlines for every application step."
+          },
+          {
+            "icon": "badge-check",
+            "title": "Visa and invitation",
+            "text": "We prepare forms, financial documents and explain what to do before the interview."
+          },
+          {
+            "icon": "plane",
+            "title": "Arrival and pickup",
+            "text": "The student is not left alone at the airport. The team helps with the first route."
+          },
+          {
+            "icon": "home",
+            "title": "Dormitory",
+            "text": "We help with check-in, campus rules and everyday questions."
+          },
+          {
+            "icon": "credit-card",
+            "title": "SIM, bank and medical check",
+            "text": "We sort out local formalities that are hard to handle alone."
+          },
+          {
+            "icon": "map",
+            "title": "Adaptation",
+            "text": "We stay close while the student gets used to the country, campus and study rhythm."
+          }
+        ]
+      },
+      "facts": {
+        "eyebrow": "Results",
+        "title": "Experience, reviews and real admissions",
+        "copy": "Most new clients come through recommendations from graduates, friends and relatives. This is the main trust signal.",
+        "items": [
+          {
+            "value": 2000,
+            "suffix": "+",
+            "label": "supported students"
+          },
+          {
+            "value": 7,
+            "suffix": "+",
+            "label": "years of work"
+          },
+          {
+            "value": 3,
+            "suffix": "",
+            "label": "study destinations"
+          },
+          {
+            "value": 34,
+            "suffix": "",
+            "label": "skills in profile analysis"
+          }
+        ]
+      },
+      "countries": {
+        "eyebrow": "Study destinations",
+        "title": "China, Italy and Turkey for your goal",
+        "items": [
+          {
+            "name": "China",
+            "meta": "Bachelor, master, Foundation, language",
+            "points": [
+              "Free Chinese language course",
+              "Enrollment without entrance exams",
+              "Full support in China"
+            ],
+            "result": "Campus, documents and adaptation",
+            "image": "assets/photos/students-china-cards.webp"
+          },
+          {
+            "name": "Italy",
+            "meta": "Bachelor and master degrees",
+            "points": [
+              "European diploma",
+              "Programs in English and Italian",
+              "Cultural and student environment"
+            ],
+            "result": "Requirement and deadline matching",
+            "image": "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=900&q=85"
+          },
+          {
+            "name": "Turkey",
+            "meta": "Bachelor and master degrees",
+            "points": [
+              "Accessible cost",
+              "Convenient location",
+              "Modern universities"
+            ],
+            "result": "Matching by budget and language",
+            "image": "assets/photos/students-turkey-street.webp"
+          }
+        ]
+      },
+      "countryDetails": {
+        "eyebrow": "Destination details",
+        "title": "What to know about each country",
+        "items": [
+          {
+            "name": "China",
+            "copy": "Modern education, accessible cost and a wide choice of universities. China is becoming a stronger destination for international students.",
+            "programs": [
+              "Bachelor in English or Chinese",
+              "Master degree for an international career",
+              "Foundation for academic preparation",
+              "Language courses for adaptation"
+            ],
+            "benefits": [
+              "Ranked universities",
+              "Affordable study and living costs",
+              "International environment",
+              "Campuses with dormitories and laboratories"
+            ],
+            "cta": "Check admission chances"
+          },
+          {
+            "name": "Italy",
+            "copy": "European education, rich culture and accessible programs for international students in historic universities.",
+            "programs": [
+              "Bachelor degree for first higher education",
+              "Master degree to strengthen your specialty"
+            ],
+            "benefits": [
+              "Prestigious universities",
+              "European diploma",
+              "International career prospects",
+              "Comfortable student environment"
+            ],
+            "cta": "Get consultation"
+          },
+          {
+            "name": "Turkey",
+            "copy": "Modern education, accessible tuition and internationally recognized diplomas close to Kazakhstan.",
+            "programs": [
+              "Bachelor in English or Turkish",
+              "Master degree for professional growth"
+            ],
+            "benefits": [
+              "International recognition",
+              "Accessible cost of living",
+              "Convenient logistics",
+              "Active student life"
+            ],
+            "cta": "Choose a university"
+          }
+        ]
+      },
+      "consult": {
+        "eyebrow": "Free first meeting",
+        "title": "Not sure which university to choose?",
+        "copy": "Submit a request and we will match a program by goals, grades, language level, budget and admission timing.",
+        "cta": "Choose a university"
+      },
+      "calculator": {
+        "eyebrow": "Calculator",
+        "title": "How much can studying cost?",
+        "copy": "Choose level and country to see an estimated range. An expert will calculate the exact plan after consultation.",
+        "levelLabel": "Education level",
+        "countryLabel": "Country",
+        "resultLabel": "Estimated budget",
+        "resultNote": "per year, tuition, support and basic expenses are discussed separately",
+        "cta": "Get exact calculation",
+        "levels": {
+          "foundation": "Foundation / language course",
+          "bachelor": "Bachelor degree",
+          "master": "Master degree"
+        },
+        "countries": {
+          "china": "China",
+          "turkey": "Turkey",
+          "italy": "Italy"
+        },
+        "budgets": {
+          "foundation": {
+            "china": "from 1,200,000 KZT",
+            "turkey": "from 1,600,000 KZT",
+            "italy": "from 2,100,000 KZT"
+          },
+          "bachelor": {
+            "china": "from 0 KZT with grant",
+            "turkey": "from 1,900,000 KZT",
+            "italy": "from 900,000 KZT with grant"
+          },
+          "master": {
+            "china": "from 1,800,000 KZT",
+            "turkey": "from 2,200,000 KZT",
+            "italy": "from 1,200,000 KZT with grant"
+          }
+        }
+      },
+      "reviews": {
+        "eyebrow": "Student Channel",
+        "title": "UniQ admissions through students' eyes",
+        "copy": "Reviews are shown as a living feed: videos, short stories, admission results and the moment students felt supported.",
+        "panelLabel": "In the channel now",
+        "panelTitle": "30 video reviews",
+        "panelCopy": "Students talk about country choice, documents, arrival, dormitory and the first weeks at university.",
+        "cta": "I want to apply too",
+        "items": [
+          {
+            "initials": "AK",
+            "quote": "The team helped me choose China, collect documents and pass every stage without panic. I enrolled and left calmly.",
+            "name": "Aruzhan K.",
+            "meta": "China, bachelor",
+            "proof": "trust moment: clear plan before departure"
+          },
+          {
+            "initials": "MS",
+            "quote": "They explained why the program fit my profile instead of just filling out a form.",
+            "name": "Madi S.",
+            "meta": "Turkey, Foundation",
+            "proof": "trust moment: program selected by profile"
+          },
+          {
+            "initials": "DT",
+            "quote": "The difficult Italy deadlines and documents were broken into clear steps. I knew what to do next.",
+            "name": "Dana T.",
+            "meta": "Italy, grant",
+            "proof": "trust moment: documents without chaos"
+          }
+        ]
+      },
+      "cases": {
+        "eyebrow": "Cases",
+        "title": "Real admissions and grants",
+        "copy": "We show concrete student results: academic profile, university, program and support received.",
+        "items": [
+          {
+            "name": "Galina Overchuk",
+            "profile": "GPA 97/100, IELTS 8.5, SAT 1420",
+            "university": "Northwestern Polytechnical University",
+            "result": "Full grant + 1500 RMB/month stipend",
+            "program": "Computer Science and Technology, bachelor in English"
+          },
+          {
+            "name": "Dinmuhammed Tasanbayev",
+            "profile": "GPA 100/100, NU GPA 74/100, IELTS 8.0, SAT 1430",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "70% tuition discount",
+            "program": "MBA, master in English"
+          },
+          {
+            "name": "Nurmakova Yasmin",
+            "profile": "GPA 90/100, IELTS 6.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "70% tuition discount",
+            "program": "Economics, bachelor in English"
+          },
+          {
+            "name": "Bekbergen Isakhan",
+            "profile": "GPA 100/100, IELTS 7.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "100% tuition discount + 1000 RMB/month stipend",
+            "program": "Economics, bachelor in English"
+          },
+          {
+            "name": "Akhunov Timur",
+            "profile": "GPA 100/100, IELTS 6.5",
+            "university": "Beihang University",
+            "result": "100% tuition discount",
+            "program": "Mechanical Engineering, bachelor in English"
+          },
+          {
+            "name": "Gazizov Amir",
+            "profile": "GPA 100/100, IELTS 6.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "100% tuition discount",
+            "program": "Electrical Engineering and Automation, bachelor in English"
+          },
+          {
+            "name": "Taibek Botagoz",
+            "profile": "GPA 85/100, Duolingo 100/160",
+            "university": "Nanjing University of Science and Technology",
+            "result": "Free tuition, accommodation and insurance + 3000 RMB/month",
+            "program": "Computer Science and Technology, master in English"
+          }
+        ]
+      },
+      "steps": {
+        "eyebrow": "How to start",
+        "title": "Three steps to an admission plan",
+        "items": [
+          {
+            "number": "01",
+            "title": "Submit a request",
+            "text": "Share your grade, program, country and planned admission timing."
+          },
+          {
+            "number": "02",
+            "title": "Have a consultation",
+            "text": "An expert evaluates chances, documents, budget and suitable directions."
+          },
+          {
+            "number": "03",
+            "title": "Get your route",
+            "text": "Universities, deadlines, budget, document list and the next step."
+          }
+        ]
+      },
+      "video": {
+        "eyebrow": "Video reviews",
+        "title": "Watch UniQ student reviews",
+        "copy": "In the playlist, students share their admission, study and adaptation experience abroad.",
+        "fallback": "Open playlist on YouTube",
+        "cardsTitle": "Student Channel episode"
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequent questions",
+        "copy": "Short answers about grants, documents and support.",
+        "items": [
+          {
+            "question": "Why choose UniQ?",
+            "answer": "We guide the student turnkey: from choosing a country and university to arrival, dormitory and adaptation."
+          },
+          {
+            "question": "How is UniQ different from other education centers?",
+            "answer": "We work from the student profile, budget and goal, instead of offering one template for everyone."
+          },
+          {
+            "question": "Can I get a grant or discount?",
+            "answer": "Yes, we select grant and discount options if the student profile fits program requirements."
+          },
+          {
+            "question": "What is included in turnkey support?",
+            "answer": "Career guidance, program matching, documents, application, invitation, visa, flight, pickup, dormitory and adaptation."
+          },
+          {
+            "question": "Can a student apply without knowing the language?",
+            "answer": "Foundation and language courses are available for several directions. For China, we run a free Chinese course before departure."
+          },
+          {
+            "question": "Who meets the student after arrival?",
+            "answer": "The team helps on site: pickup, dormitory, SIM card, bank card, medical check and first daily questions."
+          },
+          {
+            "question": "What documents are needed?",
+            "answer": "The list depends on country, university and study level. During consultation we prepare a personal checklist."
+          },
+          {
+            "question": "How do I submit a request?",
+            "answer": "Fill in your name and phone on the site. An expert will contact you and prepare the first admission route."
+          }
+        ]
+      },
+      "map": {
+        "eyebrow": "Contacts",
+        "title": "UniQ offices in Almaty and Tashkent",
+        "copy": "Almaty: Abay 52V, Baizak Business Center, office 332. Tashkent: City Plaza, Makhtumkuli 79, 5th floor, office 501.",
+        "open": "Open map"
+      },
+      "footer": {
+        "copy": "We help students study abroad and pass the route to campus adaptation.",
+        "contactsTitle": "Contacts",
+        "navTitle": "Navigation",
+        "admin": "Admin panel"
+      },
+      "form": {
+        "eyebrow": "Free consultation",
+        "title": "Get an admission plan",
+        "copy": "Fill in the form so a UniQ expert can contact you and suggest the best route.",
+        "name": "Name",
+        "namePlaceholder": "Your name",
+        "phone": "Phone",
+        "phonePlaceholder": "+7 (___) ___-__-__",
+        "grade": "What grade are you in?",
+        "program": "Which program are you planning?",
+        "start": "When do you plan to start studying?",
+        "interest": "Country of interest",
+        "submit": "Submit request",
+        "policy": "By clicking the button, you agree to the privacy policy.",
+        "successTitle": "Request received!",
+        "successText": "An expert will contact you and tell you about suitable programs.",
+        "grades": [
+          "8",
+          "9",
+          "10",
+          "11",
+          "College graduate",
+          "Student / want to transfer"
+        ],
+        "programs": [
+          "Bachelor degree",
+          "Master degree",
+          "Foundation",
+          "Language courses",
+          "Not decided yet"
+        ],
+        "starts": [
+          "This year",
+          "Next year",
+          "In 2 years",
+          "Not sure yet"
+        ],
+        "interests": [
+          "China",
+          "Turkey",
+          "Italy",
+          "Grant",
+          "Not decided yet"
+        ]
+      }
+    },
+    "kz": {
+      "seo": {
+        "title": "UniQ - шетелге оқуға толық сүйемелдеу",
+        "description": "UniQ ел мен университет таңдауға, құжат дайындауға, Қытай, Түркия және Италияға түсуге және келгеннен кейін бейімделуге көмектеседі.",
+        "keywords": "шетелде оқу, UniQ, University Quest, Қытай, Түркия, Италия, гранттар, Foundation, тіл курстары"
+      },
+      "nav": {
+        "about": "Компания",
+        "programs": "Бағдарламалар",
+        "countries": "Елдер",
+        "services": "Қызметтер",
+        "reviews": "Пікірлер",
+        "cases": "Кейстер",
+        "faq": "FAQ",
+        "contacts": "Байланыс"
+      },
+      "hero": {
+        "eyebrow": "UniQ - шетелде оқуға көпір",
+        "titleBefore": "Оқу жолыңыз",
+        "titleAccent": "шетелде",
+        "titleAfter": "осы жерден басталады",
+        "lead": "Ел мен университет таңдауға, құжат дайындауға, өтінім беруге және барлық түсу кезеңінен өтуге көмектесеміз.",
+        "cta": "Өтінім қалдыру",
+        "image": ""
+      },
+      "programs": [
+        {
+          "icon": "school",
+          "title": "Бакалавриат",
+          "text": "Шетелде алғашқы жоғары білім алғысы келетін мектеп және колледж түлектеріне."
+        },
+        {
+          "icon": "badge-check",
+          "title": "Магистратура",
+          "text": "Халықаралық дәреже алып, мансабын күшейткісі келетін ЖОО түлектеріне."
+        },
+        {
+          "icon": "book-open-check",
+          "title": "Foundation",
+          "text": "Университетке түсер алдындағы дайындық бағдарламасы."
+        },
+        {
+          "icon": "award",
+          "title": "Гранттар",
+          "text": "Студент профиліне, елге және дедлайндарға қарай гранттар, жеңілдіктер және стипендияларды таңдаймыз."
+        },
+        {
+          "icon": "languages",
+          "title": "Тіл курстары",
+          "text": "Кетуге және бейімделуге дейін қытай тілін қарқынды дайындау."
+        },
+        {
+          "icon": "route",
+          "title": "Толық түсу сүйемелдеуі",
+          "text": "Ел таңдаудан және құжаттан бастап, қабылдау, виза, келу және кампусқа дейін."
+        }
+      ],
+      "about": {
+        "eyebrow": "Компания туралы",
+        "title": "University Quest студенттер мен ата-аналарға",
+        "copy": [
+          "UniQ - студенттерге шетелде сапалы білім алуға көмектесетін білім орталығы. Біз ел мен бағдарлама таңдаудан бастап құжат тапсыру және қабылдануға дейін барлық кезеңде сүйемелдейміз.",
+          "Қытай, Түркия және Италия университеттерімен жұмыс істейміз, шешімді әр студенттің мақсатына, тіл деңгейіне, академиялық дайындығына және бюджетіне қарай таңдаймыз.",
+          "Қабылданғаннан кейін де команда жанында болады: әуежайда қарсы алу, жатақхана, банк картасы, SIM-карта, медтексеру және кампуста бейімделу."
+        ],
+        "images": [
+          {
+            "src": "assets/photos/students-airport.webp",
+            "alt": "Студенты UniQ в аэропорту перед вылетом"
+          },
+          {
+            "src": "assets/photos/students-turkey-street.webp",
+            "alt": "Студенты UniQ за рубежом"
+          },
+          {
+            "src": "assets/photos/student-bank-card.webp",
+            "alt": "Студент UniQ после оформления банковской карты"
+          }
+        ]
+      },
+      "why": {
+        "title": "Неге UniQ таңдайды",
+        "items": [
+          {
+            "value": "2000+",
+            "label": "студент шетелде оқуын бастады"
+          },
+          {
+            "value": "7+",
+            "label": "жыл халықаралық түсу тәжірибесі"
+          },
+          {
+            "value": "34",
+            "label": "кәсіби бағдарда ескерілетін қабілет пен қасиет"
+          },
+          {
+            "value": "3",
+            "label": "бағыт: Қытай, Түркия және Италия"
+          }
+        ],
+        "points": [
+          "Университет пен бағдарламаны жеке таңдау.",
+          "Түсудің әр кезеңінде толық сүйемелдеу.",
+          "Foundation және тіл курстары бойынша көмек.",
+          "Қабылдану, келу және бейімделуге дейін қолдау."
+        ]
+      },
+      "universities": {
+        "eyebrow": "Серіктес университеттер",
+        "title": "Университетті мақсат, бюджет және мүмкіндікке сай таңдаймыз",
+        "items": [
+          {
+            "country": "Қытай",
+            "name": "Nanjing University of Science and Technology",
+            "text": "Инженерия, Computer Science және магистратура",
+            "image": "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "China University of Mining and Technology",
+            "text": "Техникалық және халықаралық бағдарламалар",
+            "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "Hubei University of Technology",
+            "text": "Бакалавриат, магистратура, Foundation",
+            "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "Kunming Medical University",
+            "text": "Медициналық бағыттар және кампус қолдауы",
+            "image": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "Hefei University of Technology",
+            "text": "Инженерия және қолданбалы мамандықтар",
+            "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "Northwestern Polytechnical University",
+            "text": "Гранттар, стипендиялар және ағылшын тіліндегі бағдарламалар",
+            "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "Wenzhou University",
+            "text": "Халықаралық студенттерге арналған бағдарламалар",
+            "image": "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "Hubei University",
+            "text": "Академиялық профильге сай бағдарлама таңдау",
+            "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Қытай",
+            "name": "Heilongjiang University",
+            "text": "Тілдік және академиялық бағыттар",
+            "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=780&q=85"
+          }
+        ]
+      },
+      "services": {
+        "eyebrow": "Қызметтер",
+        "title": "Түсудің барлық кезеңінде жеке сүйемелдейміз",
+        "copy": "Біз құжатты жаппай жібермейміз. Алдымен мақсатты, академиялық профильді және бюджетті түсініп, содан кейін нақты түсу маршрутын құрамыз.",
+        "items": [
+          {
+            "icon": "compass",
+            "title": "Кәсіби бағдар",
+            "text": "Ел мен мамандықты дұрыс таңдау үшін қабілет, мақсат және күшті жақтарды талдаймыз."
+          },
+          {
+            "icon": "file-check-2",
+            "title": "Құжаттар және өтінім",
+            "text": "Құжат пакетін, аудармаларды, өтініштерді, эссе мен ұсыныстарды дайындаймыз."
+          },
+          {
+            "icon": "badge-check",
+            "title": "Қабылдану және виза",
+            "text": "Өтінім, шақыру, анкета, қаржылық құжаттар және сұхбат бойынша сүйемелдейміз."
+          },
+          {
+            "icon": "home",
+            "title": "Келгеннен кейін бейімделу",
+            "text": "Қарсы аламыз, жатақхана, SIM-карта, банк картасы және медтексеруге көмектесеміз."
+          }
+        ]
+      },
+      "moveFear": {
+        "eyebrow": "Move Without Fear",
+        "title": "Переезд без страха: UniQ держит бюрократию под контролем",
+        "copy": "Самая большая тревога не в выборе университета, а в вопросе: что будет после зачисления. Мы показываем весь маршрут переезда и берем на себя каждую точку, где обычно возникает хаос.",
+        "summaryLabel": "Тревога закрыта",
+        "summaryTitle": "Документы, виза, прилет и первые 72 часа уже разложены по шагам",
+        "summaryCopy": "Родители видят не обещание, а конкретную карту: кто готовит документ, кто встречает, где студент спит в первую ночь и что делается на кампусе.",
+        "cta": "Получить карту переезда",
+        "timeline": [
+          {
+            "number": "01",
+            "title": "До вылета",
+            "text": "Приглашение, виза, билеты, чек-лист документов."
+          },
+          {
+            "number": "02",
+            "title": "В дороге",
+            "text": "Понятная связь с командой и встреча после прилета."
+          },
+          {
+            "number": "03",
+            "title": "На месте",
+            "text": "Общежитие, SIM, банковская карта, медосмотр."
+          },
+          {
+            "number": "04",
+            "title": "В кампусе",
+            "text": "Регистрация, бытовые вопросы и адаптация."
+          }
+        ],
+        "items": [
+          {
+            "icon": "file-check-2",
+            "title": "Пакет документов",
+            "text": "Собираем, проверяем, переводим и держим дедлайны по каждому этапу подачи."
+          },
+          {
+            "icon": "badge-check",
+            "title": "Виза и приглашение",
+            "text": "Готовим анкету, финансовые документы и объясняем, что делать до интервью."
+          },
+          {
+            "icon": "plane",
+            "title": "Прилет и встреча",
+            "text": "Студент не остается один в аэропорту: команда помогает с первым маршрутом."
+          },
+          {
+            "icon": "home",
+            "title": "Общежитие",
+            "text": "Помогаем заселиться, понять правила кампуса и закрыть бытовые вопросы."
+          },
+          {
+            "icon": "credit-card",
+            "title": "SIM, банк, медосмотр",
+            "text": "Разбираем локальные формальности, без которых студенту сложно стартовать."
+          },
+          {
+            "icon": "map",
+            "title": "Адаптация",
+            "text": "Остаемся рядом, пока студент привыкает к стране, кампусу и учебному ритму."
+          }
+        ]
+      },
+      "facts": {
+        "eyebrow": "Нәтижелер",
+        "title": "Тәжірибе, пікірлер және нақты қабылданулар",
+        "copy": "Жаңа клиенттердің көбі түлектер, достар және туыстардың ұсынысымен келеді. Бұл сенімнің басты көрсеткіші.",
+        "items": [
+          {
+            "value": 2000,
+            "suffix": "+",
+            "label": "сүйемелденген студент"
+          },
+          {
+            "value": 7,
+            "suffix": "+",
+            "label": "жыл жұмыс тәжірибесі"
+          },
+          {
+            "value": 3,
+            "suffix": "",
+            "label": "оқу елі"
+          },
+          {
+            "value": 34,
+            "suffix": "",
+            "label": "профиль талдауындағы қабілет"
+          }
+        ]
+      },
+      "countries": {
+        "eyebrow": "Оқу елдері",
+        "title": "Қытай, Италия және Түркия мақсатыңызға сай",
+        "items": [
+          {
+            "name": "Қытай",
+            "meta": "Бакалавриат, магистратура, Foundation, тіл",
+            "points": [
+              "Тегін қытай тілі курсы",
+              "Емтихансыз қабылдану",
+              "Қытайда толық сүйемелдеу"
+            ],
+            "result": "Кампус, құжаттар және бейімделу",
+            "image": "assets/photos/students-china-cards.webp"
+          },
+          {
+            "name": "Италия",
+            "meta": "Бакалавриат және магистратура",
+            "points": [
+              "Еуропалық диплом",
+              "Ағылшын және итальян тіліндегі бағдарламалар",
+              "Мәдени және студенттік орта"
+            ],
+            "result": "Талаптар мен дедлайндарды таңдау",
+            "image": "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=900&q=85"
+          },
+          {
+            "name": "Түркия",
+            "meta": "Бакалавриат және магистратура",
+            "points": [
+              "Қолжетімді құн",
+              "Ыңғайлы орналасу",
+              "Заманауи университеттер"
+            ],
+            "result": "Бюджет пен тілге сай таңдау",
+            "image": "assets/photos/students-turkey-street.webp"
+          }
+        ]
+      },
+      "countryDetails": {
+        "eyebrow": "Бағыттар туралы",
+        "title": "Әр ел бойынша нені білу маңызды",
+        "items": [
+          {
+            "name": "Қытай",
+            "copy": "Заманауи білім, қолжетімді құн және университеттердің кең таңдауы. Қытай халықаралық студенттер үшін танымал бағытқа айналып келеді.",
+            "programs": [
+              "Ағылшын немесе қытай тіліндегі бакалавриат",
+              "Халықаралық мансапқа арналған магистратура",
+              "Академиялық дайындыққа Foundation",
+              "Бейімделуге арналған тіл курстары"
+            ],
+            "benefits": [
+              "Рейтингті университеттер",
+              "Қолжетімді оқу және тұру",
+              "Халықаралық орта",
+              "Жатақхана мен зертханалары бар кампустар"
+            ],
+            "cta": "Түсу мүмкіндігін білу"
+          },
+          {
+            "name": "Италия",
+            "copy": "Еуропалық білім, бай мәдениет және тарихи университеттердегі халықаралық студенттерге қолжетімді бағдарламалар.",
+            "programs": [
+              "Алғашқы жоғары білімге бакалавриат",
+              "Мамандықты күшейтуге магистратура"
+            ],
+            "benefits": [
+              "Беделді университеттер",
+              "Еуропалық үлгідегі диплом",
+              "Халықаралық мансап мүмкіндігі",
+              "Ыңғайлы студенттік орта"
+            ],
+            "cta": "Кеңес алу"
+          },
+          {
+            "name": "Түркия",
+            "copy": "Қазақстанға жақын, заманауи білім, қолжетімді оқу құны және халықаралық деңгейдегі дипломдар.",
+            "programs": [
+              "Ағылшын немесе түрік тіліндегі бакалавриат",
+              "Кәсіби өсуге магистратура"
+            ],
+            "benefits": [
+              "Халықаралық мойындау",
+              "Қолжетімді өмір сүру құны",
+              "Ыңғайлы логистика",
+              "Қанық студенттік өмір"
+            ],
+            "cta": "Университет таңдау"
+          }
+        ]
+      },
+      "consult": {
+        "eyebrow": "Алғашқы кездесу тегін",
+        "title": "Қай университетті таңдарыңызды білмейсіз бе?",
+        "copy": "Өтінім қалдырыңыз, біз мақсат, үлгерім, тіл деңгейі, бюджет және түсу мерзіміне сай бағдарлама таңдаймыз.",
+        "cta": "Университет таңдау"
+      },
+      "calculator": {
+        "eyebrow": "Калькулятор",
+        "title": "Оқу қанша тұруы мүмкін?",
+        "copy": "Деңгей мен елді таңдаңыз, шамамен диапазон көрсетеміз. Нақты жоспарды сарапшы консультациядан кейін есептейді.",
+        "levelLabel": "Білім деңгейі",
+        "countryLabel": "Ел",
+        "resultLabel": "Шамамен бюджет",
+        "resultNote": "жылына, оқу, сүйемелдеу және негізгі шығындар бөлек талқыланады",
+        "cta": "Нақты есеп алу",
+        "levels": {
+          "foundation": "Foundation / тіл курсы",
+          "bachelor": "Бакалавриат",
+          "master": "Магистратура"
+        },
+        "countries": {
+          "china": "Қытай",
+          "turkey": "Түркия",
+          "italy": "Италия"
+        },
+        "budgets": {
+          "foundation": {
+            "china": "от 1 200 000 ₸",
+            "turkey": "от 1 600 000 ₸",
+            "italy": "от 2 100 000 ₸"
+          },
+          "bachelor": {
+            "china": "от 0 ₸ при гранте",
+            "turkey": "от 1 900 000 ₸",
+            "italy": "от 900 000 ₸ при гранте"
+          },
+          "master": {
+            "china": "от 1 800 000 ₸",
+            "turkey": "от 2 200 000 ₸",
+            "italy": "от 1 200 000 ₸ при гранте"
+          }
+        }
+      },
+      "reviews": {
+        "eyebrow": "Student Channel",
+        "title": "UniQ студенттері көзімен түсу",
+        "copy": "Пікірлер тірі лента сияқты: видео, қысқа оқиғалар, түсу нәтижесі және студент өзін жалғыз емес сезінген сәт.",
+        "panelLabel": "Қазір каналда",
+        "panelTitle": "30 видео пікір",
+        "panelCopy": "Студенттер ел таңдау, құжаттар, келу, жатақхана және жаңа университеттегі алғашқы апталар туралы айтады.",
+        "cta": "Мен де осылай түскім келеді",
+        "items": [
+          {
+            "initials": "АК",
+            "quote": "Команда помогла выбрать Китай, собрать документы и пройти все этапы без лишней паники. Я поступила и спокойно уехала учиться.",
+            "name": "Аружан К.",
+            "meta": "Китай, бакалавриат",
+            "proof": "момент доверия: понятный план до вылета"
+          },
+          {
+            "initials": "МС",
+            "quote": "Мне объяснили, почему программа подходит именно под мой профиль, а не просто заполнили форму.",
+            "name": "Мади С.",
+            "meta": "Турция, Foundation",
+            "proof": "момент доверия: выбор программы по профилю"
+          },
+          {
+            "initials": "ДТ",
+            "quote": "Сложные дедлайны и документы по Италии разложили по шагам. Было понятно, что делать дальше.",
+            "name": "Дана Т.",
+            "meta": "Италия, грант",
+            "proof": "момент доверия: документы без хаоса"
+          }
+        ]
+      },
+      "cases": {
+        "eyebrow": "Кейстер",
+        "title": "Нақты қабылданулар мен гранттар",
+        "copy": "Студенттердің нақты нәтижелерін көрсетеміз: академиялық профиль, университет, бағдарлама және алынған қолдау.",
+        "items": [
+          {
+            "name": "Галина Оверчук",
+            "profile": "GPA 97/100, IELTS 8.5, SAT 1420",
+            "university": "Northwestern Polytechnical University",
+            "result": "Полный грант + стипендия 1500 RMB/мес",
+            "program": "Computer Science and Technology, бакалавриат на английском"
+          },
+          {
+            "name": "Динмухаммед Тасанбаев",
+            "profile": "GPA 100/100, NU GPA 74/100, IELTS 8.0, SAT 1430",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "70% скидка на обучение",
+            "program": "MBA, магистратура на английском"
+          },
+          {
+            "name": "Нурмакова Ясмин",
+            "profile": "GPA 90/100, IELTS 6.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "70% скидка на обучение",
+            "program": "Economics, бакалавриат на английском"
+          },
+          {
+            "name": "Бекберген Исахан",
+            "profile": "GPA 100/100, IELTS 7.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "100% скидка + стипендия 1000 RMB/мес",
+            "program": "Economics, бакалавриат на английском"
+          },
+          {
+            "name": "Ахунов Тимур",
+            "profile": "GPA 100/100, IELTS 6.5",
+            "university": "Beihang University",
+            "result": "100% скидка на обучение",
+            "program": "Mechanical Engineering, бакалавриат на английском"
+          },
+          {
+            "name": "Газизов Амир",
+            "profile": "GPA 100/100, IELTS 6.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "100% скидка на обучение",
+            "program": "Electrical Engineering and Automation, бакалавриат на английском"
+          },
+          {
+            "name": "Тайбек Ботагоз",
+            "profile": "GPA 85/100, Duolingo 100/160",
+            "university": "Nanjing University of Science and Technology",
+            "result": "Бесплатное обучение, проживание, страховка + 3000 RMB/мес",
+            "program": "Computer Science and Technology, магистратура на английском"
+          }
+        ]
+      },
+      "steps": {
+        "eyebrow": "Қалай бастау керек",
+        "title": "Түсу жоспарына дейін үш қадам",
+        "items": [
+          {
+            "number": "01",
+            "title": "Өтінім қалдырыңыз",
+            "text": "Сыныпты, бағдарламаны, елді және шамамен түсу мерзімін көрсетіңіз."
+          },
+          {
+            "number": "02",
+            "title": "Консультациядан өтіңіз",
+            "text": "Сарапшы мүмкіндік, құжаттар, бюджет және қолайлы бағыттарды бағалайды."
+          },
+          {
+            "number": "03",
+            "title": "Маршрут алыңыз",
+            "text": "Университеттер, дедлайндар, бюджет, құжат тізімі және келесі қадам."
+          }
+        ]
+      },
+      "video": {
+        "eyebrow": "Видео пікірлер",
+        "title": "UniQ студенттерінің пікірлерін көріңіз",
+        "copy": "Плейлисте студенттер шетелдік ЖООға түсу, оқу және бейімделу тәжірибесімен бөліседі.",
+        "fallback": "YouTube плейлистін ашу",
+        "cardsTitle": "Student Channel эпизоды"
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Жиі қойылатын сұрақтар",
+        "copy": "Гранттар, құжаттар және сүйемелдеу туралы қысқаша.",
+        "items": [
+          {
+            "question": "Неге UniQ таңдайды?",
+            "answer": "Біз студентті толық сүйемелдейміз: ел мен университет таңдаудан бастап келу, орналасу және бейімделуге дейін."
+          },
+          {
+            "question": "UniQ басқа білім орталықтарынан несімен ерекшеленеді?",
+            "answer": "Біз бәріне бір шаблон ұсынбай, студенттің профиліне, бюджетіне және мақсатына сүйенеміз."
+          },
+          {
+            "question": "Грант немесе жеңілдік алуға бола ма?",
+            "answer": "Иә, студент профилі бағдарлама талаптарына сай келсе, грант және жеңілдік нұсқаларын таңдаймыз."
+          },
+          {
+            "question": "Толық сүйемелдеуге не кіреді?",
+            "answer": "Кәсіби бағдар, бағдарлама таңдау, құжаттар, өтінім, шақыру, виза, ұшу, қарсы алу, жатақхана және бейімделу."
+          },
+          {
+            "question": "Тілді білмей түсуге бола ма?",
+            "answer": "Кей бағыттарда Foundation және тіл курстары бар. Қытай үшін кетер алдында тегін қытай тілі курсын өткіземіз."
+          },
+          {
+            "question": "Келгеннен кейін студентті кім қарсы алады?",
+            "answer": "Команда орнында көмектеседі: қарсы алу, орналасу, SIM-карта, банк картасы, медтексеру және алғашқы тұрмыстық сұрақтар."
+          },
+          {
+            "question": "Қандай құжаттар керек?",
+            "answer": "Тізім елге, университетке және оқу деңгейіне байланысты. Консультацияда жеке чек-лист жасаймыз."
+          },
+          {
+            "question": "Қалай өтінім қалдыруға болады?",
+            "answer": "Сайтта аты-жөніңіз бен телефоныңызды толтырыңыз. Сарапшы хабарласып, алғашқы түсу маршрутын дайындайды."
+          }
+        ]
+      },
+      "map": {
+        "eyebrow": "Байланыс",
+        "title": "Алматы және Ташкенттегі UniQ кеңселері",
+        "copy": "Алматы: Абай 52В, «Байзақ» БО, 332 офис. Ташкент: City Plaza, Махтумкули 79, 5 қабат, 501 офис.",
+        "open": "Картаны ашу"
+      },
+      "footer": {
+        "copy": "Шетелге оқуға түсуге және кампуста бейімделуге дейінгі жолдан өтуге көмектесеміз.",
+        "contactsTitle": "Байланыс",
+        "navTitle": "Навигация",
+        "admin": "Админ-панель"
+      },
+      "form": {
+        "eyebrow": "Тегін консультация",
+        "title": "Түсу жоспарын алыңыз",
+        "copy": "Форманы толтырыңыз, UniQ сарапшысы сізбен байланысып, ең қолайлы маршрутты ұсынады.",
+        "name": "Аты-жөні",
+        "namePlaceholder": "Атыңыз",
+        "phone": "Телефон",
+        "phonePlaceholder": "+7 (___) ___-__-__",
+        "grade": "Қай сыныптасыз?",
+        "program": "Қай бағдарламаға түскіңіз келеді?",
+        "start": "Оқуды қашан бастағыңыз келеді?",
+        "interest": "Қызықтыратын ел",
+        "submit": "Өтінім жіберу",
+        "policy": "Батырманы басу арқылы құпиялылық саясатымен келісесіз.",
+        "successTitle": "Өтінім қабылданды!",
+        "successText": "Сарапшы сізбен байланысып, қолайлы бағдарламалар туралы айтады.",
+        "grades": [
+          "8",
+          "9",
+          "10",
+          "11",
+          "Колледж түлегі",
+          "Студент / ауысқым келеді"
+        ],
+        "programs": [
+          "Бакалавриат",
+          "Магистратура",
+          "Foundation",
+          "Тіл курстары",
+          "Әлі шешкен жоқпын"
+        ],
+        "starts": [
+          "Биыл",
+          "Келесі жылы",
+          "2 жылдан кейін",
+          "Әлі білмеймін"
+        ],
+        "interests": [
+          "Қытай",
+          "Түркия",
+          "Италия",
+          "Грант",
+          "Әлі шешкен жоқпын"
+        ]
+      }
+    },
+    "uz": {
+      "seo": {
+        "title": "UniQ - chet elda o‘qishga to‘liq qabul yordami",
+        "description": "UniQ mamlakat va universitet tanlash, hujjat tayyorlash, Xitoy, Turkiya va Italiyaga kirish hamda kelgandan keyin moslashishga yordam beradi.",
+        "keywords": "chet elda o‘qish, UniQ, University Quest, Xitoy, Turkiya, Italiya, grantlar, Foundation, til kurslari"
+      },
+      "nav": {
+        "about": "Kompaniya",
+        "programs": "Dasturlar",
+        "countries": "Davlatlar",
+        "services": "Xizmatlar",
+        "reviews": "Sharhlar",
+        "cases": "Keyslar",
+        "faq": "FAQ",
+        "contacts": "Aloqa"
+      },
+      "hero": {
+        "eyebrow": "UniQ - chet elda o‘qishga ko‘prik",
+        "titleBefore": "O‘qish yo‘lingiz",
+        "titleAccent": "chet elda",
+        "titleAfter": "shu yerdan boshlanadi",
+        "lead": "Mamlakat va universitet tanlash, hujjat tayyorlash, ariza topshirish va qabul bosqichlaridan o‘tishga yordam beramiz.",
+        "cta": "Ariza qoldirish",
+        "image": ""
+      },
+      "programs": [
+        {
+          "icon": "school",
+          "title": "Bakalavr",
+          "text": "Chet elda birinchi oliy ta’limni olishni istagan maktab va kollej bitiruvchilari uchun."
+        },
+        {
+          "icon": "badge-check",
+          "title": "Magistratura",
+          "text": "Xalqaro daraja olib, karerasini kuchaytirishni istagan universitet bitiruvchilari uchun."
+        },
+        {
+          "icon": "book-open-check",
+          "title": "Foundation",
+          "text": "Universitetga kirishdan oldingi tayyorgarlik dasturi."
+        },
+        {
+          "icon": "award",
+          "title": "Grantlar",
+          "text": "Talaba profili, mamlakat va muddatlarga qarab grantlar, chegirmalar va stipendiyalarni tanlaymiz."
+        },
+        {
+          "icon": "languages",
+          "title": "Til kurslari",
+          "text": "Ketish va moslashishdan oldin xitoy tiliga intensiv tayyorgarlik."
+        },
+        {
+          "icon": "route",
+          "title": "To‘liq qabul yordami",
+          "text": "Mamlakat tanlash va hujjatlardan boshlab qabul, viza, kelish va kampusgacha."
+        }
+      ],
+      "about": {
+        "eyebrow": "Kompaniya haqida",
+        "title": "University Quest talabalar va ota-onalar uchun",
+        "copy": [
+          "UniQ - talabalar chet elda sifatli ta’lim olishi uchun yordam beradigan ta’lim markazi. Biz mamlakat va dastur tanlashdan tortib hujjat topshirish va qabulgacha hamroh bo‘lamiz.",
+          "Xitoy, Turkiya va Italiya universitetlari bilan ishlaymiz, yechimni talabaning maqsadi, til darajasi, akademik tayyorgarligi va byudjetiga qarab tanlaymiz.",
+          "Qabuldan keyin ham jamoa yonida bo‘ladi: aeroportda kutib olish, yotoqxona, bank kartasi, SIM-karta, tibbiy ko‘rik va kampusga moslashish."
+        ],
+        "images": [
+          {
+            "src": "assets/photos/students-airport.webp",
+            "alt": "UniQ talabalari uchishdan oldin aeroportda"
+          },
+          {
+            "src": "assets/photos/students-turkey-street.webp",
+            "alt": "UniQ talabalari chet elda"
+          },
+          {
+            "src": "assets/photos/student-bank-card.webp",
+            "alt": "Bank kartasini olgan UniQ talabasi"
+          }
+        ]
+      },
+      "why": {
+        "title": "Nega UniQ tanlanadi",
+        "items": [
+          {
+            "value": "2000+",
+            "label": "talaba chet elda o‘qishni boshladi"
+          },
+          {
+            "value": "7+",
+            "label": "yil xalqaro qabul tajribasi"
+          },
+          {
+            "value": "34",
+            "label": "kasbiy yo‘naltirishda hisobga olinadigan ko‘nikma va sifat"
+          },
+          {
+            "value": "3",
+            "label": "yo‘nalish: Xitoy, Turkiya va Italiya"
+          }
+        ],
+        "points": [
+          "Universitet va dasturni individual tanlash.",
+          "Qabulning har bosqichida to‘liq hamrohlik.",
+          "Foundation va til kurslari bo‘yicha yordam.",
+          "Qabul, kelish va moslashishgacha qo‘llab-quvvatlash."
+        ]
+      },
+      "universities": {
+        "eyebrow": "Hamkor universitetlar",
+        "title": "Universitetni maqsad, byudjet va imkoniyatga mos tanlaymiz",
+        "items": [
+          {
+            "country": "Xitoy",
+            "name": "Nanjing University of Science and Technology",
+            "text": "Muhandislik, Computer Science va magistratura",
+            "image": "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "China University of Mining and Technology",
+            "text": "Texnik va xalqaro dasturlar",
+            "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "Hubei University of Technology",
+            "text": "Bakalavr, magistratura va Foundation yo‘nalishlari",
+            "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "Kunming Medical University",
+            "text": "Tibbiyot yo‘nalishlari va kampus yordami",
+            "image": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "Hefei University of Technology",
+            "text": "Muhandislik va amaliy mutaxassisliklar",
+            "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "Northwestern Polytechnical University",
+            "text": "Grantlar, stipendiyalar va ingliz tilidagi dasturlar",
+            "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "Wenzhou University",
+            "text": "Xalqaro talabalar uchun dasturlar",
+            "image": "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "Hubei University",
+            "text": "Akademik profil bo‘yicha dastur tanlash",
+            "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=780&q=85"
+          },
+          {
+            "country": "Xitoy",
+            "name": "Heilongjiang University",
+            "text": "Til va akademik yo‘nalishlar",
+            "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=780&q=85"
+          }
+        ]
+      },
+      "services": {
+        "eyebrow": "Xizmatlar",
+        "title": "Qabulning barcha bosqichida individual hamrohlik",
+        "copy": "Biz hujjatlarni ko‘r-ko‘rona yubormaymiz. Avval maqsad, akademik profil va byudjetni tushunib, keyin aniq qabul marshrutini tuzamiz.",
+        "items": [
+          {
+            "icon": "compass",
+            "title": "Kasbiy yo‘naltirish",
+            "text": "Mamlakat va mutaxassislikni tanlash uchun qobiliyat, maqsad va kuchli tomonlarni tahlil qilamiz."
+          },
+          {
+            "icon": "file-check-2",
+            "title": "Hujjatlar va ariza",
+            "text": "Hujjat paketi, tarjimalar, arizalar, esse va tavsiyalarni tayyorlaymiz."
+          },
+          {
+            "icon": "badge-check",
+            "title": "Qabul va viza",
+            "text": "Topshirish, taklifnoma, anketa, moliyaviy hujjatlar va suhbat bo‘yicha hamroh bo‘lamiz."
+          },
+          {
+            "icon": "home",
+            "title": "Kelgandan keyin moslashish",
+            "text": "Kutib olamiz, yotoqxona, SIM-karta, bank kartasi va tibbiy ko‘rikka yordam beramiz."
+          }
+        ]
+      },
+      "moveFear": {
+        "eyebrow": "Qo?rquvsiz ko?chish",
+        "title": "Ko?chish vahimasiz: UniQ byurokratiyani nazorat qiladi",
+        "copy": "Eng katta xavotir universitet tanlashda emas, qabuldan keyin nima bo?lishida. Biz ko?chish marshrutini to?liq ko?rsatamiz va odatda tartibsizlik chiqadigan nuqtalarni o?z zimmamizga olamiz.",
+        "summaryLabel": "Xavotir yopildi",
+        "summaryTitle": "Hujjat, viza, kelish va birinchi 72 soat qadamlar bo?yicha tayyor",
+        "summaryCopy": "Ota-onalar aniq xaritani ko?radi: hujjatni kim tayyorlaydi, talabani kim kutib oladi, birinchi kecha qayerda bo?ladi va kampusda nima qilinadi.",
+        "cta": "Ko?chish xaritasini olish",
+        "timeline": [
+          {
+            "number": "01",
+            "title": "Uchishdan oldin",
+            "text": "Taklifnoma, viza, chiptalar va hujjatlar chek-listi."
+          },
+          {
+            "number": "02",
+            "title": "Yo?lda",
+            "text": "Jamoa bilan aniq aloqa va kelgandan keyin kutib olish."
+          },
+          {
+            "number": "03",
+            "title": "Joyida",
+            "text": "Yotoqxona, SIM, bank kartasi, tibbiy ko?rik."
+          },
+          {
+            "number": "04",
+            "title": "Kampusda",
+            "text": "Ro?yxatdan o?tish, maishiy savollar va moslashish."
+          }
+        ],
+        "items": [
+          {
+            "icon": "file-check-2",
+            "title": "Hujjat paketi",
+            "text": "Har bir ariza bosqichida hujjatlarni yig?amiz, tekshiramiz, tarjima qilamiz va muddatlarni ushlaymiz."
+          },
+          {
+            "icon": "badge-check",
+            "title": "Viza va taklifnoma",
+            "text": "Anketa, moliyaviy hujjatlarni tayyorlaymiz va suhbatgacha nima qilishni tushuntiramiz."
+          },
+          {
+            "icon": "plane",
+            "title": "Kelish va kutib olish",
+            "text": "Talaba aeroportda yolg?iz qolmaydi: jamoa birinchi marshrutga yordam beradi."
+          },
+          {
+            "icon": "home",
+            "title": "Yotoqxona",
+            "text": "Joylashish, kampus qoidalarini tushunish va maishiy savollarni yopishga yordam beramiz."
+          },
+          {
+            "icon": "credit-card",
+            "title": "SIM, bank, tibbiy ko?rik",
+            "text": "Talabaga startda kerak bo?lgan mahalliy rasmiyliklarni hal qilamiz."
+          },
+          {
+            "icon": "map",
+            "title": "Moslashish",
+            "text": "Talaba mamlakat, kampus va o?qish ritmiga o?rganguncha yonida bo?lamiz."
+          }
+        ]
+      },
+      "facts": {
+        "eyebrow": "Natijalar",
+        "title": "Tajriba, sharhlar va real qabullar",
+        "copy": "Yangi mijozlarning ko‘pi bitiruvchilar, do‘stlar va qarindoshlar tavsiyasi bilan keladi. Bu ishonchning asosiy belgisi.",
+        "items": [
+          {
+            "value": 2000,
+            "suffix": "+",
+            "label": "hamrohlik qilingan talaba"
+          },
+          {
+            "value": 7,
+            "suffix": "+",
+            "label": "yil ish tajribasi"
+          },
+          {
+            "value": 3,
+            "suffix": "",
+            "label": "ta’lim davlati"
+          },
+          {
+            "value": 34,
+            "suffix": "",
+            "label": "profil tahlilidagi ko‘nikma"
+          }
+        ]
+      },
+      "countries": {
+        "eyebrow": "Ta’lim davlatlari",
+        "title": "Xitoy, Italiya va Turkiya maqsadingizga mos",
+        "items": [
+          {
+            "name": "Xitoy",
+            "meta": "Bakalavr, magistratura, Foundation, til",
+            "points": [
+              "Bepul xitoy tili kursi",
+              "Imtihonsiz qabul",
+              "Xitoyda to‘liq hamrohlik"
+            ],
+            "result": "Kampus, hujjatlar va moslashish",
+            "image": "assets/photos/students-china-cards.webp"
+          },
+          {
+            "name": "Italiya",
+            "meta": "Bakalavr va magistratura",
+            "points": [
+              "Yevropa diplomi",
+              "Ingliz va italyan tilidagi dasturlar",
+              "Madaniy va talabalik muhiti"
+            ],
+            "result": "Talablar va muddatlarni tanlash",
+            "image": "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=900&q=85"
+          },
+          {
+            "name": "Turkiya",
+            "meta": "Bakalavr va magistratura",
+            "points": [
+              "Qulay narx",
+              "Qulay joylashuv",
+              "Zamonaviy universitetlar"
+            ],
+            "result": "Byudjet va til bo‘yicha tanlash",
+            "image": "assets/photos/students-turkey-street.webp"
+          }
+        ]
+      },
+      "countryDetails": {
+        "eyebrow": "Yo‘nalishlar batafsil",
+        "title": "Har bir davlat bo‘yicha nimalarni bilish muhim",
+        "items": [
+          {
+            "name": "Xitoy",
+            "copy": "Zamonaviy ta’lim, qulay narx va universitetlarning keng tanlovi. Xitoy xalqaro talabalar orasida tobora ommalashmoqda.",
+            "programs": [
+              "Ingliz yoki xitoy tilida bakalavr",
+              "Xalqaro karera uchun magistratura",
+              "Akademik tayyorgarlik uchun Foundation",
+              "Moslashish uchun til kurslari"
+            ],
+            "benefits": [
+              "Reytingli universitetlar",
+              "Qulay o‘qish va yashash narxi",
+              "Xalqaro muhit",
+              "Yotoqxona va laboratoriyali kampuslar"
+            ],
+            "cta": "Qabul imkoniyatini bilish"
+          },
+          {
+            "name": "Italiya",
+            "copy": "Yevropa ta’limi, boy madaniyat va tarixiy universitetlarda xalqaro talabalar uchun qulay dasturlar.",
+            "programs": [
+              "Birinchi oliy ta’lim uchun bakalavr",
+              "Mutaxassislikni kuchaytirish uchun magistratura"
+            ],
+            "benefits": [
+              "Nufuzli universitetlar",
+              "Yevropa namunadagi diplom",
+              "Xalqaro karera imkoniyatlari",
+              "Qulay talabalik muhiti"
+            ],
+            "cta": "Konsultatsiya olish"
+          },
+          {
+            "name": "Turkiya",
+            "copy": "Qozog‘istonga yaqin zamonaviy ta’lim, qulay o‘qish narxi va xalqaro darajadagi diplomlar.",
+            "programs": [
+              "Ingliz yoki turk tilida bakalavr",
+              "Professional o‘sish uchun magistratura"
+            ],
+            "benefits": [
+              "Xalqaro tan olinishi",
+              "Qulay yashash narxi",
+              "Oson logistika",
+              "Faol talabalik hayoti"
+            ],
+            "cta": "Universitet tanlash"
+          }
+        ]
+      },
+      "consult": {
+        "eyebrow": "Birinchi uchrashuv bepul",
+        "title": "Qaysi universitetni tanlashni bilmaysizmi?",
+        "copy": "Ariza qoldiring, biz maqsad, baholar, til darajasi, byudjet va qabul muddatiga qarab dastur tanlaymiz.",
+        "cta": "Universitet tanlash"
+      },
+      "calculator": {
+        "eyebrow": "Kalkulyator",
+        "title": "O‘qish qancha turishi mumkin?",
+        "copy": "Daraja va davlatni tanlang, taxminiy diapazonni ko‘rsatamiz. Aniq rejani ekspert konsultatsiyadan keyin hisoblaydi.",
+        "levelLabel": "Ta’lim darajasi",
+        "countryLabel": "Davlat",
+        "resultLabel": "Taxminiy byudjet",
+        "resultNote": "yiliga, o‘qish, hamrohlik va asosiy xarajatlar alohida muhokama qilinadi",
+        "cta": "Aniq hisob olish",
+        "levels": {
+          "foundation": "Foundation / til kursi",
+          "bachelor": "Bakalavr",
+          "master": "Magistratura"
+        },
+        "countries": {
+          "china": "Xitoy",
+          "turkey": "Turkiya",
+          "italy": "Italiya"
+        },
+        "budgets": {
+          "foundation": {
+            "china": "1,200,000 KZT dan",
+            "turkey": "1,600,000 KZT dan",
+            "italy": "2,100,000 KZT dan"
+          },
+          "bachelor": {
+            "china": "grant bilan 0 KZT dan",
+            "turkey": "1,900,000 KZT dan",
+            "italy": "grant bilan 900,000 KZT dan"
+          },
+          "master": {
+            "china": "1,800,000 KZT dan",
+            "turkey": "2,200,000 KZT dan",
+            "italy": "grant bilan 1,200,000 KZT dan"
+          }
+        }
+      },
+      "reviews": {
+        "eyebrow": "Student Channel",
+        "title": "UniQ qabuli talabalar nigohida",
+        "copy": "Sharhlar jonli lenta kabi: video, qisqa hikoyalar, qabul natijasi va talaba jarayonda yolg‘iz emasligini his qilgan lahza.",
+        "panelLabel": "Hozir kanalda",
+        "panelTitle": "30 video sharh",
+        "panelCopy": "Talabalar davlat tanlash, hujjatlar, kelish, yotoqxona va yangi universitetdagi ilk haftalar haqida gapiradi.",
+        "cta": "Men ham shunday kirmoqchiman",
+        "items": [
+          {
+            "initials": "AK",
+            "quote": "Jamoa Xitoyni tanlash, hujjat yig?ish va barcha bosqichlardan ortiqcha vahimasiz o?tishga yordam berdi. Men qabul qilindim va xotirjam o?qishga ketdim.",
+            "name": "Aruzhan K.",
+            "meta": "Xitoy, bakalavr",
+            "proof": "ishonch lahzasi: uchishgacha aniq reja"
+          },
+          {
+            "initials": "MS",
+            "quote": "Ular shunchaki forma to?ldirmay, dastur nega aynan mening profilimga mosligini tushuntirdi.",
+            "name": "Madi S.",
+            "meta": "Turkiya, Foundation",
+            "proof": "ishonch lahzasi: profilga mos dastur"
+          },
+          {
+            "initials": "DT",
+            "quote": "Italiya bo?yicha murakkab muddatlar va hujjatlar qadamlar bo?yicha tushuntirildi. Keyin nima qilish aniq bo?ldi.",
+            "name": "Dana T.",
+            "meta": "Italiya, grant",
+            "proof": "ishonch lahzasi: hujjatlar tartibli"
+          }
+        ]
+      },
+      "cases": {
+        "eyebrow": "Keyslar",
+        "title": "Real qabullar va grantlar",
+        "copy": "Talabalarning aniq natijalarini ko‘rsatamiz: akademik profil, universitet, dastur va olingan yordam.",
+        "items": [
+          {
+            "name": "Galina Overchuk",
+            "profile": "GPA 97/100, IELTS 8.5, SAT 1420",
+            "university": "Northwestern Polytechnical University",
+            "result": "To?liq grant + 1500 RMB/oy stipendiya",
+            "program": "Computer Science and Technology, bakalavr ingliz tilida"
+          },
+          {
+            "name": "Dinmuhammed Tasanbayev",
+            "profile": "GPA 100/100, NU GPA 74/100, IELTS 8.0, SAT 1430",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "O?qish uchun 70% chegirma",
+            "program": "MBA, magistratura ingliz tilida"
+          },
+          {
+            "name": "Nurmakova Yasmin",
+            "profile": "GPA 90/100, IELTS 6.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "O?qish uchun 70% chegirma",
+            "program": "Economics, bakalavr ingliz tilida"
+          },
+          {
+            "name": "Bekbergen Isakhan",
+            "profile": "GPA 100/100, IELTS 7.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "100% chegirma + 1000 RMB/oy stipendiya",
+            "program": "Economics, bakalavr ingliz tilida"
+          },
+          {
+            "name": "Akhunov Timur",
+            "profile": "GPA 100/100, IELTS 6.5",
+            "university": "Beihang University",
+            "result": "O?qish uchun 100% chegirma",
+            "program": "Mechanical Engineering, bakalavr ingliz tilida"
+          },
+          {
+            "name": "Gazizov Amir",
+            "profile": "GPA 100/100, IELTS 6.0",
+            "university": "Harbin Institute of Technology, Shenzhen",
+            "result": "O?qish uchun 100% chegirma",
+            "program": "Electrical Engineering and Automation, bakalavr ingliz tilida"
+          },
+          {
+            "name": "Taibek Botagoz",
+            "profile": "GPA 85/100, Duolingo 100/160",
+            "university": "Nanjing University of Science and Technology",
+            "result": "Bepul o?qish, turar joy, sug?urta + 3000 RMB/oy",
+            "program": "Computer Science and Technology, magistratura ingliz tilida"
+          }
+        ]
+      },
+      "steps": {
+        "eyebrow": "Qanday boshlash kerak",
+        "title": "Qabul rejasigacha uch qadam",
+        "items": [
+          {
+            "number": "01",
+            "title": "Ariza qoldiring",
+            "text": "Sinf, dastur, davlat va taxminiy qabul muddatini ko‘rsating."
+          },
+          {
+            "number": "02",
+            "title": "Konsultatsiyadan o‘ting",
+            "text": "Ekspert imkoniyat, hujjatlar, byudjet va mos yo‘nalishlarni baholaydi."
+          },
+          {
+            "number": "03",
+            "title": "Marshrut oling",
+            "text": "Universitetlar, muddatlar, byudjet, hujjat ro‘yxati va keyingi qadam."
+          }
+        ]
+      },
+      "video": {
+        "eyebrow": "Video sharhlar",
+        "title": "UniQ talabalari sharhlarini ko‘ring",
+        "copy": "Pleylistda talabalar chet el universitetlariga kirish, o‘qish va moslashish tajribasi bilan bo‘lishadi.",
+        "fallback": "YouTube pleylistini ochish",
+        "cardsTitle": "Student Channel epizodi"
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Ko‘p so‘raladigan savollar",
+        "copy": "Grantlar, hujjatlar va hamrohlik haqida qisqa.",
+        "items": [
+          {
+            "question": "Nega UniQ tanlanadi?",
+            "answer": "Biz talabani to‘liq olib boramiz: davlat va universitet tanlashdan kelish, joylashish va moslashishgacha."
+          },
+          {
+            "question": "UniQ boshqa ta’lim markazlaridan nimasi bilan farq qiladi?",
+            "answer": "Biz hammaga bir xil shablon taklif qilmaymiz, talabaning profili, byudjeti va maqsadiga tayanamiz."
+          },
+          {
+            "question": "Grant yoki chegirma olish mumkinmi?",
+            "answer": "Ha, talaba profili dastur talablariga mos bo‘lsa, grant va chegirma variantlarini tanlaymiz."
+          },
+          {
+            "question": "To‘liq hamrohlikka nimalar kiradi?",
+            "answer": "Kasbiy yo‘naltirish, dastur tanlash, hujjatlar, ariza, taklifnoma, viza, uchish, kutib olish, yotoqxona va moslashish."
+          },
+          {
+            "question": "Tilni bilmasdan kirish mumkinmi?",
+            "answer": "Bir qator yo‘nalishlarda Foundation va til kurslari bor. Xitoy uchun ketishdan oldin bepul xitoy tili kursini o‘tkazamiz."
+          },
+          {
+            "question": "Kelgandan keyin talabani kim kutib oladi?",
+            "answer": "Jamoa joyida yordam beradi: kutib olish, joylashish, SIM-karta, bank kartasi, tibbiy ko‘rik va ilk maishiy savollar."
+          },
+          {
+            "question": "Qanday hujjatlar kerak?",
+            "answer": "Ro‘yxat davlat, universitet va ta’lim darajasiga bog‘liq. Konsultatsiyada shaxsiy chek-list tuzamiz."
+          },
+          {
+            "question": "Qanday ariza qoldiriladi?",
+            "answer": "Saytda ism va telefoningizni yozing. Ekspert siz bilan bog‘lanib, birinchi qabul marshrutini tayyorlaydi."
+          }
+        ]
+      },
+      "map": {
+        "eyebrow": "Aloqa",
+        "title": "Almati va Toshkentdagi UniQ ofislari",
+        "copy": "Almati: Abay 52V, «Bayzak» biznes markazi, 332-ofis. Toshkent: City Plaza, Maxtumquli 79, 5-qavat, 501-ofis.",
+        "open": "Xaritani ochish"
+      },
+      "footer": {
+        "copy": "Chet elga o‘qishga kirish va kampusga moslashishgacha bo‘lgan yo‘lda yordam beramiz.",
+        "contactsTitle": "Aloqa",
+        "navTitle": "Navigatsiya",
+        "admin": "Admin panel"
+      },
+      "form": {
+        "eyebrow": "Bepul konsultatsiya",
+        "title": "Qabul rejasini oling",
+        "copy": "Formani to‘ldiring, UniQ eksperti siz bilan bog‘lanib, eng yaxshi marshrutni taklif qiladi.",
+        "name": "Ism",
+        "namePlaceholder": "Ismingiz",
+        "phone": "Telefon",
+        "phonePlaceholder": "+7 (___) ___-__-__",
+        "grade": "Qaysi sinfdasiz?",
+        "program": "Qaysi dasturga kirmoqchisiz?",
+        "start": "O‘qishni qachon boshlamoqchisiz?",
+        "interest": "Qiziqtirgan davlat",
+        "submit": "Ariza yuborish",
+        "policy": "Tugmani bosish orqali maxfiylik siyosatiga rozilik bildirasiz.",
+        "successTitle": "Ariza qabul qilindi!",
+        "successText": "Ekspert siz bilan bog‘lanib, mos dasturlar haqida aytadi.",
+        "grades": [
+          "8",
+          "9",
+          "10",
+          "11",
+          "Kollej bitiruvchisi",
+          "Talaba / ko‘chmoqchiman"
+        ],
+        "programs": [
+          "Bakalavr",
+          "Magistratura",
+          "Foundation",
+          "Til kurslari",
+          "Hali aniqlamadim"
+        ],
+        "starts": [
+          "Bu yil",
+          "Keyingi yil",
+          "2 yildan keyin",
+          "Hali bilmayman"
+        ],
+        "interests": [
+          "Xitoy",
+          "Turkiya",
+          "Italiya",
+          "Grant",
+          "Hali aniqlamadim"
         ]
       }
     }
