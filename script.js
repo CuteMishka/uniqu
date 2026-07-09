@@ -99,10 +99,17 @@ const interactiveCardSelector = [
   ".why-card",
   ".about-photo",
   ".step",
+  ".gpa-calculator__shell",
+  ".gpa-row",
+  ".gpa-result",
   ".faq-item",
   ".student-channel__panel",
   ".youtube-player",
-  ".integration-shell"
+  ".integration-shell",
+  ".country-hero__panel",
+  ".country-page-card",
+  ".country-program-card",
+  ".country-requirements__list article"
 ].join(", ");
 
 const motionTargetSelector = [
@@ -110,10 +117,12 @@ const motionTargetSelector = [
   ".ghost-link",
   ".carousel-button",
   ".icon-button",
+  ".gpa-add-row",
+  ".gpa-row__remove",
   ".integration-link",
   ".desktop-nav a",
   ".mobile-menu a",
-  ".faq-item summary",
+  ".faq-item__question",
   ".country-detail-tab"
 ].join(", ");
 
@@ -413,13 +422,21 @@ menu.querySelectorAll("a, [data-open-modal]").forEach((item) => {
 });
 
 document.addEventListener("click", (event) => {
-  const summary = event.target instanceof Element ? event.target.closest(".faq-item summary") : null;
-  if (!summary) return;
-  const current = summary.closest(".faq-item");
-  if (!current || current.open) return;
-  document.querySelectorAll(".faq-item[open]").forEach((item) => {
-    if (item !== current) item.removeAttribute("open");
+  const question = event.target instanceof Element ? event.target.closest(".faq-item__question") : null;
+  if (!question) return;
+
+  const current = question.closest(".faq-item");
+  if (!current) return;
+
+  const willOpen = !current.classList.contains("is-open");
+  document.querySelectorAll(".faq-item.is-open").forEach((item) => {
+    if (item === current) return;
+    item.classList.remove("is-open");
+    item.querySelector(".faq-item__question")?.setAttribute("aria-expanded", "false");
   });
+
+  current.classList.toggle("is-open", willOpen);
+  question.setAttribute("aria-expanded", String(willOpen));
 });
 
 const lavaCursor = document.querySelector(".lava-cursor");
@@ -454,7 +471,7 @@ if (canUseLavaCursor) {
     { selector: "button, .primary-button, .carousel-button, .icon-button, .country-detail-tab", state: "is-button" },
     {
       selector:
-        ".country, .program-card, .review, .university-card, .service-item, .fact, .step, .calculator__panel, .result-box, .country-detail-panel, .move-card, .case-card, .why-card, .about-photo",
+        ".country, .program-card, .review, .university-card, .service-item, .fact, .step, .calculator__panel, .result-box, .country-detail-panel, .move-card, .case-card, .why-card, .about-photo, .country-hero__panel, .country-page-card, .country-program-card",
       state: "is-media",
     },
     { selector: "a, [role='button']", state: "is-link" },

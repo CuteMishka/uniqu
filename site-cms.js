@@ -2,7 +2,8 @@
   const state = {
     content: null,
     lang: "ru",
-    budgets: null
+    budgets: null,
+    gpa: null
   };
 
   const qs = (selector, root = document) => root.querySelector(selector);
@@ -436,19 +437,23 @@
     html(".countries h2", escapeHtml(t.countries.title).replace(/страну|елді|country|davlatni/i, (match) => `<em>${match}</em>`));
     const grid = qs(".country-grid");
     if (!grid) return;
+    const countrySlugs = ["china", "italy", "turkey"];
     grid.innerHTML = t.countries.items
-      .map(
-        (item) => `
-          <article class="country reveal" style="--country-image: url('${escapeHtml(item.image)}')">
+      .map((item, index) => {
+        const slug = item.slug || countrySlugs[index] || "";
+        const href = slug ? `/${slug}` : "#contacts";
+        return `
+          <a class="country reveal" href="${escapeHtml(href)}" aria-label="${escapeHtml(item.name)}" style="--country-image: url('${escapeHtml(item.image)}')">
             <div>
               <p>${escapeHtml(item.meta)}</p>
               <h3>${escapeHtml(item.name)}</h3>
             </div>
             <ul>${item.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>
             <span>${escapeHtml(item.result)}</span>
-          </article>
-        `
-      )
+            <strong class="country__more">${escapeHtml(t.countries.moreLabel || "Узнать больше")}</strong>
+          </a>
+        `;
+      })
       .join("");
   };
 
@@ -565,6 +570,122 @@
     result.textContent = state.budgets[levelSelect.value]?.[countrySelect.value] || "";
   };
 
+  const getGpaLabels = () => state.gpa || getTranslation().gpa || {};
+
+  const updateGpaLabels = () => {
+    const labels = getGpaLabels();
+    qsa("[data-gpa-subject-label]").forEach((item) => {
+      item.textContent = labels.subjectLabel || "Subject";
+    });
+    qsa("[data-gpa-grade-label]").forEach((item) => {
+      item.textContent = labels.gradeLabel || "Grade";
+    });
+    qsa("[data-gpa-credit-label]").forEach((item) => {
+      item.textContent = labels.creditLabel || "Credit";
+    });
+    qsa("[data-gpa-remove]").forEach((button) => {
+      button.setAttribute("aria-label", labels.removeLabel || "Remove subject");
+    });
+  };
+
+  const createGpaRow = () => {
+    const labels = getGpaLabels();
+    const row = document.createElement("div");
+    row.className = "gpa-row is-added";
+    row.dataset.gpaRow = "true";
+    row.innerHTML = `
+      <label>
+        <span data-gpa-subject-label>${escapeHtml(labels.subjectLabel || "Subject")}</span>
+        <input type="text" placeholder="${escapeHtml(labels.subjectPlaceholder || "Subject")}" />
+      </label>
+      <label>
+        <span data-gpa-grade-label>${escapeHtml(labels.gradeLabel || "Grade")}</span>
+        <input data-gpa-grade type="number" min="0" max="100" step="0.1" placeholder="90" />
+      </label>
+      <label>
+        <span data-gpa-credit-label>${escapeHtml(labels.creditLabel || "Credit")}</span>
+        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
+      </label>
+      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="${escapeHtml(labels.removeLabel || "Remove subject")}">×</button>
+    `;
+    return row;
+  };
+
+  const updateGpaCalculator = () => {
+    const labels = getGpaLabels();
+    const averageElement = qs("[data-gpa-average]");
+    const gpaElement = qs("[data-gpa-four]");
+    const noteElement = qs("[data-gpa-note]");
+    const resultBox = qs(".gpa-result");
+    const meter = qs("[data-gpa-meter]");
+    if (!averageElement || !gpaElement || !noteElement) return;
+
+    let weightedSum = 0;
+    let creditSum = 0;
+
+    qsa("[data-gpa-row]").forEach((row) => {
+      const gradeInput = qs("[data-gpa-grade]", row);
+      const gradeText = String(gradeInput?.value || "").trim();
+      if (!gradeText) return;
+
+      const grade = Number(gradeText);
+      const creditValue = Number(qs("[data-gpa-credit]", row)?.value);
+      const credits = Number.isFinite(creditValue) && creditValue > 0 ? creditValue : 1;
+
+      if (!Number.isFinite(grade) || grade < 0 || grade > 100) return;
+
+      weightedSum += grade * credits;
+      creditSum += credits;
+    });
+
+    if (!creditSum) {
+      averageElement.textContent = "—";
+      gpaElement.textContent = `${labels.gpaPrefix || "GPA"} — / 4.0`;
+      noteElement.textContent = labels.emptyNote || "";
+      resultBox?.style.setProperty("--gpa-progress", "0%");
+      if (meter) meter.style.transform = "scaleX(0)";
+      return;
+    }
+
+    const average = weightedSum / creditSum;
+    const gpa = Math.min(4, Math.max(0, average / 25));
+    averageElement.textContent = average.toFixed(1);
+    gpaElement.textContent = `${labels.gpaPrefix || "GPA"} ${gpa.toFixed(2)} / 4.0`;
+    resultBox?.style.setProperty("--gpa-progress", `${Math.max(0, Math.min(100, average))}%`);
+    if (meter) meter.style.transform = `scaleX(${Math.max(0, Math.min(100, average)) / 100})`;
+    if (resultBox && !resultBox.classList.contains("is-updating")) {
+      resultBox.classList.add("is-updating");
+      window.setTimeout(() => resultBox.classList.remove("is-updating"), 420);
+    }
+
+    const note =
+      average >= 90
+        ? labels.strongNote
+        : average >= 80
+          ? labels.goodNote
+          : average >= 70
+            ? labels.okNote
+            : labels.lowNote;
+    noteElement.textContent = note || "";
+  };
+
+  const renderGpaCalculator = (t) => {
+    const section = t.gpa;
+    if (!section) return;
+    state.gpa = section;
+
+    text(".gpa-calculator .eyebrow", section.eyebrow);
+    text(".gpa-calculator h2", section.title);
+    text(".gpa-calculator .section-copy", section.copy);
+    text(".gpa-form__head span", section.formTitle);
+    text(".gpa-form__head small", section.formHint);
+    text("[data-gpa-add-row]", section.addRow);
+    text(".gpa-result__label", section.resultLabel);
+    text(".gpa-result em", section.disclaimer);
+    updateGpaLabels();
+    updateGpaCalculator();
+  };
+
   const renderReviews = (t) => {
     const section = t.reviews;
     text(".reviews .eyebrow", section.eyebrow);
@@ -604,10 +725,16 @@
     list.innerHTML = section.items
       .map(
         (item, index) => `
-          <details class="faq-item reveal" ${index === 0 ? "open" : ""}>
-            <summary>${escapeHtml(item.question)}</summary>
-            <p>${escapeHtml(item.answer)}</p>
-          </details>
+          <article class="faq-item reveal${index === 0 ? " is-open" : ""}">
+            <button class="faq-item__question" type="button" aria-expanded="${index === 0 ? "true" : "false"}">
+              <span>${escapeHtml(item.question)}</span>
+            </button>
+            <div class="faq-item__body" role="region">
+              <div class="faq-item__answer">
+                <p>${escapeHtml(item.answer)}</p>
+              </div>
+            </div>
+          </article>
         `
       )
       .join("");
@@ -831,6 +958,35 @@
     });
   };
 
+  const bindGpaCalculator = () => {
+    const form = qs("[data-gpa-form]");
+    const rows = qs("[data-gpa-rows]");
+    if (!form || !rows || form.dataset.gpaBound) return;
+    form.dataset.gpaBound = "true";
+
+    form.addEventListener("input", updateGpaCalculator);
+    form.addEventListener("click", (event) => {
+      const addButton = event.target instanceof Element ? event.target.closest("[data-gpa-add-row]") : null;
+      if (addButton) {
+        const row = createGpaRow();
+        rows.appendChild(row);
+        window.setTimeout(() => row.classList.remove("is-added"), 460);
+        updateGpaCalculator();
+        window.initMotionSystem?.(rows);
+        return;
+      }
+
+      const removeButton = event.target instanceof Element ? event.target.closest("[data-gpa-remove]") : null;
+      if (!removeButton) return;
+
+      const row = removeButton.closest("[data-gpa-row]");
+      if (row && qsa("[data-gpa-row]").length > 1) {
+        row.remove();
+        updateGpaCalculator();
+      }
+    });
+  };
+
   const bindModalTriggers = () => {
     qsa("[data-open-modal]").forEach((button) => {
       if (button.dataset.cmsModalBound) return;
@@ -846,6 +1002,7 @@
     renderNav(t);
     renderHero(t);
     renderPrograms(t);
+    renderGpaCalculator(t);
     renderAbout(t);
     renderUniversities(t);
     renderServices(t);
@@ -864,6 +1021,7 @@
     renderForm(t);
     bindLeadForm();
     bindCalculator();
+    bindGpaCalculator();
     bindModalTriggers();
     window.initMotionSystem?.();
     window.initCounters?.();

@@ -345,6 +345,7 @@
       "countries": {
         "eyebrow": "Страны обучения",
         "title": "Китай, Италия и Турция под вашу цель",
+        "moreLabel": "Узнать больше",
         "items": [
           {
             "name": "Китай",
@@ -476,6 +477,27 @@
             "italy": "от 1 200 000 ₸ при гранте"
           }
         }
+      },
+      "gpa": {
+        "eyebrow": "GPA калькулятор",
+        "title": "Проверьте академический профиль до подбора вуза",
+        "copy": "Введите оценки по 100-балльной шкале. Мы покажем средний балл и примерный GPA по шкале 4.0.",
+        "formTitle": "Оценки",
+        "formHint": "Кредиты можно оставить 1",
+        "subjectLabel": "Предмет",
+        "gradeLabel": "Оценка",
+        "creditLabel": "Кредит",
+        "subjectPlaceholder": "Предмет",
+        "removeLabel": "Удалить предмет",
+        "addRow": "+ Добавить предмет",
+        "resultLabel": "Ваш средний балл",
+        "gpaPrefix": "GPA",
+        "emptyNote": "Введите хотя бы одну оценку от 0 до 100.",
+        "strongNote": "Сильный профиль для грантов и рейтинговых программ.",
+        "goodNote": "Хороший профиль: можно подбирать несколько стран и программ.",
+        "okNote": "Профиль рабочий, но стоит усилить стратегию и документы.",
+        "lowNote": "Нужен аккуратный маршрут: Foundation, языковая подготовка или запасные варианты.",
+        "disclaimer": "Это ориентир: университет может считать GPA по своей шкале."
       },
       "reviews": {
         "eyebrow": "Student Channel",
@@ -977,6 +999,7 @@
       "countries": {
         "eyebrow": "Study destinations",
         "title": "China, Italy and Turkey for your goal",
+        "moreLabel": "Learn more",
         "items": [
           {
             "name": "China",
@@ -1108,6 +1131,27 @@
             "italy": "from 1,200,000 KZT with grant"
           }
         }
+      },
+      "gpa": {
+        "eyebrow": "GPA calculator",
+        "title": "Check your academic profile before choosing a university",
+        "copy": "Enter grades on a 100-point scale. We will show your average score and an approximate GPA on a 4.0 scale.",
+        "formTitle": "Grades",
+        "formHint": "You can leave credits as 1",
+        "subjectLabel": "Subject",
+        "gradeLabel": "Grade",
+        "creditLabel": "Credit",
+        "subjectPlaceholder": "Subject",
+        "removeLabel": "Remove subject",
+        "addRow": "+ Add subject",
+        "resultLabel": "Your average score",
+        "gpaPrefix": "GPA",
+        "emptyNote": "Enter at least one grade from 0 to 100.",
+        "strongNote": "Strong profile for grants and ranked programs.",
+        "goodNote": "Good profile: we can compare several countries and programs.",
+        "okNote": "Workable profile, but the strategy and documents should be stronger.",
+        "lowNote": "You need a careful route: Foundation, language preparation or backup options.",
+        "disclaimer": "This is a guide: each university may calculate GPA by its own scale."
       },
       "reviews": {
         "eyebrow": "Student Channel",
@@ -1340,9 +1384,9 @@
       },
       "hero": {
         "eyebrow": "UniQ - шетелде оқуға көпір",
-        "titleBefore": "Оқу жолыңыз",
-        "titleAccent": "шетелде",
-        "titleAfter": "осы жерден басталады",
+        "titleBefore": "Шетелде оқу жолыңыз",
+        "titleAccent": "осы жерден",
+        "titleAfter": "басталады",
         "lead": "Ел мен университет таңдауға, құжат дайындауға, өтінім беруге және барлық түсу кезеңінен өтуге көмектесеміз.",
         "cta": "Өтінім қалдыру",
         "image": ""
@@ -1609,6 +1653,7 @@
       "countries": {
         "eyebrow": "Оқу елдері",
         "title": "Қытай, Италия және Түркия мақсатыңызға сай",
+        "moreLabel": "Толығырақ",
         "items": [
           {
             "name": "Қытай",
@@ -1740,6 +1785,27 @@
             "italy": "от 1 200 000 ₸ при гранте"
           }
         }
+      },
+      "gpa": {
+        "eyebrow": "GPA калькулятор",
+        "title": "Университет таңдаудан бұрын академиялық профиліңізді тексеріңіз",
+        "copy": "Бағаларыңызды 100 балдық шкала бойынша енгізіңіз. Орташа балл мен 4.0 шкаласындағы шамамен GPA көрсетеміз.",
+        "formTitle": "Бағалар",
+        "formHint": "Кредитті 1 деп қалдыруға болады",
+        "subjectLabel": "Пән",
+        "gradeLabel": "Баға",
+        "creditLabel": "Кредит",
+        "subjectPlaceholder": "Пән",
+        "removeLabel": "Пәнді өшіру",
+        "addRow": "+ Пән қосу",
+        "resultLabel": "Орташа балыңыз",
+        "gpaPrefix": "GPA",
+        "emptyNote": "0-ден 100-ге дейін кемінде бір баға енгізіңіз.",
+        "strongNote": "Гранттар мен рейтингтік бағдарламалар үшін мықты профиль.",
+        "goodNote": "Жақсы профиль: бірнеше ел мен бағдарламаны салыстыруға болады.",
+        "okNote": "Профиль жарамды, бірақ стратегия мен құжаттарды күшейткен дұрыс.",
+        "lowNote": "Мұқият маршрут қажет: Foundation, тіл дайындығы немесе қосымша нұсқалар.",
+        "disclaimer": "Бұл тек бағдар: әр университет GPA-ны өз шкаласымен есептеуі мүмкін."
       },
       "reviews": {
         "eyebrow": "Student Channel",
@@ -2241,6 +2307,7 @@
       "countries": {
         "eyebrow": "Ta’lim davlatlari",
         "title": "Xitoy, Italiya va Turkiya maqsadingizga mos",
+        "moreLabel": "Batafsil",
         "items": [
           {
             "name": "Xitoy",
@@ -2372,6 +2439,27 @@
             "italy": "grant bilan 1,200,000 KZT dan"
           }
         }
+      },
+      "gpa": {
+        "eyebrow": "GPA kalkulyator",
+        "title": "Universitet tanlashdan oldin akademik profilingizni tekshiring",
+        "copy": "Baholarni 100 ballik shkala bo‘yicha kiriting. O‘rtacha ball va 4.0 shkalasidagi taxminiy GPA ko‘rsatiladi.",
+        "formTitle": "Baholar",
+        "formHint": "Kreditni 1 qilib qoldirish mumkin",
+        "subjectLabel": "Fan",
+        "gradeLabel": "Baho",
+        "creditLabel": "Kredit",
+        "subjectPlaceholder": "Fan",
+        "removeLabel": "Fanni o‘chirish",
+        "addRow": "+ Fan qo‘shish",
+        "resultLabel": "O‘rtacha balingiz",
+        "gpaPrefix": "GPA",
+        "emptyNote": "0 dan 100 gacha kamida bitta baho kiriting.",
+        "strongNote": "Grantlar va reytingli dasturlar uchun kuchli profil.",
+        "goodNote": "Yaxshi profil: bir nechta mamlakat va dasturni solishtirish mumkin.",
+        "okNote": "Profil ishlaydi, ammo strategiya va hujjatlarni kuchaytirish kerak.",
+        "lowNote": "Ehtiyotkor yo‘l kerak: Foundation, til tayyorgarligi yoki zaxira variantlar.",
+        "disclaimer": "Bu taxminiy ko‘rsatkich: har bir universitet GPA-ni o‘z shkalasida hisoblaydi."
       },
       "reviews": {
         "eyebrow": "Student Channel",

@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://uniqu.kz/?lang=en" />
     <link rel="alternate" hreflang="uz" href="https://uniqu.kz/?lang=uz" />
     <link rel="alternate" hreflang="x-default" href="https://uniqu.kz/" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=company-logo" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -161,6 +161,80 @@
               </article>
             </section>
 
+      <section class="section gpa-calculator" id="gpa">
+              <div class="gpa-calculator__intro reveal">
+                <p class="eyebrow">GPA калькулятор</p>
+                <h2>Проверьте академический профиль до подбора вуза</h2>
+                <p class="section-copy">Введите оценки по 100-балльной шкале. Мы покажем средний балл и примерный GPA по шкале 4.0.</p>
+              </div>
+              <div class="gpa-calculator__shell reveal">
+                <form class="gpa-form" data-gpa-form>
+                  <div class="gpa-form__head">
+                    <span>Оценки</span>
+                    <small>Кредиты можно оставить 1</small>
+                  </div>
+                  <div class="gpa-form__rows" data-gpa-rows>
+                    <div class="gpa-row" data-gpa-row>
+                      <label>
+                        <span data-gpa-subject-label>Предмет</span>
+                        <input type="text" placeholder="Математика" />
+                      </label>
+                      <label>
+                        <span data-gpa-grade-label>Оценка</span>
+                        <input data-gpa-grade type="number" min="0" max="100" step="0.1" value="95" />
+                      </label>
+                      <label>
+                        <span data-gpa-credit-label>Кредит</span>
+                        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
+                      </label>
+                      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="Удалить предмет">×</button>
+                    </div>
+                    <div class="gpa-row" data-gpa-row>
+                      <label>
+                        <span data-gpa-subject-label>Предмет</span>
+                        <input type="text" placeholder="Английский" />
+                      </label>
+                      <label>
+                        <span data-gpa-grade-label>Оценка</span>
+                        <input data-gpa-grade type="number" min="0" max="100" step="0.1" value="88" />
+                      </label>
+                      <label>
+                        <span data-gpa-credit-label>Кредит</span>
+                        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
+                      </label>
+                      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="Удалить предмет">×</button>
+                    </div>
+                    <div class="gpa-row" data-gpa-row>
+                      <label>
+                        <span data-gpa-subject-label>Предмет</span>
+                        <input type="text" placeholder="История" />
+                      </label>
+                      <label>
+                        <span data-gpa-grade-label>Оценка</span>
+                        <input data-gpa-grade type="number" min="0" max="100" step="0.1" value="91" />
+                      </label>
+                      <label>
+                        <span data-gpa-credit-label>Кредит</span>
+                        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
+                      </label>
+                      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="Удалить предмет">×</button>
+                    </div>
+                  </div>
+                  <button class="gpa-add-row" type="button" data-gpa-add-row>+ Добавить предмет</button>
+                </form>
+                <aside class="gpa-result" aria-live="polite">
+                  <span class="gpa-result__label">Ваш средний балл</span>
+                  <strong data-gpa-average>91.3</strong>
+                  <small data-gpa-four>GPA 3.65 / 4.0</small>
+                  <span class="gpa-result__meter" aria-hidden="true">
+                    <span data-gpa-meter style="transform: scaleX(0.913)"></span>
+                  </span>
+                  <p data-gpa-note>Сильный профиль для грантов и рейтинговых программ.</p>
+                  <em>Это ориентир: университет может считать GPA по своей шкале.</em>
+                </aside>
+              </div>
+            </section>
+
       <section class="section about" id="about">
               <div class="about-layout">
                 <div class="section-head reveal">
@@ -246,7 +320,7 @@
                 <h2>Китай, Италия и Турция под вашу цель</h2>
               </div>
               <div class="country-grid">
-                <article class="country country--china reveal">
+                <a class="country country--china reveal" href="/china" aria-label="Китай">
                   <div>
                     <p>Бакалавриат, магистратура, Foundation, язык</p>
                     <h3>Китай</h3>
@@ -257,8 +331,9 @@
                     <li>Полное сопровождение в Китае</li>
                   </ul>
                   <span>Кампус, документы и адаптация</span>
-                </article>
-                <article class="country country--italy reveal">
+                  <strong class="country__more">Узнать больше</strong>
+                </a>
+                <a class="country country--italy reveal" href="/italy" aria-label="Италия">
                   <div>
                     <p>Бакалавриат и магистратура</p>
                     <h3>Италия</h3>
@@ -269,8 +344,9 @@
                     <li>Культурная и студенческая среда</li>
                   </ul>
                   <span>Подбор требований и дедлайнов</span>
-                </article>
-                <article class="country country--turkey reveal">
+                  <strong class="country__more">Узнать больше</strong>
+                </a>
+                <a class="country country--turkey reveal" href="/turkey" aria-label="Турция">
                   <div>
                     <p>Бакалавриат и магистратура</p>
                     <h3>Турция</h3>
@@ -281,7 +357,8 @@
                     <li>Современные университеты</li>
                   </ul>
                   <span>Подбор по бюджету и языку</span>
-                </article>
+                  <strong class="country__more">Узнать больше</strong>
+                </a>
               </div>
             </section>
 
@@ -619,18 +696,36 @@
                 <p class="section-copy">Коротко о грантах, документах и сопровождении.</p>
               </div>
               <div class="faq-list">
-                <details class="faq-item reveal" open>
-                  <summary>Почему выбирают UniQ?</summary>
-                  <p>Мы ведем студента под ключ: от выбора страны и университета до прилета, заселения и адаптации.</p>
-                </details>
-                <details class="faq-item reveal">
-                  <summary>Можно ли получить грант или скидку?</summary>
-                  <p>Да, мы подбираем грантовые и скидочные варианты, если профиль студента подходит под требования программы.</p>
-                </details>
-                <details class="faq-item reveal">
-                  <summary>Кто встретит студента после прилета?</summary>
-                  <p>Команда помогает на месте: встреча, заселение, SIM-карта, банковская карта, медосмотр и первые бытовые вопросы.</p>
-                </details>
+                <article class="faq-item reveal is-open">
+                  <button class="faq-item__question" type="button" aria-expanded="true">
+                    <span>Почему выбирают UniQ?</span>
+                  </button>
+                  <div class="faq-item__body" role="region">
+                    <div class="faq-item__answer">
+                      <p>Мы ведем студента под ключ: от выбора страны и университета до прилета, заселения и адаптации.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="faq-item reveal">
+                  <button class="faq-item__question" type="button" aria-expanded="false">
+                    <span>Можно ли получить грант или скидку?</span>
+                  </button>
+                  <div class="faq-item__body" role="region">
+                    <div class="faq-item__answer">
+                      <p>Да, мы подбираем грантовые и скидочные варианты, если профиль студента подходит под требования программы.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="faq-item reveal">
+                  <button class="faq-item__question" type="button" aria-expanded="false">
+                    <span>Кто встретит студента после прилета?</span>
+                  </button>
+                  <div class="faq-item__body" role="region">
+                    <div class="faq-item__answer">
+                      <p>Команда помогает на месте: встреча, заселение, SIM-карта, банковская карта, медосмотр и первые бытовые вопросы.</p>
+                    </div>
+                  </div>
+                </article>
               </div>
             </section>
 

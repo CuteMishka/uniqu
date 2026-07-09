@@ -66,6 +66,22 @@ const safeStaticPath = (urlPath) => {
     return null;
   }
 
+  if (fs.existsSync(fullPath) && fs.statSync(fullPath).isDirectory()) {
+    return path.join(fullPath, "index.html");
+  }
+
+  if (!path.extname(fullPath)) {
+    const htmlPath = `${fullPath}.html`;
+    if (fs.existsSync(htmlPath)) {
+      return htmlPath;
+    }
+
+    const indexPath = path.join(fullPath, "index.html");
+    if (fs.existsSync(indexPath)) {
+      return indexPath;
+    }
+  }
+
   return fullPath;
 };
 
