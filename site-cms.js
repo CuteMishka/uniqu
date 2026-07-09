@@ -56,10 +56,13 @@
 
   const getLangFromUrl = () => new URLSearchParams(window.location.search).get("lang");
 
-  const setCurrentLang = (lang) => {
+  const setCurrentLang = (lang, options = {}) => {
+    const { persist = true } = options;
     const available = state.content.settings.languages.map((item) => item.code);
     state.lang = available.includes(lang) ? lang : state.content.settings.defaultLanguage;
-    localStorage.setItem("uniqu-lang", state.lang);
+    if (persist) {
+      localStorage.setItem("uniqu-lang", state.lang);
+    }
     document.documentElement.lang = state.lang === "kz" ? "kk" : state.lang;
   };
 
@@ -1033,7 +1036,16 @@
 
   const init = async () => {
     state.content = await fetchContent();
-    setCurrentLang(getLangFromUrl() || localStorage.getItem("uniqu-lang") || state.content.settings.defaultLanguage);
+    const available = state.content.settings.languages.map((item) => item.code);
+    const hasExplicitLanguage = Boolean(getLangFromUrl() || localStorage.getItem("uniqu-lang"));
+    const initialLanguage = window.UniqGeoLanguage
+      ? await window.UniqGeoLanguage.detectDefaultLanguage({
+          available,
+          fallback: state.content.settings.defaultLanguage
+        })
+      : getLangFromUrl() || localStorage.getItem("uniqu-lang") || state.content.settings.defaultLanguage;
+
+    setCurrentLang(initialLanguage, { persist: hasExplicitLanguage });
     renderSite();
   };
 

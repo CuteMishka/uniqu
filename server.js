@@ -57,6 +57,35 @@ const readBody = (req) =>
     req.on("error", reject);
   });
 
+const normalizeCountry = (value) => {
+  const country = String(value || "")
+    .trim()
+    .slice(0, 2)
+    .toUpperCase();
+  return /^[A-Z]{2}$/.test(country) ? country : null;
+};
+
+const getRequestCountry = (req) => {
+  const countryHeaders = [
+    "cf-ipcountry",
+    "x-vercel-ip-country",
+    "cloudfront-viewer-country",
+    "x-appengine-country",
+    "x-country-code",
+    "x-country",
+    "x-forwarded-country",
+    "fastly-geo-country-code",
+    "x-nf-country"
+  ];
+
+  for (const header of countryHeaders) {
+    const country = normalizeCountry(req.headers[header]);
+    if (country && country !== "XX") return country;
+  }
+
+  return null;
+};
+
 const safeStaticPath = (urlPath) => {
   const cleanPath = decodeURIComponent(urlPath.split("?")[0]);
   const relativePath = cleanPath === "/" ? "index.html" : cleanPath.replace(/^\/+/, "");
@@ -88,6 +117,19 @@ const safeStaticPath = (urlPath) => {
 const handleApi = async (req, res, url) => {
   if (url.pathname === "/api/health") {
     sendJson(res, 200, { ok: true });
+    return true;
+  }
+
+  if (url.pathname === "/api/geo-language" && req.method === "GET") {
+    const queryCountry = normalizeCountry(url.searchParams.get("country"));
+    const country = queryCountry || getRequestCountry(req);
+
+    sendJson(res, 200, {
+      ok: true,
+      country,
+      lang: country === "UZ" ? "uz" : "ru",
+      source: queryCountry ? "query" : country ? "header" : "default"
+    });
     return true;
   }
 
