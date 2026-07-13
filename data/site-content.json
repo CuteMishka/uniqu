@@ -34,6 +34,9 @@
         "+77005008926"
       ],
       "whatsapp": "77005002146",
+      "uzPhone": "",
+      "uzPhoneLink": "",
+      "telegramUrl": "",
       "email": "office@uniqu.kz",
       "address": "г. Алматы, Абая 52В, БЦ «Байзак», 332 офис",
       "extraAddresses": [
@@ -54,14 +57,15 @@
         "8kOUxJ_CdKw",
         "18eIf7Ic9pw"
       ],
-      "mapQuery": "Алматы Абая 52В БЦ Байзак 332 офис"
+      "mapQuery": "Алматы Абая 52В БЦ Байзак 332 офис",
+      "clarityProjectId": ""
     }
   },
   "translations": {
     "ru": {
       "seo": {
-        "title": "UniQ - поступление за рубеж под ключ",
-        "description": "UniQ помогает выбрать страну и университет, подготовить документы, поступить в Китай, Турцию и Италию и пройти адаптацию после прилета.",
+        "title": "Поступление в Китай с грантом | UniQ",
+        "description": "UniQ подбирает университеты и гранты в Китае, готовит документы и визу, организует перелёт, заселение и адаптацию студента.",
         "keywords": "поступление за рубеж, UniQ, University Quest, Китай, Турция, Италия, гранты, Foundation, языковые курсы"
       },
       "nav": {
@@ -75,13 +79,54 @@
         "contacts": "Контакты"
       },
       "hero": {
-        "eyebrow": "UniQ - мост к обучению за рубежом",
-        "titleBefore": "Ваш путь к обучению",
-        "titleAccent": "за рубежом",
-        "titleAfter": "начинается здесь",
-        "lead": "Помогаем выбрать страну и университет, подготовить документы, подать заявку и пройти все этапы поступления.",
-        "cta": "Оставить заявку",
+        "eyebrow": "Китай · 2000+ студентов · гранты до 100%",
+        "titleBefore": "Поступление в Китай",
+        "titleAccent": "с грантом",
+        "titleAfter": "от заявки до адаптации",
+        "lead": "Подберём университет и грант до 100%, подготовим документы и визу, организуем перелёт, встретим, заселим и поможем адаптироваться в Китае.",
+        "cta": "Получить подбор университетов с грантами",
+        "journeyLabel": "Полное сопровождение студента",
+        "journey": ["Поступление", "Грант", "Виза", "Перелёт", "Заселение", "Адаптация"],
+        "proof": [
+          { "value": "7+ лет", "label": "сопровождаем студентов" },
+          { "value": "2000+", "label": "студентов выбрали UniQ" },
+          { "value": "3 страны", "label": "Китай · Турция · Италия" }
+        ],
         "image": ""
+      },
+      "budget": {
+        "eyebrow": "Бюджет обучения в Китае",
+        "title": "Сколько семье закладывать на один год",
+        "copy": "Ориентиры по актуальным тарифам китайских университетов. Точный бюджет зависит от города, языка программы, типа комнаты и размера гранта.",
+        "items": [
+          { "label": "Обучение", "value": "¥18 000–26 000", "note": "≈ $2 500–3 400 в год" },
+          { "label": "Общежитие", "value": "¥4 000–12 000", "note": "в год, место в кампусе" },
+          { "label": "Жизнь", "value": "¥1 500–3 000", "note": "в месяц на питание и транспорт" },
+          { "label": "Итого без гранта", "value": "¥40 000–74 000", "note": "≈ $5 200–9 600 в год", "total": true }
+        ],
+        "grantLabel": "С грантом",
+        "grantValue": "до 100% обучения + общежитие + стипендия",
+        "deadline": "Грантовые окна закрываются раньше общего приёма. Для набора 2027 стратегию и документы лучше готовить уже сейчас.",
+        "cta": "Получить расчёт под мой GPA",
+        "source": "Ориентир обновлён в июле 2026 года. Финальная сумма фиксируется в приглашении и счёте университета."
+      },
+      "trust": {
+        "eyebrow": "Открыто и проверяемо",
+        "title": "Команда, офисы и документы UniQ",
+        "copy": "У студента есть отдельные специалисты на каждом этапе, два офиса и официальное юридическое лицо. Подтверждения зачислений показываем только с согласия студентов.",
+        "officeLabel": "Офис UniQ",
+        "officeLabels": ["Офис в Алматы", "Офис в Ташкенте"],
+        "legalLabel": "Юридические данные",
+        "roles": [
+          { "icon": "graduation-cap", "title": "Академический консультант", "text": "Подбор университетов, программ и грантов" },
+          { "icon": "files", "title": "Документ-менеджер", "text": "Переводы, анкеты, дедлайны и подача" },
+          { "icon": "stamp", "title": "Визовый координатор", "text": "Приглашение, виза и подготовка к вылету" },
+          { "icon": "map-pinned", "title": "Координатор на месте", "text": "Встреча, заселение и адаптация" }
+        ],
+        "proofLabel": "Подтверждённые зачисления",
+        "proofTitle": "Приглашения, грантовые письма и подтверждения университетов",
+        "proofCopy": "Документы содержат персональные данные. Покажем обезличенные копии и оригиналы с разрешения студентов на консультации.",
+        "proofCta": "Запросить подтверждения"
       },
       "programs": [
         {
@@ -150,8 +195,8 @@
             "label": "лет опыта в международном поступлении"
           },
           {
-            "value": "34",
-            "label": "ключевых навыка и качества учитываем при профориентации"
+            "value": "10+",
+            "label": "партнёрских университетов в Китае"
           },
           {
             "value": "3",
@@ -335,10 +380,10 @@
             "suffix": "",
             "label": "страны обучения"
           },
-          {
-            "value": 34,
-            "suffix": "",
-            "label": "навыка в анализе профиля"
+        {
+          "value": 10,
+          "suffix": "+",
+          "label": "партнёрских университетов"
           }
         ]
       },
@@ -439,7 +484,7 @@
         "eyebrow": "Бесплатная первая встреча",
         "title": "Не знаете, какой университет выбрать?",
         "copy": "Оставьте заявку, и мы подберем программу с учетом целей, успеваемости, уровня языка, бюджета и сроков поступления.",
-        "cta": "Подобрать университет"
+        "cta": "Получить подбор университетов с грантами"
       },
       "calculator": {
         "eyebrow": "Калькулятор",
@@ -481,23 +526,26 @@
       "gpa": {
         "eyebrow": "GPA калькулятор",
         "title": "Проверьте академический профиль до подбора вуза",
-        "copy": "Введите оценки по 100-балльной шкале. Мы покажем средний балл и примерный GPA по шкале 4.0.",
-        "formTitle": "Оценки",
-        "formHint": "Кредиты можно оставить 1",
-        "subjectLabel": "Предмет",
-        "gradeLabel": "Оценка",
-        "creditLabel": "Кредит",
-        "subjectPlaceholder": "Предмет",
-        "removeLabel": "Удалить предмет",
-        "addRow": "+ Добавить предмет",
-        "resultLabel": "Ваш средний балл",
-        "gpaPrefix": "GPA",
-        "emptyNote": "Введите хотя бы одну оценку от 0 до 100.",
+        "copy": "Укажите, сколько у вас оценок «3», «4» и «5». Рассчитаем средний балл сразу в трёх шкалах.",
+        "formTitle": "Количество оценок",
+        "formHint": "Введите число оценок каждого типа",
+        "countThreeLabel": "Количество «3»",
+        "countFourLabel": "Количество «4»",
+        "countFiveLabel": "Количество «5»",
+        "calculate": "Рассчитать",
+        "reset": "Сбросить",
+        "resultLabel": "Ваш результат",
+        "fiveScaleLabel": "Средний (5-балльная)",
+        "fourScaleLabel": "Средний (4-балльная)",
+        "hundredScaleLabel": "Средний (100-балльная)",
+        "emptyNote": "Введите хотя бы одну оценку.",
+        "invalidCount": "Количество оценок должно быть целым числом от 0.",
         "strongNote": "Сильный профиль для грантов и рейтинговых программ.",
         "goodNote": "Хороший профиль: можно подбирать несколько стран и программ.",
         "okNote": "Профиль рабочий, но стоит усилить стратегию и документы.",
         "lowNote": "Нужен аккуратный маршрут: Foundation, языковая подготовка или запасные варианты.",
-        "disclaimer": "Это ориентир: университет может считать GPA по своей шкале."
+        "disclaimer": "Расчёт: средний балл = (3×N3 + 4×N4 + 5×N5) / общее количество оценок.",
+        "cta": "Получить список грантов под мой GPA"
       },
       "reviews": {
         "eyebrow": "Student Channel",
@@ -617,40 +665,48 @@
       },
       "faq": {
         "eyebrow": "FAQ",
-        "title": "Частые вопросы",
-        "copy": "Коротко о грантах, документах и сопровождении.",
+        "title": "Ответы на вопросы, которые родители задают до договора",
+        "copy": "Без общих обещаний: о бюджете, шансах, гарантиях, безопасности и дипломе.",
         "items": [
           {
-            "question": "Почему выбирают UniQ?",
-            "answer": "Мы ведем студента под ключ: от выбора страны и университета до прилета, заселения и адаптации."
+            "question": "Сколько стоит год обучения и жизни в Китае?",
+            "answer": "Без гранта ориентир составляет ¥40 000–74 000 в год: обучение ¥18 000–26 000, общежитие ¥4 000–12 000 и повседневные расходы ¥1 500–3 000 в месяц. Точный бюджет зависит от города, программы и типа комнаты."
           },
           {
-            "question": "Чем UniQ отличается от других образовательных центров?",
-            "answer": "Мы опираемся на профиль студента, бюджет и цель, а не предлагаем один шаблон для всех."
+            "question": "Что будет, если студент не поступит? Есть ли возврат?",
+            "answer": "Мы заранее формируем основной и резервный список вузов. Если по первой подаче приходит отказ, команда разбирает причину и запускает согласованный резервный сценарий. Гарантии, зоны ответственности и условия возврата фиксируются в договоре до оплаты — менеджер показывает конкретные пункты, а не обещает на словах."
           },
           {
-            "question": "Можно ли получить грант или скидку?",
-            "answer": "Да, мы подбираем грантовые и скидочные варианты, если профиль студента подходит под требования программы."
+            "question": "Безопасно ли студенту жить и учиться в Китае?",
+            "answer": "Мы подбираем кампусное проживание, готовим правила регистрации и связи, встречаем студента, помогаем с SIM-картой, банком и медосмотром. После заселения у студента остаётся контакт координатора для бытовых и организационных вопросов."
           },
           {
-            "question": "Что входит в сопровождение под ключ?",
-            "answer": "Профориентация, подбор программы, документы, заявка, приглашение, виза, перелет, встреча, общежитие и адаптация."
+            "question": "Признаётся ли китайский диплом в Казахстане и Узбекистане?",
+            "answer": "Иностранный диплом проходит официальную процедуру признания по правилам страны, где выпускник будет работать или продолжать учёбу. До подачи мы проверяем статус университета и программы; в Казахстане услуга доступна через eGov, в Узбекистане признанием занимается уполномоченное агентство. Для регулируемых профессий могут потребоваться дополнительные процедуры."
           },
           {
-            "question": "Сможет ли студент поступить без знания языка?",
-            "answer": "Для ряда направлений доступны Foundation и языковые курсы. Для Китая мы проводим бесплатный курс китайского до отъезда."
+            "question": "Нужно ли знать китайский язык до поступления?",
+            "answer": "Не всегда. Есть программы на английском, а для программ на китайском доступны языковой год и Foundation. Перед вылетом в Китай студенты UniQ получают базовый курс китайского для первых бытовых ситуаций."
           },
           {
-            "question": "Кто встретит студента после прилета?",
-            "answer": "Команда помогает на месте: встреча, заселение, SIM-карта, банковская карта, медосмотр и первые бытовые вопросы."
+            "question": "Есть ли шанс с GPA 70–85 и без сильного портфолио?",
+            "answer": "Да, такой профиль рабочий, но стратегия отличается от кейсов с GPA 95+. Мы расширяем список вузов, рассматриваем языковую подготовку, платное поступление и частичные гранты. Процент гранта нельзя обещать до проверки аттестата, языка, программы и дедлайна."
           },
           {
-            "question": "Какие документы нужны?",
-            "answer": "Список зависит от страны, университета и уровня обучения. На консультации мы составляем персональный чек-лист."
+            "question": "Обязателен ли IELTS?",
+            "answer": "Зависит от языка программы и правил университета. Некоторые вузы принимают Duolingo, внутреннее интервью или подтверждение языка обучения; для других IELTS обязателен. Мы показываем только те варианты, где профиль соответствует официальным требованиям."
           },
           {
-            "question": "Как оставить заявку?",
-            "answer": "Заполните имя и телефон на сайте. Эксперт свяжется с вами и подготовит первый маршрут поступления."
+            "question": "Когда подавать документы на грант?",
+            "answer": "Грантовые дедлайны обычно закрываются раньше общего приёма. Для сентябрьского набора подготовку лучше начинать осенью, а основные подачи часто проходят с зимы до мая. Конкретную дату по каждому вузу фиксируем в персональном плане."
+          },
+          {
+            "question": "Что входит в сопровождение после зачисления?",
+            "answer": "Приглашение и виза, проверка документов перед вылетом, помощь с билетами, встреча, заселение, регистрация, SIM-карта, банковская карта, медосмотр и адаптация к кампусу."
+          },
+          {
+            "question": "Как понять, на какой грант можно рассчитывать?",
+            "answer": "Мы оцениваем GPA, язык, экзамены, выбранную специальность, бюджет и сроки. После консультации вы получаете список вузов с отдельными сценариями: полный грант, частичная скидка и надёжный платный резерв."
           }
         ]
       },
@@ -668,8 +724,8 @@
       },
       "form": {
         "eyebrow": "Бесплатная консультация",
-        "title": "Получите план поступления",
-        "copy": "Заполните форму, чтобы эксперт UniQ связался с вами и подсказал лучший маршрут.",
+        "title": "Получить подбор университетов с грантами",
+        "copy": "Оставьте имя, телефон и интересующую страну — эксперт UniQ свяжется с вами и подготовит варианты.",
         "name": "Имя",
         "namePlaceholder": "Ваше имя",
         "phone": "Телефон",
@@ -678,7 +734,7 @@
         "program": "На какую программу планируете поступать?",
         "start": "Когда планируете начать обучение?",
         "interest": "Интересует страна",
-        "submit": "Отправить заявку",
+        "submit": "Получить подбор университетов с грантами",
         "policy": "Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.",
         "successTitle": "Заявка принята!",
         "successText": "Эксперт свяжется с вами и расскажет о подходящих программах.",
@@ -729,13 +785,38 @@
         "contacts": "Contacts"
       },
       "hero": {
-        "eyebrow": "UniQ - your bridge to studying abroad",
-        "titleBefore": "Your path to study",
-        "titleAccent": "abroad",
-        "titleAfter": "starts here",
-        "lead": "We help you choose a country and university, prepare documents, apply and pass every admission step.",
-        "cta": "Submit request",
+        "eyebrow": "End-to-end admission abroad",
+        "titleBefore": "From university selection",
+        "titleAccent": "and grants",
+        "titleAfter": "to arrival and adaptation",
+        "lead": "We match universities and grants, prepare documents and visas, arrange the flight, meet students, help them move in and adapt.",
+        "cta": "Get a university and grant shortlist",
+        "journeyLabel": "Complete student support",
+        "journey": ["Admission", "Grant", "Visa", "Flight", "Move-in", "Adaptation"],
+        "proof": [
+          { "value": "7+ years", "label": "supporting students" },
+          { "value": "2000+", "label": "students chose UniQ" },
+          { "value": "3 countries", "label": "China · Turkey · Italy" }
+        ],
         "image": ""
+      },
+      "trust": {
+        "eyebrow": "Open and verifiable",
+        "title": "UniQ team, offices and documents",
+        "copy": "Dedicated specialists support every stage, backed by two offices and an official legal entity. Admission documents are shown only with student consent.",
+        "officeLabel": "UniQ office",
+        "officeLabels": ["Almaty office", "Tashkent office"],
+        "legalLabel": "Legal details",
+        "roles": [
+          { "icon": "graduation-cap", "title": "Academic advisor", "text": "University, program and grant selection" },
+          { "icon": "files", "title": "Document manager", "text": "Translations, forms, deadlines and submission" },
+          { "icon": "stamp", "title": "Visa coordinator", "text": "Invitation, visa and pre-flight preparation" },
+          { "icon": "map-pinned", "title": "Local coordinator", "text": "Airport meeting, move-in and adaptation" }
+        ],
+        "proofLabel": "Verified admissions",
+        "proofTitle": "Invitations, grant letters and university confirmations",
+        "proofCopy": "These documents contain personal data. We show redacted copies and originals with student permission during a consultation.",
+        "proofCta": "Request proof"
       },
       "programs": [
         {
@@ -1093,7 +1174,7 @@
         "eyebrow": "Free first meeting",
         "title": "Not sure which university to choose?",
         "copy": "Submit a request and we will match a program by goals, grades, language level, budget and admission timing.",
-        "cta": "Choose a university"
+        "cta": "Get a university and grant shortlist"
       },
       "calculator": {
         "eyebrow": "Calculator",
@@ -1135,23 +1216,25 @@
       "gpa": {
         "eyebrow": "GPA calculator",
         "title": "Check your academic profile before choosing a university",
-        "copy": "Enter grades on a 100-point scale. We will show your average score and an approximate GPA on a 4.0 scale.",
-        "formTitle": "Grades",
-        "formHint": "You can leave credits as 1",
-        "subjectLabel": "Subject",
-        "gradeLabel": "Grade",
-        "creditLabel": "Credit",
-        "subjectPlaceholder": "Subject",
-        "removeLabel": "Remove subject",
-        "addRow": "+ Add subject",
-        "resultLabel": "Your average score",
-        "gpaPrefix": "GPA",
-        "emptyNote": "Enter at least one grade from 0 to 100.",
+        "copy": "Enter how many 3, 4 and 5 grades you have. We will calculate your average in three grading systems.",
+        "formTitle": "Number of grades",
+        "formHint": "Enter the count for each grade",
+        "countThreeLabel": "Number of 3s",
+        "countFourLabel": "Number of 4s",
+        "countFiveLabel": "Number of 5s",
+        "calculate": "Calculate",
+        "reset": "Reset",
+        "resultLabel": "Your result",
+        "fiveScaleLabel": "Average (5-point)",
+        "fourScaleLabel": "Average (4-point)",
+        "hundredScaleLabel": "Average (100-point)",
+        "emptyNote": "Enter at least one grade.",
+        "invalidCount": "The number of grades must be a whole number from 0.",
         "strongNote": "Strong profile for grants and ranked programs.",
         "goodNote": "Good profile: we can compare several countries and programs.",
         "okNote": "Workable profile, but the strategy and documents should be stronger.",
         "lowNote": "You need a careful route: Foundation, language preparation or backup options.",
-        "disclaimer": "This is a guide: each university may calculate GPA by its own scale."
+        "disclaimer": "Formula: average = (3×N3 + 4×N4 + 5×N5) / total number of grades."
       },
       "reviews": {
         "eyebrow": "Student Channel",
@@ -1322,8 +1405,8 @@
       },
       "form": {
         "eyebrow": "Free consultation",
-        "title": "Get an admission plan",
-        "copy": "Fill in the form so a UniQ expert can contact you and suggest the best route.",
+        "title": "Get a university and grant shortlist",
+        "copy": "Leave your name, phone number and preferred country. A UniQ expert will contact you with relevant options.",
         "name": "Name",
         "namePlaceholder": "Your name",
         "phone": "Phone",
@@ -1332,7 +1415,7 @@
         "program": "Which program are you planning?",
         "start": "When do you plan to start studying?",
         "interest": "Country of interest",
-        "submit": "Submit request",
+        "submit": "Get a university and grant shortlist",
         "policy": "By clicking the button, you agree to the privacy policy.",
         "successTitle": "Request received!",
         "successText": "An expert will contact you and tell you about suitable programs.",
@@ -1383,13 +1466,38 @@
         "contacts": "Байланыс"
       },
       "hero": {
-        "eyebrow": "UniQ - шетелде оқуға көпір",
-        "titleBefore": "Шетелде оқу жолыңыз",
-        "titleAccent": "осы жерден",
-        "titleAfter": "басталады",
-        "lead": "Ел мен университет таңдауға, құжат дайындауға, өтінім беруге және барлық түсу кезеңінен өтуге көмектесеміз.",
-        "cta": "Өтінім қалдыру",
+        "eyebrow": "Шетелге оқуға толық сүйемелдеу",
+        "titleBefore": "Университет пен",
+        "titleAccent": "грант таңдаудан",
+        "titleAfter": "қоныстану мен бейімделуге дейін",
+        "lead": "Университет пен грантты таңдаймыз, құжат пен визаны дайындаймыз, ұшуды ұйымдастырамыз, қарсы алып, қоныстануға және бейімделуге көмектесеміз.",
+        "cta": "Гранттары бар университеттер тізімін алу",
+        "journeyLabel": "Студентті толық сүйемелдеу",
+        "journey": ["Түсу", "Грант", "Виза", "Ұшу", "Қоныстану", "Бейімделу"],
+        "proof": [
+          { "value": "7+ жыл", "label": "студенттерді сүйемелдейміз" },
+          { "value": "2000+", "label": "студент UniQ таңдады" },
+          { "value": "3 ел", "label": "Қытай · Түркия · Италия" }
+        ],
         "image": ""
+      },
+      "trust": {
+        "eyebrow": "Ашық және тексеруге болады",
+        "title": "UniQ командасы, кеңселері және құжаттары",
+        "copy": "Әр кезеңге жауапты жеке мамандар, екі кеңсе және ресми заңды тұлға бар. Түсу құжаттарын студенттердің келісімімен ғана көрсетеміз.",
+        "officeLabel": "UniQ кеңсесі",
+        "officeLabels": ["Алматыдағы кеңсе", "Ташкенттегі кеңсе"],
+        "legalLabel": "Заңды деректер",
+        "roles": [
+          { "icon": "graduation-cap", "title": "Академиялық кеңесші", "text": "Университет, бағдарлама және грант таңдау" },
+          { "icon": "files", "title": "Құжат менеджері", "text": "Аударма, сауалнама, мерзім және өтінім" },
+          { "icon": "stamp", "title": "Виза үйлестірушісі", "text": "Шақырту, виза және ұшуға дайындық" },
+          { "icon": "map-pinned", "title": "Жергілікті үйлестіруші", "text": "Қарсы алу, қоныстану және бейімделу" }
+        ],
+        "proofLabel": "Расталған түсулер",
+        "proofTitle": "Шақыртулар, грант хаттары және университет растаулары",
+        "proofCopy": "Құжаттарда жеке деректер бар. Кеңесте студент рұқсатымен жасырылған көшірмелер мен түпнұсқаларды көрсетеміз.",
+        "proofCta": "Растауларды сұрау"
       },
       "programs": [
         {
@@ -1747,7 +1855,7 @@
         "eyebrow": "Алғашқы кездесу тегін",
         "title": "Қай университетті таңдарыңызды білмейсіз бе?",
         "copy": "Өтінім қалдырыңыз, біз мақсат, үлгерім, тіл деңгейі, бюджет және түсу мерзіміне сай бағдарлама таңдаймыз.",
-        "cta": "Университет таңдау"
+        "cta": "Гранттары бар университеттер тізімін алу"
       },
       "calculator": {
         "eyebrow": "Калькулятор",
@@ -1789,23 +1897,25 @@
       "gpa": {
         "eyebrow": "GPA калькулятор",
         "title": "Университет таңдаудан бұрын академиялық профиліңізді тексеріңіз",
-        "copy": "Бағаларыңызды 100 балдық шкала бойынша енгізіңіз. Орташа балл мен 4.0 шкаласындағы шамамен GPA көрсетеміз.",
-        "formTitle": "Бағалар",
-        "formHint": "Кредитті 1 деп қалдыруға болады",
-        "subjectLabel": "Пән",
-        "gradeLabel": "Баға",
-        "creditLabel": "Кредит",
-        "subjectPlaceholder": "Пән",
-        "removeLabel": "Пәнді өшіру",
-        "addRow": "+ Пән қосу",
-        "resultLabel": "Орташа балыңыз",
-        "gpaPrefix": "GPA",
-        "emptyNote": "0-ден 100-ге дейін кемінде бір баға енгізіңіз.",
+        "copy": "«3», «4» және «5» бағаларының санын енгізіңіз. Орташа балды үш шкалада бірден есептейміз.",
+        "formTitle": "Бағалар саны",
+        "formHint": "Әр бағаның санын енгізіңіз",
+        "countThreeLabel": "«3» бағаларының саны",
+        "countFourLabel": "«4» бағаларының саны",
+        "countFiveLabel": "«5» бағаларының саны",
+        "calculate": "Есептеу",
+        "reset": "Тазарту",
+        "resultLabel": "Нәтижеңіз",
+        "fiveScaleLabel": "Орташа (5 балдық)",
+        "fourScaleLabel": "Орташа (4 балдық)",
+        "hundredScaleLabel": "Орташа (100 балдық)",
+        "emptyNote": "Кемінде бір баға енгізіңіз.",
+        "invalidCount": "Бағалар саны 0-ден басталатын бүтін сан болуы керек.",
         "strongNote": "Гранттар мен рейтингтік бағдарламалар үшін мықты профиль.",
         "goodNote": "Жақсы профиль: бірнеше ел мен бағдарламаны салыстыруға болады.",
         "okNote": "Профиль жарамды, бірақ стратегия мен құжаттарды күшейткен дұрыс.",
         "lowNote": "Мұқият маршрут қажет: Foundation, тіл дайындығы немесе қосымша нұсқалар.",
-        "disclaimer": "Бұл тек бағдар: әр университет GPA-ны өз шкаласымен есептеуі мүмкін."
+        "disclaimer": "Есептеу: орташа балл = (3×N3 + 4×N4 + 5×N5) / бағалардың жалпы саны."
       },
       "reviews": {
         "eyebrow": "Student Channel",
@@ -1976,8 +2086,8 @@
       },
       "form": {
         "eyebrow": "Тегін консультация",
-        "title": "Түсу жоспарын алыңыз",
-        "copy": "Форманы толтырыңыз, UniQ сарапшысы сізбен байланысып, ең қолайлы маршрутты ұсынады.",
+        "title": "Гранттары бар университеттер тізімін алу",
+        "copy": "Аты-жөніңізді, телефоныңызды және қызықтыратын елді қалдырыңыз. UniQ сарапшысы лайықты нұсқалармен хабарласады.",
         "name": "Аты-жөні",
         "namePlaceholder": "Атыңыз",
         "phone": "Телефон",
@@ -1986,7 +2096,7 @@
         "program": "Қай бағдарламаға түскіңіз келеді?",
         "start": "Оқуды қашан бастағыңыз келеді?",
         "interest": "Қызықтыратын ел",
-        "submit": "Өтінім жіберу",
+        "submit": "Гранттары бар университеттер тізімін алу",
         "policy": "Батырманы басу арқылы құпиялылық саясатымен келісесіз.",
         "successTitle": "Өтінім қабылданды!",
         "successText": "Сарапшы сізбен байланысып, қолайлы бағдарламалар туралы айтады.",
@@ -2037,13 +2147,38 @@
         "contacts": "Aloqa"
       },
       "hero": {
-        "eyebrow": "UniQ - chet elda o‘qishga ko‘prik",
-        "titleBefore": "O‘qish yo‘lingiz",
-        "titleAccent": "chet elda",
-        "titleAfter": "shu yerdan boshlanadi",
-        "lead": "Mamlakat va universitet tanlash, hujjat tayyorlash, ariza topshirish va qabul bosqichlaridan o‘tishga yordam beramiz.",
-        "cta": "Ariza qoldirish",
+        "eyebrow": "Chet elga o‘qishga to‘liq hamrohlik",
+        "titleBefore": "Universitet va",
+        "titleAccent": "grant tanlashdan",
+        "titleAfter": "joylashish va moslashishgacha",
+        "lead": "Universitet va grant tanlaymiz, hujjat va viza tayyorlaymiz, parvozni tashkil qilamiz, kutib olamiz, joylashtiramiz va moslashishga yordam beramiz.",
+        "cta": "Grantli universitetlar ro‘yxatini olish",
+        "journeyLabel": "Talabani to‘liq qo‘llab-quvvatlash",
+        "journey": ["Qabul", "Grant", "Viza", "Parvoz", "Joylashish", "Moslashish"],
+        "proof": [
+          { "value": "7+ yil", "label": "talabalarga hamroh bo‘lamiz" },
+          { "value": "2000+", "label": "talaba UniQni tanladi" },
+          { "value": "3 davlat", "label": "Xitoy · Turkiya · Italiya" }
+        ],
         "image": ""
+      },
+      "trust": {
+        "eyebrow": "Ochiq va tekshiriladigan",
+        "title": "UniQ jamoasi, ofislari va hujjatlari",
+        "copy": "Har bir bosqich uchun alohida mutaxassis, ikkita ofis va rasmiy yuridik shaxs mavjud. Qabul hujjatlarini faqat talaba roziligi bilan ko‘rsatamiz.",
+        "officeLabel": "UniQ ofisi",
+        "officeLabels": ["Olmaotadagi ofis", "Toshkentdagi ofis"],
+        "legalLabel": "Yuridik ma’lumotlar",
+        "roles": [
+          { "icon": "graduation-cap", "title": "Akademik maslahatchi", "text": "Universitet, dastur va grant tanlash" },
+          { "icon": "files", "title": "Hujjat menejeri", "text": "Tarjima, anketa, muddat va ariza" },
+          { "icon": "stamp", "title": "Viza koordinatori", "text": "Taklifnoma, viza va uchishga tayyorgarlik" },
+          { "icon": "map-pinned", "title": "Mahalliy koordinator", "text": "Kutib olish, joylashish va moslashish" }
+        ],
+        "proofLabel": "Tasdiqlangan qabullar",
+        "proofTitle": "Taklifnomalar, grant xatlari va universitet tasdiqlari",
+        "proofCopy": "Hujjatlarda shaxsiy ma’lumotlar bor. Konsultatsiyada talaba ruxsati bilan yashirilgan nusxa va asl hujjatlarni ko‘rsatamiz.",
+        "proofCta": "Tasdiqlarni so‘rash"
       },
       "programs": [
         {
@@ -2401,7 +2536,7 @@
         "eyebrow": "Birinchi uchrashuv bepul",
         "title": "Qaysi universitetni tanlashni bilmaysizmi?",
         "copy": "Ariza qoldiring, biz maqsad, baholar, til darajasi, byudjet va qabul muddatiga qarab dastur tanlaymiz.",
-        "cta": "Universitet tanlash"
+        "cta": "Grantli universitetlar ro‘yxatini olish"
       },
       "calculator": {
         "eyebrow": "Kalkulyator",
@@ -2443,23 +2578,25 @@
       "gpa": {
         "eyebrow": "GPA kalkulyator",
         "title": "Universitet tanlashdan oldin akademik profilingizni tekshiring",
-        "copy": "Baholarni 100 ballik shkala bo‘yicha kiriting. O‘rtacha ball va 4.0 shkalasidagi taxminiy GPA ko‘rsatiladi.",
-        "formTitle": "Baholar",
-        "formHint": "Kreditni 1 qilib qoldirish mumkin",
-        "subjectLabel": "Fan",
-        "gradeLabel": "Baho",
-        "creditLabel": "Kredit",
-        "subjectPlaceholder": "Fan",
-        "removeLabel": "Fanni o‘chirish",
-        "addRow": "+ Fan qo‘shish",
-        "resultLabel": "O‘rtacha balingiz",
-        "gpaPrefix": "GPA",
-        "emptyNote": "0 dan 100 gacha kamida bitta baho kiriting.",
+        "copy": "«3», «4» va «5» baholaringiz sonini kiriting. O‘rtacha ballni uchta shkala bo‘yicha hisoblaymiz.",
+        "formTitle": "Baholar soni",
+        "formHint": "Har bir baho sonini kiriting",
+        "countThreeLabel": "«3» baholar soni",
+        "countFourLabel": "«4» baholar soni",
+        "countFiveLabel": "«5» baholar soni",
+        "calculate": "Hisoblash",
+        "reset": "Tozalash",
+        "resultLabel": "Natijangiz",
+        "fiveScaleLabel": "O‘rtacha (5 ballik)",
+        "fourScaleLabel": "O‘rtacha (4 ballik)",
+        "hundredScaleLabel": "O‘rtacha (100 ballik)",
+        "emptyNote": "Kamida bitta baho kiriting.",
+        "invalidCount": "Baholar soni 0 dan boshlanadigan butun son bo‘lishi kerak.",
         "strongNote": "Grantlar va reytingli dasturlar uchun kuchli profil.",
         "goodNote": "Yaxshi profil: bir nechta mamlakat va dasturni solishtirish mumkin.",
         "okNote": "Profil ishlaydi, ammo strategiya va hujjatlarni kuchaytirish kerak.",
         "lowNote": "Ehtiyotkor yo‘l kerak: Foundation, til tayyorgarligi yoki zaxira variantlar.",
-        "disclaimer": "Bu taxminiy ko‘rsatkich: har bir universitet GPA-ni o‘z shkalasida hisoblaydi."
+        "disclaimer": "Hisob: o‘rtacha ball = (3×N3 + 4×N4 + 5×N5) / baholarning umumiy soni."
       },
       "reviews": {
         "eyebrow": "Student Channel",
@@ -2630,8 +2767,8 @@
       },
       "form": {
         "eyebrow": "Bepul konsultatsiya",
-        "title": "Qabul rejasini oling",
-        "copy": "Formani to‘ldiring, UniQ eksperti siz bilan bog‘lanib, eng yaxshi marshrutni taklif qiladi.",
+        "title": "Grantli universitetlar ro‘yxatini olish",
+        "copy": "Ism, telefon va qiziqtirgan davlatingizni qoldiring. UniQ eksperti mos variantlar bilan bog‘lanadi.",
         "name": "Ism",
         "namePlaceholder": "Ismingiz",
         "phone": "Telefon",
@@ -2640,7 +2777,7 @@
         "program": "Qaysi dasturga kirmoqchisiz?",
         "start": "O‘qishni qachon boshlamoqchisiz?",
         "interest": "Qiziqtirgan davlat",
-        "submit": "Ariza yuborish",
+        "submit": "Grantli universitetlar ro‘yxatini olish",
         "policy": "Tugmani bosish orqali maxfiylik siyosatiga rozilik bildirasiz.",
         "successTitle": "Ariza qabul qilindi!",
         "successText": "Ekspert siz bilan bog‘lanib, mos dasturlar haqida aytadi.",

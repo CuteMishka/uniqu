@@ -41,6 +41,61 @@
     return target ? ` data-counter="${escapeHtml(target)}"` : "";
   };
 
+  const getInteractionLabels = () => {
+    const labels = {
+      ru: {
+        budgetTitle: "Покрытие грантом",
+        budgetOptions: ["Без гранта", "50% обучения", "До 100%"],
+        budgetStatuses: [
+          "Показываем полную годовую вилку расходов.",
+          "Подсвечена часть обучения, которую может закрыть грант 50%.",
+          "Максимальный сценарий: грант может покрыть обучение, общежитие и стипендию."
+        ],
+        caseFilters: ["Все кейсы", "GPA 70–85", "Грант 100%"],
+        copyHint: "Нажмите, чтобы скопировать",
+        copied: "Скопировано"
+      },
+      kz: {
+        budgetTitle: "Грантпен қамту",
+        budgetOptions: ["Грантсыз", "Оқудың 50%", "100%-ға дейін"],
+        budgetStatuses: [
+          "Бір жылға арналған толық шығын диапазоны көрсетілген.",
+          "50% грант жабуы мүмкін оқу ақысының бөлігі белгіленді.",
+          "Максималды сценарий: грант оқу, жатақхана және стипендияны қамтуы мүмкін."
+        ],
+        caseFilters: ["Барлық кейстер", "GPA 70–85", "100% грант"],
+        copyHint: "Көшіру үшін басыңыз",
+        copied: "Көшірілді"
+      },
+      en: {
+        budgetTitle: "Grant coverage",
+        budgetOptions: ["No grant", "50% tuition", "Up to 100%"],
+        budgetStatuses: [
+          "The full estimated annual cost is shown.",
+          "The tuition portion a 50% grant may cover is highlighted.",
+          "Best-case scenario: a grant may cover tuition, housing and a stipend."
+        ],
+        caseFilters: ["All cases", "GPA 70–85", "100% grant"],
+        copyHint: "Click to copy",
+        copied: "Copied"
+      },
+      uz: {
+        budgetTitle: "Grant qamrovi",
+        budgetOptions: ["Grantsiz", "O‘qishning 50%", "100% gacha"],
+        budgetStatuses: [
+          "Bir yillik xarajatlarning to‘liq oralig‘i ko‘rsatilgan.",
+          "50% grant qoplashi mumkin bo‘lgan o‘qish qismi ajratildi.",
+          "Eng yaxshi holat: grant o‘qish, yotoqxona va stipendiyani qoplashi mumkin."
+        ],
+        caseFilters: ["Barcha keyslar", "GPA 70–85", "100% grant"],
+        copyHint: "Nusxalash uchun bosing",
+        copied: "Nusxalandi"
+      }
+    };
+
+    return labels[state.lang] || labels.ru;
+  };
+
   const openLeadModal = () => {
     const modal = qs("[data-modal]");
     if (!modal) return;
@@ -176,7 +231,7 @@
         addressLocality: "Алматы",
         addressCountry: "KZ"
       },
-      sameAs: [`https://wa.me/${settings.contacts.whatsapp}`]
+      sameAs: [`https://wa.me/${settings.contacts.whatsapp}`, settings.contacts.telegramUrl].filter(Boolean)
     };
 
     let script = qs("#structured-data");
@@ -263,10 +318,48 @@
     text(".hero__lead", t.hero.lead);
     setButton(qs(".hero [data-open-modal]"), t.hero.cta);
 
+    const journey = qs(".hero-journey");
+    if (journey && Array.isArray(t.hero.journey)) {
+      const icons = ["school", "award", "badge-check", "plane", "home", "heart-handshake"];
+      journey.innerHTML = t.hero.journey
+        .map(
+          (label, index) => `
+            <li data-hero-step="${index}" class="${index === 0 ? "is-active" : ""}">
+              <button type="button" aria-current="${index === 0 ? "step" : "false"}">
+                <i data-lucide="${icons[index] || "check"}"></i>
+                <span>${escapeHtml(label)}</span>
+              </button>
+            </li>
+          `
+        )
+        .join("");
+      journey.setAttribute("aria-label", t.hero.journeyLabel || t.hero.eyebrow);
+
+      let status = qs(".hero-journey__status");
+      if (!status) {
+        status = document.createElement("div");
+        status.className = "hero-journey__status";
+        status.setAttribute("aria-live", "polite");
+        journey.after(status);
+      }
+      status.innerHTML = `
+        <span>01 / ${String(t.hero.journey.length).padStart(2, "0")}</span>
+        <strong>${escapeHtml(t.hero.journey[0] || "")}</strong>
+        <i aria-hidden="true"><b></b></i>
+      `;
+    }
+
+    const proof = qs(".hero-proof");
+    if (proof && Array.isArray(t.hero.proof)) {
+      proof.innerHTML = t.hero.proof
+        .map((item) => `<span><strong${counterAttributes(item.value)}>${escapeHtml(item.value)}</strong> ${escapeHtml(item.label)}</span>`)
+        .join("");
+    }
+
     const media = qs(".hero__media");
     if (media) {
       media.style.background =
-        "radial-gradient(circle at 78% 28%, rgba(223, 141, 0, 0.18), transparent 36%), radial-gradient(circle at 12% 74%, rgba(233, 194, 125, 0.1), transparent 32%), linear-gradient(135deg, #070912, #101827 58%, #15100c)";
+        'linear-gradient(180deg, rgba(7, 9, 18, 0.04), rgba(7, 9, 18, 0.36)), url("assets/photos/students-airport.webp") center / cover';
     }
   };
 
@@ -340,11 +433,20 @@
     text(".universities h2", t.universities.title);
     const track = qs("[data-university-track]");
     if (!track) return;
+    const archivePhotos = [
+      "assets/photos/student-campus-life.webp",
+      "assets/photos/students-china-dorm.webp",
+      "assets/photos/students-china-cards.webp",
+      "assets/photos/students-airport.webp"
+    ];
     track.innerHTML = t.universities.items
       .map(
-        (item) => `
+        (item, index) => `
           <article class="university-card">
-            <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" />
+            <figure>
+              <img src="${archivePhotos[index % archivePhotos.length]}" alt="Архив студентов и кампусов UniQ" loading="lazy" />
+              <figcaption>Архив UniQ</figcaption>
+            </figure>
             <div>
               <span>${escapeHtml(item.country)}</span>
               <h3>${escapeHtml(item.name)}</h3>
@@ -441,12 +543,17 @@
     const grid = qs(".country-grid");
     if (!grid) return;
     const countrySlugs = ["china", "italy", "turkey"];
+    const archivePhotos = [
+      "assets/photos/student-campus-life.webp",
+      "assets/photos/students-airport.webp",
+      "assets/photos/students-turkey-street.webp"
+    ];
     grid.innerHTML = t.countries.items
       .map((item, index) => {
         const slug = item.slug || countrySlugs[index] || "";
         const href = slug ? `/${slug}` : "#contacts";
         return `
-          <a class="country reveal" href="${escapeHtml(href)}" aria-label="${escapeHtml(item.name)}" style="--country-image: url('${escapeHtml(item.image)}')">
+          <a class="country reveal" href="${escapeHtml(href)}" aria-label="${escapeHtml(item.name)}" style="--country-image: url('${archivePhotos[index] || archivePhotos[0]}')">
             <div>
               <p>${escapeHtml(item.meta)}</p>
               <h3>${escapeHtml(item.name)}</h3>
@@ -458,6 +565,65 @@
         `;
       })
       .join("");
+  };
+
+  const renderBudget = (t) => {
+    const section = t.budget || state.content.translations.ru?.budget;
+    if (!section) return;
+    const interaction = getInteractionLabels();
+
+    text(".china-budget .eyebrow", section.eyebrow);
+    html(".china-budget h2", escapeHtml(section.title).replace(/на один год|one year/i, (match) => `<em>${match}</em>`));
+    text(".china-budget__head .section-copy", section.copy);
+
+    const budgetSection = qs(".china-budget");
+    let scenarios = qs(".budget-scenarios");
+    if (budgetSection && !scenarios) {
+      scenarios = document.createElement("div");
+      scenarios.className = "budget-scenarios reveal";
+      qs(".budget-anchor-grid")?.before(scenarios);
+    }
+    if (scenarios) {
+      scenarios.innerHTML = `
+        <div class="budget-scenarios__head">
+          <span>${escapeHtml(interaction.budgetTitle)}</span>
+          <strong class="budget-scenarios__status" aria-live="polite">${escapeHtml(interaction.budgetStatuses[0])}</strong>
+        </div>
+        <div class="budget-scenarios__controls" role="group" aria-label="${escapeHtml(interaction.budgetTitle)}">
+          ${[0, 50, 100]
+            .map(
+              (value, index) => `
+                <button type="button" data-budget-scenario="${value}" data-budget-status="${escapeHtml(interaction.budgetStatuses[index])}" aria-pressed="${index === 0 ? "true" : "false"}" class="${index === 0 ? "is-active" : ""}">
+                  ${escapeHtml(interaction.budgetOptions[index])}
+                </button>
+              `
+            )
+            .join("")}
+        </div>
+        <div class="budget-scenarios__meter" aria-hidden="true"><i></i></div>
+      `;
+    }
+
+    const grid = qs(".budget-anchor-grid");
+    if (grid) {
+      grid.innerHTML = section.items
+        .map(
+          (item, index) => `
+            <article class="${item.total ? "budget-anchor-grid__total" : ""}" data-budget-item="${index}">
+              <span>${escapeHtml(item.label)}</span>
+              <strong>${escapeHtml(item.value)}</strong>
+              <small>${escapeHtml(item.note)}</small>
+            </article>
+          `
+        )
+        .join("");
+    }
+
+    text(".budget-grant > div > span", section.grantLabel);
+    text(".budget-grant > div > strong", section.grantValue);
+    text(".budget-grant > p", section.deadline);
+    setButton(qs(".budget-grant [data-open-modal]"), section.cta);
+    text(".budget-source", section.source);
   };
 
   const renderCountryDetails = (t) => {
@@ -472,9 +638,9 @@
 
     const keys = ["china", "italy", "turkey"];
     const images = [
-      "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1100&q=85",
-      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1100&q=85",
-      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1100&q=85"
+      "assets/photos/student-campus-life.webp",
+      "assets/photos/students-airport.webp",
+      "assets/photos/students-turkey-street.webp"
     ];
 
     const nav = section.items
@@ -575,98 +741,89 @@
 
   const getGpaLabels = () => state.gpa || getTranslation().gpa || {};
 
-  const updateGpaLabels = () => {
-    const labels = getGpaLabels();
-    qsa("[data-gpa-subject-label]").forEach((item) => {
-      item.textContent = labels.subjectLabel || "Subject";
-    });
-    qsa("[data-gpa-grade-label]").forEach((item) => {
-      item.textContent = labels.gradeLabel || "Grade";
-    });
-    qsa("[data-gpa-credit-label]").forEach((item) => {
-      item.textContent = labels.creditLabel || "Credit";
-    });
-    qsa("[data-gpa-remove]").forEach((button) => {
-      button.setAttribute("aria-label", labels.removeLabel || "Remove subject");
-    });
+  const setGpaError = (message = "") => {
+    const error = qs("[data-gpa-error]");
+    if (!error) return;
+    error.textContent = message;
+    error.hidden = !message;
   };
 
-  const createGpaRow = () => {
+  const setGpaEmptyState = (message = "") => {
     const labels = getGpaLabels();
-    const row = document.createElement("div");
-    row.className = "gpa-row is-added";
-    row.dataset.gpaRow = "true";
-    row.innerHTML = `
-      <label>
-        <span data-gpa-subject-label>${escapeHtml(labels.subjectLabel || "Subject")}</span>
-        <input type="text" placeholder="${escapeHtml(labels.subjectPlaceholder || "Subject")}" />
-      </label>
-      <label>
-        <span data-gpa-grade-label>${escapeHtml(labels.gradeLabel || "Grade")}</span>
-        <input data-gpa-grade type="number" min="0" max="100" step="0.1" placeholder="90" />
-      </label>
-      <label>
-        <span data-gpa-credit-label>${escapeHtml(labels.creditLabel || "Credit")}</span>
-        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
-      </label>
-      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="${escapeHtml(labels.removeLabel || "Remove subject")}">×</button>
-    `;
-    return row;
+    const averageElement = qs("[data-gpa-average]");
+    const gpaElement = qs("[data-gpa-four]");
+    const hundredElement = qs("[data-gpa-hundred]");
+    const noteElement = qs("[data-gpa-note]");
+    const resultBox = qs(".gpa-result");
+    const meter = qs("[data-gpa-meter]");
+    if (!averageElement || !gpaElement || !hundredElement || !noteElement) return;
+
+    averageElement.textContent = "—";
+    gpaElement.textContent = "—";
+    hundredElement.textContent = "—";
+    noteElement.textContent = message || labels.emptyNote || "";
+    resultBox?.style.setProperty("--gpa-progress", "0%");
+    if (meter) meter.style.transform = "scaleX(0)";
   };
 
   const updateGpaCalculator = () => {
     const labels = getGpaLabels();
     const averageElement = qs("[data-gpa-average]");
     const gpaElement = qs("[data-gpa-four]");
+    const hundredElement = qs("[data-gpa-hundred]");
     const noteElement = qs("[data-gpa-note]");
     const resultBox = qs(".gpa-result");
     const meter = qs("[data-gpa-meter]");
-    if (!averageElement || !gpaElement || !noteElement) return;
+    if (!averageElement || !gpaElement || !hundredElement || !noteElement) return;
 
-    let weightedSum = 0;
-    let creditSum = 0;
+    const counts = {};
+    let hasInvalidCount = false;
 
-    qsa("[data-gpa-row]").forEach((row) => {
-      const gradeInput = qs("[data-gpa-grade]", row);
-      const gradeText = String(gradeInput?.value || "").trim();
-      if (!gradeText) return;
-
-      const grade = Number(gradeText);
-      const creditValue = Number(qs("[data-gpa-credit]", row)?.value);
-      const credits = Number.isFinite(creditValue) && creditValue > 0 ? creditValue : 1;
-
-      if (!Number.isFinite(grade) || grade < 0 || grade > 100) return;
-
-      weightedSum += grade * credits;
-      creditSum += credits;
+    [3, 4, 5].forEach((grade) => {
+      const input = qs(`[data-gpa-count="${grade}"]`);
+      const rawValue = String(input?.value || "0").trim();
+      const count = rawValue === "" ? 0 : Number(rawValue);
+      const isInvalid = !Number.isFinite(count) || count < 0 || !Number.isInteger(count);
+      input?.setAttribute("aria-invalid", String(isInvalid));
+      hasInvalidCount ||= isInvalid;
+      counts[grade] = isInvalid ? 0 : count;
     });
 
-    if (!creditSum) {
-      averageElement.textContent = "—";
-      gpaElement.textContent = `${labels.gpaPrefix || "GPA"} — / 4.0`;
-      noteElement.textContent = labels.emptyNote || "";
-      resultBox?.style.setProperty("--gpa-progress", "0%");
-      if (meter) meter.style.transform = "scaleX(0)";
+    if (hasInvalidCount) {
+      const message = labels.invalidCount || "Enter a whole number of grades from 0.";
+      setGpaError(message);
+      setGpaEmptyState(message);
       return;
     }
 
-    const average = weightedSum / creditSum;
-    const gpa = Math.min(4, Math.max(0, average / 25));
-    averageElement.textContent = average.toFixed(1);
-    gpaElement.textContent = `${labels.gpaPrefix || "GPA"} ${gpa.toFixed(2)} / 4.0`;
-    resultBox?.style.setProperty("--gpa-progress", `${Math.max(0, Math.min(100, average))}%`);
-    if (meter) meter.style.transform = `scaleX(${Math.max(0, Math.min(100, average)) / 100})`;
+    const total = counts[3] + counts[4] + counts[5];
+    if (!total) {
+      const message = labels.emptyNote || "Enter at least one grade.";
+      setGpaError(message);
+      setGpaEmptyState(message);
+      return;
+    }
+
+    setGpaError();
+    const averageFive = (3 * counts[3] + 4 * counts[4] + 5 * counts[5]) / total;
+    const averageFour = (2 * counts[3] + 3 * counts[4] + 4 * counts[5]) / total;
+    const averageHundred = averageFive * 20;
+    averageElement.textContent = averageFive.toFixed(2);
+    gpaElement.textContent = averageFour.toFixed(2);
+    hundredElement.textContent = averageHundred.toFixed(1);
+    resultBox?.style.setProperty("--gpa-progress", `${averageHundred}%`);
+    if (meter) meter.style.transform = `scaleX(${averageHundred / 100})`;
     if (resultBox && !resultBox.classList.contains("is-updating")) {
       resultBox.classList.add("is-updating");
       window.setTimeout(() => resultBox.classList.remove("is-updating"), 420);
     }
 
     const note =
-      average >= 90
+      averageHundred >= 90
         ? labels.strongNote
-        : average >= 80
+        : averageHundred >= 80
           ? labels.goodNote
-          : average >= 70
+          : averageHundred >= 70
             ? labels.okNote
             : labels.lowNote;
     noteElement.textContent = note || "";
@@ -682,11 +839,21 @@
     text(".gpa-calculator .section-copy", section.copy);
     text(".gpa-form__head span", section.formTitle);
     text(".gpa-form__head small", section.formHint);
-    text("[data-gpa-add-row]", section.addRow);
+    text('[data-gpa-count-label="3"]', section.countThreeLabel);
+    text('[data-gpa-count-label="4"]', section.countFourLabel);
+    text('[data-gpa-count-label="5"]', section.countFiveLabel);
+    text("[data-gpa-calculate]", section.calculate);
+    text("[data-gpa-reset]", section.reset);
     text(".gpa-result__label", section.resultLabel);
+    text("[data-gpa-five-label]", section.fiveScaleLabel);
+    text("[data-gpa-four-label]", section.fourScaleLabel);
+    text("[data-gpa-hundred-label]", section.hundredScaleLabel);
     text(".gpa-result em", section.disclaimer);
-    updateGpaLabels();
-    updateGpaCalculator();
+    setButton(qs(".gpa-result [data-open-modal]"), section.cta || t.hero.cta);
+    setGpaError();
+    const hasEnteredCounts = qsa("[data-gpa-count]").some((input) => Number(input.value) > 0);
+    if (hasEnteredCounts) updateGpaCalculator();
+    else setGpaEmptyState(section.emptyNote);
   };
 
   const renderReviews = (t) => {
@@ -728,11 +895,12 @@
     list.innerHTML = section.items
       .map(
         (item, index) => `
-          <article class="faq-item reveal${index === 0 ? " is-open" : ""}">
-            <button class="faq-item__question" type="button" aria-expanded="${index === 0 ? "true" : "false"}">
+          <article class="faq-item reveal">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-${index}">
+              <small>${String(index + 1).padStart(2, "0")}</small>
               <span>${escapeHtml(item.question)}</span>
             </button>
-            <div class="faq-item__body" role="region">
+            <div class="faq-item__body" id="faq-answer-${index}" role="region" aria-hidden="true">
               <div class="faq-item__answer">
                 <p>${escapeHtml(item.answer)}</p>
               </div>
@@ -746,6 +914,7 @@
   const renderCases = (t) => {
     const section = t.cases;
     if (!section) return;
+    const interaction = getInteractionLabels();
 
     text(".cases .eyebrow", section.eyebrow);
     text(".cases h2", section.title);
@@ -753,26 +922,121 @@
 
     const grid = qs(".case-grid");
     if (!grid) return;
-    grid.innerHTML = section.items
+    let filters = qs(".case-filters");
+    if (!filters) {
+      filters = document.createElement("div");
+      filters.className = "case-filters reveal";
+      grid.before(filters);
+    }
+    filters.innerHTML = `
+      <div role="group" aria-label="${escapeHtml(section.eyebrow)}">
+        ${["all", "mid", "full"]
+          .map(
+            (filter, index) => `
+              <button type="button" data-case-filter="${filter}" aria-pressed="${index === 0 ? "true" : "false"}" class="${index === 0 ? "is-active" : ""}">
+                ${escapeHtml(interaction.caseFilters[index])}
+              </button>
+            `
+          )
+          .join("")}
+      </div>
+      <span class="case-filters__count" aria-live="polite"></span>
+    `;
+    const archivePhotos = [
+      "assets/photos/students-china-dorm.webp",
+      "assets/photos/students-china-cards.webp",
+      "assets/photos/student-bank-card.webp",
+      "assets/photos/student-campus-life.webp",
+      "assets/photos/students-airport.webp"
+    ];
+    const archive = qs(".case-archive");
+    if (archive) {
+      archive.innerHTML = archivePhotos
+        .map((src, index) => `<figure><img src="${src}" alt="Студенты UniQ, фото из архива" loading="lazy" /><figcaption>${index === 0 ? "Реальные фото студентов UniQ" : "Архив UniQ"}</figcaption></figure>`)
+        .join("");
+    }
+    const items = [...section.items].sort((left, right) => {
+      const leftGpa = Number(left.profile.match(/GPA\s+(\d+)/i)?.[1] || 100);
+      const rightGpa = Number(right.profile.match(/GPA\s+(\d+)/i)?.[1] || 100);
+      return leftGpa - rightGpa;
+    });
+    grid.innerHTML = items
       .map(
-        (item) => `
-          <article class="case-card reveal">
+        (item) => {
+          const gpa = Number(item.profile.match(/GPA\s+(\d+)/i)?.[1] || 100);
+          const fullGrant = /100%|full|полный|бесплат|тегін|bepul/i.test(item.result);
+          return `
+          <article class="case-card reveal" data-case-gpa="${gpa}" data-case-full-grant="${fullGrant}">
             <div class="case-card__top">
               <div>
                 <strong>${escapeHtml(item.name)}</strong>
                 <span>${escapeHtml(item.profile)}</span>
               </div>
-              <span class="case-card__brand" aria-hidden="true">
-                <img src="assets/brand/uniqu-logo-white-stacked.svg" alt="" loading="lazy" />
-              </span>
+              ${gpa <= 85 ? '<span class="case-card__badge">GPA 70–85</span>' : ""}
             </div>
             <h3>${escapeHtml(item.university)}</h3>
             <p>${escapeHtml(item.result)}</p>
             <small>${escapeHtml(item.program)}</small>
           </article>
-        `
+        `;
+        }
       )
       .join("");
+  };
+
+  const renderTrust = (t) => {
+    const section = t.trust;
+    if (!section) return;
+    const interaction = getInteractionLabels();
+
+    text(".trust-section .eyebrow", section.eyebrow);
+    text(".trust-section h2", section.title);
+    text(".trust-section__head .section-copy", section.copy);
+
+    const roleGrid = qs(".team-role-grid");
+    if (roleGrid && Array.isArray(section.roles)) {
+      roleGrid.innerHTML = section.roles
+        .map(
+          (item, index) => `
+            <article tabindex="0" role="button" data-team-role="${index}" aria-pressed="${index === 0 ? "true" : "false"}" class="${index === 0 ? "is-active" : ""}">
+              <i data-lucide="${escapeHtml(item.icon)}"></i>
+              <strong>${escapeHtml(item.title)}</strong>
+              <span>${escapeHtml(item.text)}</span>
+            </article>
+          `
+        )
+        .join("");
+    }
+
+    const contacts = state.content.settings.contacts;
+    const offices = [contacts.address, ...(contacts.extraAddresses || [])];
+    const binLabel = state.lang === "ru" || state.lang === "kz" ? "БИН" : "BIN";
+    const facts = qs(".trust-facts");
+    if (facts) {
+      facts.innerHTML = `
+        ${offices
+          .map(
+            (address, index) => `
+              <div class="trust-fact" tabindex="0" role="button" data-copy-value="${escapeHtml(address)}" aria-label="${escapeHtml(interaction.copyHint)}: ${escapeHtml(address)}">
+                <span>${escapeHtml(section.officeLabels?.[index] || section.officeLabel)}</span>
+                <strong>${escapeHtml(address)}</strong>
+              </div>
+            `
+          )
+          .join("")}
+        <div class="trust-fact trust-fact--legal" tabindex="0" role="button" data-copy-value="${escapeHtml(`${contacts.legalName} · ${binLabel} ${contacts.bin}`)}" aria-label="${escapeHtml(interaction.copyHint)}: ${escapeHtml(contacts.legalName)}">
+          <span>${escapeHtml(section.legalLabel)}</span>
+          <strong>${escapeHtml(contacts.legalName)}</strong>
+          <small>${binLabel} ${escapeHtml(contacts.bin)}</small>
+        </div>
+      `;
+      facts.dataset.copiedLabel = interaction.copied;
+    }
+
+    text(".proof-request > div:nth-child(2) > span", section.proofLabel);
+    text(".proof-request h3", section.proofTitle);
+    text(".proof-request p", section.proofCopy);
+    setButton(qs(".proof-request [data-open-modal]"), section.proofCta, "arrow-right");
   };
 
   const renderSteps = (t) => {
@@ -874,8 +1138,10 @@
         ${contacts.phones
           .map((phone, index) => `<a href="tel:${escapeHtml(contacts.phoneLinks[index] || phone.replace(/\D/g, ""))}">${escapeHtml(phone)}</a>`)
           .join("")}
+        ${contacts.uzPhone ? `<a href="tel:${escapeHtml(contacts.uzPhoneLink || contacts.uzPhone.replace(/\D/g, ""))}">${escapeHtml(contacts.uzPhone)}</a>` : ""}
         <a href="mailto:${escapeHtml(contacts.email)}">${escapeHtml(contacts.email)}</a>
         <a href="https://wa.me/${escapeHtml(contacts.whatsapp)}">WhatsApp</a>
+        ${contacts.telegramUrl ? `<a href="${escapeHtml(contacts.telegramUrl)}" target="_blank" rel="noopener">Telegram</a>` : ""}
         <span>${escapeHtml(contacts.address)}</span>
         ${(contacts.extraAddresses || []).map((address) => `<span>${escapeHtml(address)}</span>`).join("")}
         <span>${escapeHtml(contacts.legalName || "")}${contacts.bin ? `, БИН ${escapeHtml(contacts.bin)}` : ""}</span>
@@ -903,9 +1169,6 @@
       form.innerHTML = `
         <label>${escapeHtml(t.form.name)}<input name="name" type="text" placeholder="${escapeHtml(t.form.namePlaceholder)}" required /></label>
         <label>${escapeHtml(t.form.phone)}<input name="phone" type="tel" placeholder="${escapeHtml(t.form.phonePlaceholder)}" required /></label>
-        <label>${escapeHtml(t.form.grade)}<select name="grade">${t.form.grades.map((item) => `<option>${escapeHtml(item)}</option>`).join("")}</select></label>
-        <label>${escapeHtml(t.form.program)}<select name="program">${(t.form.programs || []).map((item) => `<option>${escapeHtml(item)}</option>`).join("")}</select></label>
-        <label>${escapeHtml(t.form.start)}<select name="start">${(t.form.starts || []).map((item) => `<option>${escapeHtml(item)}</option>`).join("")}</select></label>
         <label>${escapeHtml(t.form.interest)}<select name="interest">${t.form.interests.map((item) => `<option>${escapeHtml(item)}</option>`).join("")}</select></label>
         <button class="primary-button" type="submit">${escapeHtml(t.form.submit)} <i data-lucide="send"></i></button>
         <small>${escapeHtml(t.form.policy)}</small>
@@ -914,6 +1177,36 @@
 
     text(".success-state h3", t.form.successTitle);
     text(".success-state p", t.form.successText);
+  };
+
+  const renderContactLayer = () => {
+    const contacts = state.content.settings.contacts;
+    qs(".messenger-dock")?.remove();
+
+    const dock = document.createElement("div");
+    dock.className = "messenger-dock";
+    dock.setAttribute("aria-label", "Связаться с UniQ");
+    dock.innerHTML = `
+      <a class="messenger-dock__item messenger-dock__item--whatsapp" href="https://wa.me/${escapeHtml(contacts.whatsapp)}" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+        <i data-lucide="message-circle"></i><span>WhatsApp</span>
+      </a>
+      ${contacts.telegramUrl ? `<a class="messenger-dock__item messenger-dock__item--telegram" href="${escapeHtml(contacts.telegramUrl)}" target="_blank" rel="noopener" aria-label="Написать в Telegram"><i data-lucide="send"></i><span>Telegram</span></a>` : ""}
+    `;
+    document.body.appendChild(dock);
+  };
+
+  const installAnalytics = () => {
+    const projectId = state.content.settings.integrations?.clarityProjectId?.trim();
+    if (!projectId || window.clarity) return;
+
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.clarity.ms/tag/${encodeURIComponent(projectId)}`;
+    script.dataset.clarity = projectId;
+    document.head.appendChild(script);
   };
 
   const bindLeadForm = () => {
@@ -961,32 +1254,50 @@
     });
   };
 
+  const reorderPrioritySections = () => {
+    const main = qs("main");
+    if (!main) return;
+
+    [
+      ".hero",
+      ".program-strip",
+      ".china-budget",
+      ".cases",
+      ".reviews",
+      ".move-fear",
+      ".trust-section",
+      ".countries",
+      ".country-details",
+      ".about",
+      ".why-section",
+      ".services",
+      ".gpa-calculator",
+      ".universities",
+      ".steps",
+      ".faq",
+      ".map-section",
+      ".consult-band"
+    ]
+      .map((selector) => qs(selector, main))
+      .filter(Boolean)
+      .forEach((section) => main.appendChild(section));
+  };
+
   const bindGpaCalculator = () => {
     const form = qs("[data-gpa-form]");
-    const rows = qs("[data-gpa-rows]");
-    if (!form || !rows || form.dataset.gpaBound) return;
+    if (!form || form.dataset.gpaBound) return;
     form.dataset.gpaBound = "true";
 
-    form.addEventListener("input", updateGpaCalculator);
-    form.addEventListener("click", (event) => {
-      const addButton = event.target instanceof Element ? event.target.closest("[data-gpa-add-row]") : null;
-      if (addButton) {
-        const row = createGpaRow();
-        rows.appendChild(row);
-        window.setTimeout(() => row.classList.remove("is-added"), 460);
-        updateGpaCalculator();
-        window.initMotionSystem?.(rows);
-        return;
-      }
-
-      const removeButton = event.target instanceof Element ? event.target.closest("[data-gpa-remove]") : null;
-      if (!removeButton) return;
-
-      const row = removeButton.closest("[data-gpa-row]");
-      if (row && qsa("[data-gpa-row]").length > 1) {
-        row.remove();
-        updateGpaCalculator();
-      }
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      updateGpaCalculator();
+    });
+    form.addEventListener("reset", () => {
+      window.setTimeout(() => {
+        qsa("[data-gpa-count]").forEach((input) => input.setAttribute("aria-invalid", "false"));
+        setGpaError();
+        setGpaEmptyState();
+      });
     });
   };
 
@@ -1005,6 +1316,7 @@
     renderNav(t);
     renderHero(t);
     renderPrograms(t);
+    renderBudget(t);
     renderGpaCalculator(t);
     renderAbout(t);
     renderUniversities(t);
@@ -1017,17 +1329,21 @@
     renderCalculator(t);
     renderReviews(t);
     renderCases(t);
+    renderTrust(t);
     renderSteps(t);
     renderVideoAndMap(t);
     renderFaq(t);
     renderFooter(t);
     renderForm(t);
+    renderContactLayer();
+    reorderPrioritySections();
     bindLeadForm();
     bindCalculator();
     bindGpaCalculator();
     bindModalTriggers();
     window.initMotionSystem?.();
     window.initCounters?.();
+    window.initLandingInteractions?.();
 
     if (window.lucide) {
       window.lucide.createIcons();
@@ -1036,6 +1352,7 @@
 
   const init = async () => {
     state.content = await fetchContent();
+    installAnalytics();
     const available = state.content.settings.languages.map((item) => item.code);
     const hasExplicitLanguage = Boolean(getLangFromUrl() || localStorage.getItem("uniqu-lang"));
     const initialLanguage = window.UniqGeoLanguage

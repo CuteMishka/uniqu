@@ -17,6 +17,11 @@ const universityNext = document.querySelector("[data-carousel-next]");
 const motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const pointerFine = window.matchMedia("(pointer: fine)").matches;
 const canUsePointerMotion = motionOK && pointerFine;
+const consultationPopupDelay = 35000;
+const consultationPopupStorageKey = "uniqu-consultation-popup-shown";
+
+let consultationPopupTimer = null;
+let consultationPopupReady = false;
 
 body.classList.add("is-loading");
 
@@ -109,7 +114,14 @@ const interactiveCardSelector = [
   ".country-hero__panel",
   ".country-page-card",
   ".country-program-card",
-  ".country-requirements__list article"
+  ".country-requirements__list article",
+  ".budget-anchor-grid article",
+  ".budget-grant",
+  ".case-archive figure",
+  ".profile-paths article",
+  ".team-role-grid article",
+  ".trust-fact",
+  ".proof-request"
 ].join(", ");
 
 const motionTargetSelector = [
@@ -366,10 +378,41 @@ if (levelSelect && countrySelect && budgetResult) {
   updateBudget();
 }
 
-const openModal = () => {
+const hasSeenConsultationPopup = () => {
+  try {
+    return window.sessionStorage.getItem(consultationPopupStorageKey) === "true";
+  } catch {
+    return false;
+  }
+};
+
+const rememberConsultationPopup = () => {
+  try {
+    window.sessionStorage.setItem(consultationPopupStorageKey, "true");
+  } catch {
+    // The consultation still opens when storage is unavailable.
+  }
+};
+
+const cancelConsultationPopup = () => {
+  if (consultationPopupTimer) {
+    window.clearTimeout(consultationPopupTimer);
+    consultationPopupTimer = null;
+  }
+  consultationPopupReady = false;
+};
+
+const openModal = (source = "manual") => {
+  if (!modal) return;
+  rememberConsultationPopup();
+  cancelConsultationPopup();
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+
+  window.setTimeout(() => {
+    modal.querySelector("input, select, button")?.focus({ preventScroll: true });
+  }, source === "timed" ? 320 : 120);
 };
 
 const closeModal = () => {
@@ -381,6 +424,28 @@ const closeModal = () => {
 
 openModalButtons.forEach((button) => button.addEventListener("click", openModal));
 closeModalButtons.forEach((button) => button.addEventListener("click", closeModal));
+
+const showTimedConsultationPopup = () => {
+  consultationPopupTimer = null;
+  if (hasSeenConsultationPopup()) return;
+
+  if (document.visibilityState !== "visible") {
+    consultationPopupReady = true;
+    return;
+  }
+
+  openModal("timed");
+};
+
+if (modal && !hasSeenConsultationPopup()) {
+  consultationPopupTimer = window.setTimeout(showTimedConsultationPopup, consultationPopupDelay);
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (consultationPopupReady && document.visibilityState === "visible") {
+    showTimedConsultationPopup();
+  }
+});
 
 document.addEventListener("click", (event) => {
   const trigger = event.target instanceof Element ? event.target.closest("[data-open-modal]") : null;
@@ -421,6 +486,13 @@ menu.querySelectorAll("a, [data-open-modal]").forEach((item) => {
   item.addEventListener("click", closeMenu);
 });
 
+const setFaqItemState = (item, isOpen) => {
+  if (!item) return;
+  item.classList.toggle("is-open", isOpen);
+  item.querySelector(".faq-item__question")?.setAttribute("aria-expanded", String(isOpen));
+  item.querySelector(".faq-item__body")?.setAttribute("aria-hidden", String(!isOpen));
+};
+
 document.addEventListener("click", (event) => {
   const question = event.target instanceof Element ? event.target.closest(".faq-item__question") : null;
   if (!question) return;
@@ -431,12 +503,10 @@ document.addEventListener("click", (event) => {
   const willOpen = !current.classList.contains("is-open");
   document.querySelectorAll(".faq-item.is-open").forEach((item) => {
     if (item === current) return;
-    item.classList.remove("is-open");
-    item.querySelector(".faq-item__question")?.setAttribute("aria-expanded", "false");
+    setFaqItemState(item, false);
   });
 
-  current.classList.toggle("is-open", willOpen);
-  question.setAttribute("aria-expanded", String(willOpen));
+  setFaqItemState(current, willOpen);
 });
 
 const lavaCursor = document.querySelector(".lava-cursor");
@@ -672,3 +742,276 @@ if (universityTrack && universityPrev && universityNext) {
   universityTrack.addEventListener("pointerenter", pauseCarousel);
   universityTrack.addEventListener("pointerleave", resumeCarousel);
 }
+
+const activateHeroJourneyStep = (hero, requestedIndex) => {
+  const steps = [...hero.querySelectorAll(".hero-journey li")];
+  if (!steps.length) return;
+  const index = (requestedIndex + steps.length) % steps.length;
+
+  steps.forEach((step, stepIndex) => {
+    const isActive = stepIndex === index;
+    step.classList.toggle("is-active", isActive);
+    const control = step.querySelector("button") || step;
+    control.setAttribute("aria-current", isActive ? "step" : "false");
+  });
+
+  const status = hero.querySelector(".hero-journey__status");
+  if (status) {
+    const label = steps[index].querySelector("span")?.textContent?.trim() || "";
+    const counter = status.querySelector(":scope > span");
+    const title = status.querySelector(":scope > strong");
+    const fill = status.querySelector("i > b");
+    if (counter) counter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(steps.length).padStart(2, "0")}`;
+    if (title) title.textContent = label;
+    if (fill) fill.style.transform = `scaleX(${(index + 1) / steps.length})`;
+  }
+
+  hero.dataset.activeJourneyStep = String(index);
+  hero.style.setProperty("--hero-stage", String(index));
+  hero.style.setProperty("--hero-focus-x", `${24 + (index / Math.max(steps.length - 1, 1)) * 58}%`);
+};
+
+const initHeroJourney = (root = document) => {
+  const heroes = root.matches?.(".hero") ? [root] : [...(root.querySelectorAll?.(".hero") || [])];
+  heroes.forEach((hero) => {
+    const journey = hero.querySelector(".hero-journey");
+    if (!journey) return;
+
+    if (!hero.querySelector(".hero-journey__status")) {
+      const status = document.createElement("div");
+      status.className = "hero-journey__status";
+      status.setAttribute("aria-live", "polite");
+      status.innerHTML = "<span></span><strong></strong><i aria-hidden=\"true\"><b></b></i>";
+      journey.after(status);
+    }
+
+    const restartAutoplay = () => {
+      window.clearInterval(hero._journeyTimer);
+      if (!motionOK || hero.matches(":hover") || hero.contains(document.activeElement)) return;
+      hero._journeyTimer = window.setInterval(() => {
+        const current = Number(hero.dataset.activeJourneyStep || 0);
+        activateHeroJourneyStep(hero, current + 1);
+      }, 2800);
+    };
+
+    if (hero.dataset.heroJourneyBound !== "true") {
+      hero.dataset.heroJourneyBound = "true";
+
+      journey.addEventListener("click", (event) => {
+        const step = event.target instanceof Element ? event.target.closest("li") : null;
+        if (!step || !journey.contains(step)) return;
+        const steps = [...journey.querySelectorAll("li")];
+        activateHeroJourneyStep(hero, steps.indexOf(step));
+      });
+
+      journey.addEventListener("pointerover", (event) => {
+        if (!canUsePointerMotion) return;
+        const step = event.target instanceof Element ? event.target.closest("li") : null;
+        if (!step || !journey.contains(step)) return;
+        activateHeroJourneyStep(hero, [...journey.querySelectorAll("li")].indexOf(step));
+      });
+
+      hero.addEventListener("pointermove", (event) => {
+        if (!canUsePointerMotion) return;
+        const rect = hero.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        hero.style.setProperty("--hero-parallax-x", `${x * -14}px`);
+        hero.style.setProperty("--hero-parallax-y", `${y * -10}px`);
+      }, { passive: true });
+
+      hero.addEventListener("pointerleave", () => {
+        hero.style.setProperty("--hero-parallax-x", "0px");
+        hero.style.setProperty("--hero-parallax-y", "0px");
+        restartAutoplay();
+      });
+      hero.addEventListener("pointerenter", () => window.clearInterval(hero._journeyTimer));
+      hero.addEventListener("focusin", () => window.clearInterval(hero._journeyTimer));
+      hero.addEventListener("focusout", restartAutoplay);
+    }
+
+    activateHeroJourneyStep(hero, 0);
+    restartAutoplay();
+  });
+};
+
+const applyBudgetScenario = (section, value, statusText = "") => {
+  const coverage = Number(value) || 0;
+  section.querySelectorAll("[data-budget-scenario]").forEach((button) => {
+    const isActive = Number(button.dataset.budgetScenario) === coverage;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  section.querySelectorAll("[data-budget-item]").forEach((card) => {
+    const index = Number(card.dataset.budgetItem);
+    card.classList.toggle("is-partially-covered", coverage === 50 && index === 0);
+    card.classList.toggle("is-covered", coverage === 100 && index < 3);
+  });
+
+  const status = section.querySelector(".budget-scenarios__status");
+  if (statusText && status) status.textContent = statusText;
+  section.style.setProperty("--grant-coverage", `${coverage / 100}`);
+  section.classList.remove("is-switching-scenario");
+  void section.offsetWidth;
+  section.classList.add("is-switching-scenario");
+  window.setTimeout(() => section.classList.remove("is-switching-scenario"), 520);
+};
+
+const initBudgetScenarios = (root = document) => {
+  const sections = root.matches?.(".china-budget") ? [root] : [...(root.querySelectorAll?.(".china-budget") || [])];
+  sections.forEach((section) => {
+    if (section.dataset.budgetScenarioBound !== "true") {
+      section.dataset.budgetScenarioBound = "true";
+      section.addEventListener("click", (event) => {
+        const button = event.target instanceof Element ? event.target.closest("[data-budget-scenario]") : null;
+        if (!button || !section.contains(button)) return;
+        applyBudgetScenario(section, button.dataset.budgetScenario, button.dataset.budgetStatus);
+      });
+    }
+    const active = section.querySelector("[data-budget-scenario].is-active") || section.querySelector("[data-budget-scenario]");
+    if (active) applyBudgetScenario(section, active.dataset.budgetScenario, active.dataset.budgetStatus);
+  });
+};
+
+const applyCaseFilter = (section, filter) => {
+  const cards = [...section.querySelectorAll(".case-card")];
+  let visible = 0;
+
+  section.querySelectorAll("[data-case-filter]").forEach((button) => {
+    const isActive = button.dataset.caseFilter === filter;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  cards.forEach((card) => {
+    window.clearTimeout(card._caseFilterTimer);
+    const shouldShow =
+      filter === "all" ||
+      (filter === "mid" && Number(card.dataset.caseGpa) <= 85) ||
+      (filter === "full" && card.dataset.caseFullGrant === "true");
+
+    if (shouldShow) {
+      visible += 1;
+      card.hidden = false;
+      requestAnimationFrame(() => card.classList.remove("is-filtering-out"));
+    } else {
+      card.classList.add("is-filtering-out");
+      card._caseFilterTimer = window.setTimeout(() => {
+        card.hidden = true;
+      }, motionOK ? 220 : 0);
+    }
+  });
+
+  const count = section.querySelector(".case-filters__count");
+  if (count) count.textContent = `${visible} / ${cards.length}`;
+};
+
+const initCaseFilters = (root = document) => {
+  const sections = root.matches?.(".cases") ? [root] : [...(root.querySelectorAll?.(".cases") || [])];
+  sections.forEach((section) => {
+    if (section.dataset.caseFiltersBound !== "true") {
+      section.dataset.caseFiltersBound = "true";
+      section.addEventListener("click", (event) => {
+        const button = event.target instanceof Element ? event.target.closest("[data-case-filter]") : null;
+        if (!button || !section.contains(button)) return;
+        applyCaseFilter(section, button.dataset.caseFilter);
+      });
+    }
+    applyCaseFilter(section, "all");
+  });
+};
+
+const copyToClipboard = async (value) => {
+  try {
+    await navigator.clipboard.writeText(value);
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = value;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  }
+};
+
+const activateTeamRole = (section, selected) => {
+  section.querySelectorAll("[data-team-role]").forEach((role) => {
+    const active = role === selected;
+    role.classList.toggle("is-active", active);
+    role.setAttribute("aria-pressed", String(active));
+  });
+  section.style.setProperty("--active-team-role", selected.dataset.teamRole || "0");
+};
+
+const initTrustInteractions = (root = document) => {
+  const sections = root.matches?.(".trust-section") ? [root] : [...(root.querySelectorAll?.(".trust-section") || [])];
+  sections.forEach((section) => {
+    if (section.dataset.trustInteractionsBound !== "true") {
+      section.dataset.trustInteractionsBound = "true";
+
+      const handleInteraction = async (target) => {
+        const role = target.closest?.("[data-team-role]");
+        if (role && section.contains(role)) {
+          activateTeamRole(section, role);
+          return;
+        }
+
+        const fact = target.closest?.("[data-copy-value]");
+        if (!fact || !section.contains(fact)) return;
+        await copyToClipboard(fact.dataset.copyValue || "");
+        section.querySelectorAll(".trust-fact.is-copied").forEach((item) => item.classList.remove("is-copied"));
+        fact.classList.add("is-copied");
+        let live = section.querySelector(".trust-copy-status");
+        if (!live) {
+          live = document.createElement("span");
+          live.className = "trust-copy-status";
+          live.setAttribute("aria-live", "polite");
+          section.appendChild(live);
+        }
+        live.textContent = fact.parentElement?.dataset.copiedLabel || "Copied";
+        window.setTimeout(() => fact.classList.remove("is-copied"), 1300);
+      };
+
+      section.addEventListener("click", (event) => {
+        if (event.target instanceof Element) handleInteraction(event.target);
+      });
+      section.addEventListener("keydown", (event) => {
+        if (!(event.target instanceof Element) || !event.target.matches("[data-team-role], [data-copy-value]")) return;
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        handleInteraction(event.target);
+      });
+      section.addEventListener("pointerover", (event) => {
+        if (!canUsePointerMotion || !(event.target instanceof Element)) return;
+        const role = event.target.closest("[data-team-role]");
+        if (role && section.contains(role)) activateTeamRole(section, role);
+      });
+    }
+
+    const firstRole = section.querySelector("[data-team-role].is-active") || section.querySelector("[data-team-role]");
+    if (firstRole) activateTeamRole(section, firstRole);
+  });
+};
+
+const initFaqAccordion = (root = document) => {
+  root.querySelectorAll?.(".faq-item").forEach((item) => {
+    setFaqItemState(item, item.classList.contains("is-open"));
+  });
+};
+
+const initLandingInteractions = (root = document) => {
+  initHeroJourney(root);
+  initBudgetScenarios(root);
+  initCaseFilters(root);
+  initTrustInteractions(root);
+  initFaqAccordion(root);
+  bindInteractiveCards(root);
+  bindMotionTargets(root);
+};
+
+window.initLandingInteractions = initLandingInteractions;
+initLandingInteractions();

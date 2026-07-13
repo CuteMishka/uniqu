@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UNIQU CMS</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#111722" />
+    <title>UNIQU CRM — работа с заявками</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,60 +16,347 @@
     <link rel="stylesheet" href="admin.css" />
   </head>
   <body>
-    <header class="admin-header">
-      <div class="admin-brand">
-        <img src="assets/brand/uniqu-logo-light-horizontal.svg" alt="UNIQU" />
-        <div>
-          <p>UNIQU CMS</p>
-          <h1>Панель управления сайтом</h1>
-        </div>
-      </div>
-      <nav>
-        <a href="/">Сайт</a>
-        <button type="button" data-save>Сохранить</button>
+    <a class="skip-link" href="#workspace">Перейти к содержимому</a>
+
+    <header class="app-header">
+      <a class="admin-brand" href="/admin.html" aria-label="UNIQU CRM — главная">
+        <img src="assets/brand/uniqu-logo-white-horizontal.svg" alt="UNIQU" />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span>CRM</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Разделы CRM">
+        <button class="nav-item is-active" type="button" data-view-target="dashboard">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z" /></svg>
+          <span>Обзор</span>
+        </button>
+        <button class="nav-item" type="button" data-view-target="leads">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m7-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 10v-2a4 4 0 0 0-3-3.87m-3-12a4 4 0 0 1 0 7.75" /></svg>
+          <span>Заявки</span>
+          <small data-new-badge hidden>0</small>
+        </button>
+        <button class="nav-item" type="button" data-view-target="content">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z" /><path d="M14 2v6h6M8 13h8M8 17h6" /></svg>
+          <span>Контент</span>
+        </button>
+        <button class="nav-item" type="button" data-view-target="tools">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" /></svg>
+          <span>Данные</span>
+        </button>
       </nav>
+
+      <div class="header-actions">
+        <span class="sync-state" data-sync-state><i></i><span>Синхронизация</span></span>
+        <a class="site-link" href="/" target="_blank" rel="noopener">
+          Открыть сайт
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+        </a>
+      </div>
     </header>
 
-    <main>
-      <section class="status-card">
-        <strong data-status>Загрузка контента...</strong>
-        <span>Изменения сохраняются в файл <code>data/site-content.json</code>, заявки — в <code>data/leads.json</code>.</span>
-      </section>
+    <main class="workspace" id="workspace">
+      <section class="app-view is-active" data-view="dashboard" aria-labelledby="dashboard-title">
+        <div class="view-heading">
+          <div>
+            <p class="view-kicker" data-greeting>Добрый день</p>
+            <h1 id="dashboard-title">Пульс продаж</h1>
+            <p>Заявки с лендинга и работа команды в одном пространстве.</p>
+          </div>
+          <button class="button button--primary" type="button" data-create-lead>
+            <span aria-hidden="true">＋</span>
+            Добавить заявку
+          </button>
+        </div>
 
-      <section class="toolbar">
-        <div class="tabs" data-language-tabs></div>
-        <div class="toolbar-actions">
-          <button type="button" data-reload>Обновить</button>
-          <button type="button" data-export>Экспорт JSON</button>
+        <div class="metric-grid" aria-label="Основные показатели">
+          <article class="metric-card metric-card--accent">
+            <div class="metric-card__head"><span>Всего заявок</span><em>База</em></div>
+            <strong data-metric="total">0</strong>
+            <p data-total-trend>Данные загружаются</p>
+            <span class="metric-card__mark" aria-hidden="true">01</span>
+          </article>
+          <article class="metric-card">
+            <div class="metric-card__head"><span>Новые сегодня</span><em>День</em></div>
+            <strong data-metric="today">0</strong>
+            <p>Требуют первого контакта</p>
+            <span class="metric-card__mark" aria-hidden="true">02</span>
+          </article>
+          <article class="metric-card">
+            <div class="metric-card__head"><span>В работе</span><em>Сейчас</em></div>
+            <strong data-metric="active">0</strong>
+            <p>От контакта до документов</p>
+            <span class="metric-card__mark" aria-hidden="true">03</span>
+          </article>
+          <article class="metric-card">
+            <div class="metric-card__head"><span>Конверсия</span><em>Результат</em></div>
+            <strong><span data-metric="conversion">0</span><small>%</small></strong>
+            <p><span data-metric="won">0</span> успешных сделок</p>
+            <span class="metric-card__mark" aria-hidden="true">04</span>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="surface chart-panel">
+            <header class="panel-heading">
+              <div><span>Новые обращения</span><h2>Последние 7 дней</h2></div>
+              <button class="text-button" type="button" data-view-target="leads">Все заявки →</button>
+            </header>
+            <div class="weekly-chart" data-weekly-chart aria-label="График заявок за неделю"></div>
+          </article>
+
+          <article class="surface funnel-panel">
+            <header class="panel-heading">
+              <div><span>Этапы</span><h2>Воронка продаж</h2></div>
+            </header>
+            <div class="funnel-list" data-funnel-list></div>
+          </article>
+
+          <article class="surface activity-panel">
+            <header class="panel-heading">
+              <div><span>Команда</span><h2>Последние действия</h2></div>
+            </header>
+            <div class="activity-feed" data-recent-activity></div>
+          </article>
         </div>
       </section>
 
-      <section class="admin-layout">
-        <article class="panel">
-          <h2>Общие настройки</h2>
-          <div data-settings-editor></div>
-        </article>
+      <section class="app-view" data-view="leads" aria-labelledby="leads-title" hidden>
+        <div class="view-heading view-heading--compact">
+          <div>
+            <p class="view-kicker">CRM / входящие</p>
+            <h1 id="leads-title">Заявки</h1>
+            <p><span data-results-count>0 заявок</span> по выбранным условиям.</p>
+          </div>
+          <div class="view-actions">
+            <button class="button button--quiet" type="button" data-export-leads>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" /></svg>
+              CSV
+            </button>
+            <button class="button button--primary" type="button" data-create-lead>
+              <span aria-hidden="true">＋</span>
+              Добавить заявку
+            </button>
+          </div>
+        </div>
 
-        <article class="panel">
-          <h2>Контент выбранного языка</h2>
-          <div data-translation-editor></div>
-        </article>
-      </section>
+        <div class="crm-toolbar surface">
+          <label class="search-field">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+            <span class="sr-only">Поиск</span>
+            <input type="search" placeholder="Имя, телефон, программа…" data-lead-search />
+            <kbd>⌘ K</kbd>
+          </label>
+          <label class="select-field">
+            <span class="sr-only">Статус</span>
+            <select data-filter-status>
+              <option value="">Все статусы</option>
+              <option value="new">Новые</option>
+              <option value="contacted">Связались</option>
+              <option value="consultation">Консультация</option>
+              <option value="documents">Документы</option>
+              <option value="won">Зачислен</option>
+              <option value="lost">Закрыт</option>
+            </select>
+          </label>
+          <label class="select-field">
+            <span class="sr-only">Программа</span>
+            <select data-filter-program><option value="">Все программы</option></select>
+          </label>
+          <label class="select-field">
+            <span class="sr-only">Ответственный</span>
+            <select data-filter-assignee><option value="">Все менеджеры</option></select>
+          </label>
+          <div class="view-toggle" aria-label="Представление">
+            <button class="is-active" type="button" data-lead-layout="board" aria-label="Канбан">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="16" rx="1" /><rect x="14" y="4" width="7" height="10" rx="1" /></svg>
+            </button>
+            <button type="button" data-lead-layout="table" aria-label="Таблица">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+          </div>
+        </div>
 
-      <section class="panel">
-        <h2>Импорт / экспорт</h2>
-        <textarea data-json-area spellcheck="false" placeholder="Здесь появится JSON для экспорта или вставьте сюда JSON для импорта"></textarea>
-        <div class="toolbar-actions">
-          <button type="button" data-import>Импортировать из поля</button>
+        <div class="pipeline-board" data-leads-board></div>
+
+        <div class="leads-table-wrap surface" data-leads-table-wrap hidden>
+          <table class="leads-table">
+            <thead>
+              <tr>
+                <th>Клиент</th>
+                <th>Интерес</th>
+                <th>Статус</th>
+                <th>Ответственный</th>
+                <th>Добавлен</th>
+                <th><span class="sr-only">Открыть</span></th>
+              </tr>
+            </thead>
+            <tbody data-leads-table></tbody>
+          </table>
+        </div>
+
+        <div class="empty-state surface" data-leads-empty hidden>
+          <span aria-hidden="true">↗</span>
+          <h2>Здесь пока тихо</h2>
+          <p>Измените фильтры или добавьте первую заявку вручную.</p>
+          <button class="button button--primary" type="button" data-create-lead>Добавить заявку</button>
         </div>
       </section>
 
-      <section class="panel">
-        <h2>Заявки с сайта</h2>
-        <div class="leads" data-leads>Заявок пока нет.</div>
+      <section class="app-view" data-view="content" aria-labelledby="content-title" hidden>
+        <div class="view-heading view-heading--compact">
+          <div>
+            <p class="view-kicker">CMS / лендинг</p>
+            <h1 id="content-title">Контент сайта</h1>
+            <p>Редактируйте тексты, контакты и локализации без изменения кода.</p>
+          </div>
+          <div class="view-actions">
+            <button class="button button--quiet" type="button" data-reload>Сбросить</button>
+            <button class="button button--primary" type="button" data-save>Сохранить изменения</button>
+          </div>
+        </div>
+
+        <div class="content-status" role="status">
+          <span class="content-status__dot"></span>
+          <strong data-status>Загрузка контента…</strong>
+          <span>Изменения попадут на сайт после сохранения.</span>
+        </div>
+
+        <div class="content-toolbar">
+          <div class="tabs" data-language-tabs aria-label="Язык контента"></div>
+          <button class="text-button" type="button" data-collapse-editors>Свернуть разделы</button>
+        </div>
+
+        <div class="admin-layout">
+          <article class="editor-panel surface">
+            <header class="panel-heading"><div><span>Глобально</span><h2>Настройки сайта</h2></div></header>
+            <div data-settings-editor></div>
+          </article>
+          <article class="editor-panel surface editor-panel--wide">
+            <header class="panel-heading"><div><span>Локализация</span><h2>Контент выбранного языка</h2></div></header>
+            <div data-translation-editor></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="app-view" data-view="tools" aria-labelledby="tools-title" hidden>
+        <div class="view-heading view-heading--compact">
+          <div>
+            <p class="view-kicker">Сервис</p>
+            <h1 id="tools-title">Импорт и экспорт</h1>
+            <p>Резервная копия контента для переноса или восстановления.</p>
+          </div>
+        </div>
+
+        <div class="tools-grid">
+          <article class="surface tool-card">
+            <span class="tool-card__number">01</span>
+            <h2>Экспорт контента</h2>
+            <p>Сформируйте актуальный JSON и сохраните его как резервную копию.</p>
+            <button class="button button--quiet" type="button" data-export>Подготовить JSON</button>
+          </article>
+          <article class="surface tool-card">
+            <span class="tool-card__number">02</span>
+            <h2>Импорт контента</h2>
+            <p>Вставьте корректный JSON ниже. Перед записью данные можно проверить в редакторе.</p>
+            <button class="button button--quiet" type="button" data-import>Применить из поля</button>
+          </article>
+        </div>
+
+        <label class="json-editor surface">
+          <span>JSON контента</span>
+          <textarea data-json-area spellcheck="false" placeholder="Нажмите «Подготовить JSON» или вставьте данные для импорта"></textarea>
+        </label>
       </section>
     </main>
 
+    <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+    <aside class="lead-drawer" data-lead-drawer aria-hidden="true" aria-labelledby="drawer-title" inert>
+      <header class="drawer-header">
+        <div>
+          <p data-drawer-kicker>Карточка клиента</p>
+          <h2 id="drawer-title" data-drawer-title>Новая заявка</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-drawer aria-label="Закрыть">×</button>
+      </header>
+
+      <div class="drawer-contact-actions" data-contact-actions hidden>
+        <a href="#" data-contact-phone>Позвонить</a>
+        <a href="#" target="_blank" rel="noopener" data-contact-whatsapp>WhatsApp</a>
+        <button type="button" data-copy-phone>Копировать номер</button>
+      </div>
+
+      <form class="lead-editor" data-lead-editor>
+        <input type="hidden" name="id" />
+        <div class="form-section">
+          <div class="form-section__title"><span>01</span><h3>Контакт</h3></div>
+          <div class="field-grid">
+            <label class="field field--wide"><span>Имя и фамилия *</span><input name="name" type="text" required autocomplete="name" /></label>
+            <label class="field"><span>Телефон *</span><input name="phone" type="tel" required autocomplete="tel" /></label>
+            <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" /></label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section__title"><span>02</span><h3>Продажа</h3></div>
+          <div class="field-grid">
+            <label class="field"><span>Статус</span>
+              <select name="status">
+                <option value="new">Новая</option>
+                <option value="contacted">Связались</option>
+                <option value="consultation">Консультация</option>
+                <option value="documents">Документы</option>
+                <option value="won">Зачислен</option>
+                <option value="lost">Закрыт</option>
+              </select>
+            </label>
+            <label class="field"><span>Приоритет</span>
+              <select name="priority">
+                <option value="normal">Обычный</option>
+                <option value="high">Высокий</option>
+                <option value="low">Низкий</option>
+              </select>
+            </label>
+            <label class="field"><span>Ответственный</span><input name="assignee" type="text" placeholder="Например, Айгерим" /></label>
+            <label class="field"><span>Следующий контакт</span><input name="nextContactAt" type="datetime-local" /></label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section__title"><span>03</span><h3>Поступление</h3></div>
+          <div class="field-grid">
+            <label class="field"><span>Программа</span><input name="program" type="text" placeholder="Бакалавриат" /></label>
+            <label class="field"><span>Страна / интерес</span><input name="interest" type="text" placeholder="Китай" /></label>
+            <label class="field"><span>Класс / уровень</span><input name="grade" type="text" placeholder="11" /></label>
+            <label class="field"><span>Планируемый старт</span><input name="start" type="text" placeholder="В следующем году" /></label>
+            <label class="field"><span>Бюджет, ₸</span><input name="budget" type="number" min="0" step="10000" /></label>
+            <label class="field"><span>Теги через запятую</span><input name="tags" type="text" placeholder="Грант, горячий лид" /></label>
+          </div>
+        </div>
+
+        <div class="form-section" data-note-section hidden>
+          <div class="form-section__title"><span>04</span><h3>Заметки и история</h3></div>
+          <div class="note-composer">
+            <textarea data-note-input rows="3" placeholder="Зафиксируйте итог звонка или следующий шаг"></textarea>
+            <button class="button button--quiet" type="button" data-add-note>Добавить заметку</button>
+          </div>
+          <div class="lead-timeline" data-lead-timeline></div>
+        </div>
+
+        <div class="drawer-footer">
+          <button class="button button--danger" type="button" data-delete-lead hidden>Удалить</button>
+          <button class="button button--primary" type="submit" data-submit-lead>Сохранить заявку</button>
+        </div>
+      </form>
+    </aside>
+
+    <nav class="mobile-nav" aria-label="Мобильная навигация">
+      <button class="is-active" type="button" data-view-target="dashboard"><span>⌁</span>Обзор</button>
+      <button type="button" data-view-target="leads"><span>◎</span>Заявки</button>
+      <button type="button" data-view-target="content"><span>▧</span>Контент</button>
+      <button type="button" data-view-target="tools"><span>↓</span>Данные</button>
+    </nav>
+
+    <div class="toast-region" data-toast-region aria-live="polite" aria-atomic="true"></div>
     <script src="admin.js"></script>
   </body>
 </html>

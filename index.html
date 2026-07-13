@@ -106,24 +106,37 @@
               </div>
               <div class="hero__media" aria-hidden="true"></div>
               <div class="hero__content reveal">
-                <p class="eyebrow"><span>UniQ</span> - мост к обучению за рубежом</p>
+                <p class="eyebrow">Китай · 2000+ студентов · гранты до 100%</p>
                 <h1>
-                  Ваш путь к обучению
-                  <em>за рубежом</em>
-                  начинается здесь
+                  Поступление в Китай
+                  <em>с грантом</em>
+                  от заявки до адаптации
                 </h1>
                 <p class="hero__lead">
-                  Помогаем выбрать страну и университет, подготовить документы, подать заявку и пройти все этапы поступления.
+                  Подберём университет и грант до 100%, подготовим документы и визу, организуем перелёт, встретим, заселим и поможем адаптироваться в Китае.
                 </p>
+                <ol class="hero-journey" aria-label="Полное сопровождение студента">
+                  <li><i data-lucide="school"></i><span>Поступление</span></li>
+                  <li><i data-lucide="award"></i><span>Грант</span></li>
+                  <li><i data-lucide="badge-check"></i><span>Виза</span></li>
+                  <li><i data-lucide="plane"></i><span>Перелёт</span></li>
+                  <li><i data-lucide="home"></i><span>Заселение</span></li>
+                  <li><i data-lucide="heart-handshake"></i><span>Адаптация</span></li>
+                </ol>
                 <div class="hero__actions">
                   <button class="primary-button" type="button" data-open-modal>
-                    Оставить заявку
+                    Получить подбор университетов с грантами
                     <i data-lucide="arrow-right"></i>
                   </button>
                   <a class="ghost-link" href="tel:+77005002146">
                     <i data-lucide="phone"></i>
                     +7 (700) 500-21-46
                   </a>
+                </div>
+                <div class="hero-proof" aria-label="Опыт UniQ">
+                  <span><strong>7+ лет</strong> сопровождаем студентов</span>
+                  <span><strong>2000+</strong> студентов выбрали UniQ</span>
+                  <span><strong>3 страны</strong> Китай · Турция · Италия</span>
                 </div>
               </div>
             </section>
@@ -161,76 +174,82 @@
               </article>
             </section>
 
+      <section class="section china-budget section-dark" id="china-budget">
+              <div class="china-budget__head reveal">
+                <div class="section-head">
+                  <p class="eyebrow">Бюджет обучения в Китае</p>
+                  <h2>Сколько семье закладывать <em>на один год</em></h2>
+                </div>
+                <p class="section-copy">Ориентиры по актуальным тарифам китайских университетов. Точный бюджет зависит от города, языка программы, типа комнаты и размера гранта.</p>
+              </div>
+              <div class="budget-anchor-grid reveal">
+                <article><span>Обучение</span><strong>¥18 000–26 000</strong><small>≈ $2 500–3 400 в год</small></article>
+                <article><span>Общежитие</span><strong>¥4 000–12 000</strong><small>в год, место в кампусе</small></article>
+                <article><span>Жизнь</span><strong>¥1 500–3 000</strong><small>в месяц на питание и транспорт</small></article>
+                <article class="budget-anchor-grid__total"><span>Итого без гранта</span><strong>¥40 000–74 000</strong><small>≈ $5 200–9 600 в год</small></article>
+              </div>
+              <div class="budget-grant reveal">
+                <div><i data-lucide="award"></i><span>С грантом</span><strong>до 100% обучения + общежитие + стипендия</strong></div>
+                <p>Грантовые окна закрываются раньше общего приёма. Для набора 2027 стратегию и документы лучше готовить уже сейчас.</p>
+                <button class="primary-button" type="button" data-open-modal>Получить расчёт под мой GPA</button>
+              </div>
+              <small class="budget-source reveal">Ориентир обновлён в июле 2026 года. Финальная сумма фиксируется в приглашении и счёте университета.</small>
+            </section>
+
       <section class="section gpa-calculator" id="gpa">
               <div class="gpa-calculator__intro reveal">
                 <p class="eyebrow">GPA калькулятор</p>
                 <h2>Проверьте академический профиль до подбора вуза</h2>
-                <p class="section-copy">Введите оценки по 100-балльной шкале. Мы покажем средний балл и примерный GPA по шкале 4.0.</p>
+                <p class="section-copy">Укажите, сколько у вас оценок «3», «4» и «5». Рассчитаем средний балл сразу в трёх шкалах.</p>
               </div>
               <div class="gpa-calculator__shell reveal">
-                <form class="gpa-form" data-gpa-form>
+                <form class="gpa-form" data-gpa-form novalidate>
                   <div class="gpa-form__head">
-                    <span>Оценки</span>
-                    <small>Кредиты можно оставить 1</small>
+                    <span>Количество оценок</span>
+                    <small>Введите число оценок каждого типа</small>
                   </div>
-                  <div class="gpa-form__rows" data-gpa-rows>
-                    <div class="gpa-row" data-gpa-row>
-                      <label>
-                        <span data-gpa-subject-label>Предмет</span>
-                        <input type="text" placeholder="Математика" />
-                      </label>
-                      <label>
-                        <span data-gpa-grade-label>Оценка</span>
-                        <input data-gpa-grade type="number" min="0" max="100" step="0.1" value="95" />
-                      </label>
-                      <label>
-                        <span data-gpa-credit-label>Кредит</span>
-                        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
-                      </label>
-                      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="Удалить предмет">×</button>
-                    </div>
-                    <div class="gpa-row" data-gpa-row>
-                      <label>
-                        <span data-gpa-subject-label>Предмет</span>
-                        <input type="text" placeholder="Английский" />
-                      </label>
-                      <label>
-                        <span data-gpa-grade-label>Оценка</span>
-                        <input data-gpa-grade type="number" min="0" max="100" step="0.1" value="88" />
-                      </label>
-                      <label>
-                        <span data-gpa-credit-label>Кредит</span>
-                        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
-                      </label>
-                      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="Удалить предмет">×</button>
-                    </div>
-                    <div class="gpa-row" data-gpa-row>
-                      <label>
-                        <span data-gpa-subject-label>Предмет</span>
-                        <input type="text" placeholder="История" />
-                      </label>
-                      <label>
-                        <span data-gpa-grade-label>Оценка</span>
-                        <input data-gpa-grade type="number" min="0" max="100" step="0.1" value="91" />
-                      </label>
-                      <label>
-                        <span data-gpa-credit-label>Кредит</span>
-                        <input data-gpa-credit type="number" min="0.1" max="20" step="0.5" value="1" />
-                      </label>
-                      <button class="gpa-row__remove" type="button" data-gpa-remove aria-label="Удалить предмет">×</button>
-                    </div>
+                  <div class="gpa-form__counts">
+                    <label class="gpa-count">
+                      <span data-gpa-count-label="3">Количество «3»</span>
+                      <input data-gpa-count="3" type="number" min="0" step="1" inputmode="numeric" value="0" />
+                    </label>
+                    <label class="gpa-count">
+                      <span data-gpa-count-label="4">Количество «4»</span>
+                      <input data-gpa-count="4" type="number" min="0" step="1" inputmode="numeric" value="0" />
+                    </label>
+                    <label class="gpa-count">
+                      <span data-gpa-count-label="5">Количество «5»</span>
+                      <input data-gpa-count="5" type="number" min="0" step="1" inputmode="numeric" value="0" />
+                    </label>
                   </div>
-                  <button class="gpa-add-row" type="button" data-gpa-add-row>+ Добавить предмет</button>
+                  <p class="gpa-form__error" data-gpa-error role="alert" hidden></p>
+                  <div class="gpa-form__actions">
+                    <button class="primary-button" type="submit" data-gpa-calculate>Рассчитать</button>
+                    <button class="gpa-reset" type="reset" data-gpa-reset>Сбросить</button>
+                  </div>
                 </form>
                 <aside class="gpa-result" aria-live="polite">
-                  <span class="gpa-result__label">Ваш средний балл</span>
-                  <strong data-gpa-average>91.3</strong>
-                  <small data-gpa-four>GPA 3.65 / 4.0</small>
+                  <span class="gpa-result__label">Ваш результат</span>
+                  <div class="gpa-result__metrics">
+                    <div class="gpa-result__metric gpa-result__metric--primary">
+                      <span data-gpa-five-label>Средний (5-балльная)</span>
+                      <strong data-gpa-average>—</strong>
+                    </div>
+                    <div class="gpa-result__metric">
+                      <span data-gpa-four-label>Средний (4-балльная)</span>
+                      <strong data-gpa-four>—</strong>
+                    </div>
+                    <div class="gpa-result__metric">
+                      <span data-gpa-hundred-label>Средний (100-балльная)</span>
+                      <strong data-gpa-hundred>—</strong>
+                    </div>
+                  </div>
                   <span class="gpa-result__meter" aria-hidden="true">
-                    <span data-gpa-meter style="transform: scaleX(0.913)"></span>
+                    <span data-gpa-meter></span>
                   </span>
-                  <p data-gpa-note>Сильный профиль для грантов и рейтинговых программ.</p>
-                  <em>Это ориентир: университет может считать GPA по своей шкале.</em>
+                  <p data-gpa-note>Введите хотя бы одну оценку.</p>
+                  <em>Расчёт: средний балл = (3×N3 + 4×N4 + 5×N5) / общее количество оценок.</em>
+                  <button class="primary-button gpa-result__cta" type="button" data-open-modal>Получить список грантов под мой GPA</button>
                 </aside>
               </div>
             </section>
@@ -271,7 +290,7 @@
               <div class="why-grid">
                 <article class="why-card reveal"><strong data-counter="2000">2000+</strong><span>студентов уже начали обучение за рубежом</span></article>
                 <article class="why-card reveal"><strong data-counter="7">7+</strong><span>лет опыта в международном поступлении</span></article>
-                <article class="why-card reveal"><strong data-counter="34">34</strong><span>ключевых навыка и качества учитываем при профориентации</span></article>
+                <article class="why-card reveal"><strong data-counter="10">10+</strong><span>партнёрских университетов в Китае</span></article>
                 <article class="why-card reveal"><strong data-counter="3">3</strong><span>направления: Китай, Турция и Италия</span></article>
               </div>
               <ul class="why-list reveal">
@@ -386,7 +405,7 @@
                   </button>
                 </div>
                 <div class="country-detail-stage">
-                  <article class="country-detail-panel is-active" id="country-panel-china" role="tabpanel" aria-labelledby="country-tab-china" data-country-panel="china" style="--country-detail-image: url('https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1100&q=85')">
+                  <article class="country-detail-panel is-active" id="country-panel-china" role="tabpanel" aria-labelledby="country-tab-china" data-country-panel="china" style="--country-detail-image: url('assets/photos/student-campus-life.webp')">
                     <div class="country-detail-visual" aria-hidden="true">
                       <span>01</span>
                       <strong>China</strong>
@@ -416,7 +435,7 @@
                       </div>
                     </div>
                   </article>
-                  <article class="country-detail-panel" id="country-panel-italy" role="tabpanel" aria-labelledby="country-tab-italy" data-country-panel="italy" style="--country-detail-image: url('https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1100&q=85')">
+                  <article class="country-detail-panel" id="country-panel-italy" role="tabpanel" aria-labelledby="country-tab-italy" data-country-panel="italy" style="--country-detail-image: url('assets/photos/students-airport.webp')">
                     <div class="country-detail-visual" aria-hidden="true">
                       <span>02</span>
                       <strong>Italy</strong>
@@ -444,7 +463,7 @@
                       </div>
                     </div>
                   </article>
-                  <article class="country-detail-panel" id="country-panel-turkey" role="tabpanel" aria-labelledby="country-tab-turkey" data-country-panel="turkey" style="--country-detail-image: url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1100&q=85')">
+                  <article class="country-detail-panel" id="country-panel-turkey" role="tabpanel" aria-labelledby="country-tab-turkey" data-country-panel="turkey" style="--country-detail-image: url('assets/photos/students-turkey-street.webp')">
                     <div class="country-detail-visual" aria-hidden="true">
                       <span>03</span>
                       <strong>Turkey</strong>
@@ -487,7 +506,7 @@
                 </button>
                 <div class="university-track" data-university-track>
                   <article class="university-card">
-                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=780&q=85" alt="University of Bologna" />
+                    <img src="assets/photos/student-campus-life.webp" alt="Архив студентов и кампусов UniQ" />
                     <div>
                       <span>Италия</span>
                       <h3>University of Bologna</h3>
@@ -495,7 +514,7 @@
                     </div>
                   </article>
                   <article class="university-card">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=780&q=85" alt="Istanbul University" />
+                    <img src="assets/photos/students-china-dorm.webp" alt="Архив студентов и кампусов UniQ" />
                     <div>
                       <span>Турция</span>
                       <h3>Istanbul University</h3>
@@ -503,7 +522,7 @@
                     </div>
                   </article>
                   <article class="university-card">
-                    <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=780&q=85" alt="Zhejiang University" />
+                    <img src="assets/photos/students-china-cards.webp" alt="Архив студентов и кампусов UniQ" />
                     <div>
                       <span>Китай</span>
                       <h3>Zhejiang University</h3>
@@ -511,7 +530,7 @@
                     </div>
                   </article>
                   <article class="university-card">
-                    <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=780&q=85" alt="Sapienza University of Rome" />
+                    <img src="assets/photos/students-airport.webp" alt="Архив студентов и кампусов UniQ" />
                     <div>
                       <span>Италия</span>
                       <h3>Sapienza University</h3>
@@ -519,7 +538,7 @@
                     </div>
                   </article>
                   <article class="university-card">
-                    <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&w=780&q=85" alt="Tsinghua University" />
+                    <img src="assets/photos/student-bank-card.webp" alt="Архив студентов и кампусов UniQ" />
                     <div>
                       <span>Китай</span>
                       <h3>Tsinghua University</h3>
@@ -621,6 +640,7 @@
                 <h2>Реальные поступления и гранты</h2>
               </div>
               <p class="section-copy reveal">Показываем конкретные результаты студентов: академический профиль, университет, программа и полученная поддержка.</p>
+              <div class="case-archive reveal" aria-label="Фото студентов из архива UniQ"></div>
               <div class="case-grid">
 
                 <article class="case-card reveal">
@@ -658,6 +678,15 @@
                   <p>70% скидка на обучение</p>
                   <small>Economics, бакалавриат на английском</small>
                 </article>
+              </div>
+              <div class="profile-paths reveal">
+                <div class="profile-paths__intro">
+                  <span>Не только отличники</span>
+                  <h3>GPA 70–85 — это рабочий профиль</h3>
+                  <p>Ниже не обещание гранта, а два честных маршрута, которые команда проверяет по аттестату, языку, бюджету и дедлайнам.</p>
+                </div>
+                <article><strong>GPA 70–79 · без IELTS</strong><span>Платное поступление или языковой год</span><small>Расширяем список вузов и готовим резервный сценарий.</small></article>
+                <article><strong>GPA 80–85 · без IELTS</strong><span>Платное место или частичный грант</span><small>Усиливаем профиль мотивационным письмом, языком и ранней подачей.</small></article>
               </div>
             </section>
 
@@ -729,6 +758,38 @@
               </div>
             </section>
 
+      <section class="section trust-section" id="trust">
+              <div class="trust-section__head reveal">
+                <div class="section-head">
+                  <p class="eyebrow">Открыто и проверяемо</p>
+                  <h2>Команда, офисы и документы UniQ</h2>
+                </div>
+                <p class="section-copy">У студента есть отдельные специалисты на каждом этапе, два офиса и официальное юридическое лицо. Подтверждения зачислений показываем только с согласия студентов.</p>
+              </div>
+              <div class="trust-section__layout">
+                <div class="team-role-grid reveal" aria-label="Команда сопровождения">
+                  <article><i data-lucide="graduation-cap"></i><strong>Академический консультант</strong><span>Подбор университетов, программ и грантов</span></article>
+                  <article><i data-lucide="files"></i><strong>Документ-менеджер</strong><span>Переводы, анкеты, дедлайны и подача</span></article>
+                  <article><i data-lucide="stamp"></i><strong>Визовый координатор</strong><span>Приглашение, виза и подготовка к вылету</span></article>
+                  <article><i data-lucide="map-pinned"></i><strong>Координатор на месте</strong><span>Встреча, заселение и адаптация</span></article>
+                </div>
+                <aside class="trust-facts reveal">
+                  <div class="trust-fact"><span>Офис в Алматы</span><strong>Абая 52В, БЦ «Байзак»</strong><small>офис 332</small></div>
+                  <div class="trust-fact"><span>Офис в Ташкенте</span><strong>City Plaza, Махтумкули 79</strong><small>5 этаж, офис 501</small></div>
+                  <div class="trust-fact trust-fact--legal"><span>Юридические данные</span><strong>ТОО Turk Dunyasi</strong><small>БИН 221040048745</small></div>
+                </aside>
+              </div>
+              <div class="proof-request reveal">
+                <div class="proof-request__icon"><i data-lucide="file-check-2"></i></div>
+                <div>
+                  <span>Подтверждённые зачисления</span>
+                  <h3>Приглашения, грантовые письма и подтверждения университетов</h3>
+                  <p>Документы содержат персональные данные. Покажем обезличенные копии и оригиналы с разрешения студентов на консультации.</p>
+                </div>
+                <button class="secondary-button" type="button" data-open-modal>Запросить подтверждения</button>
+              </div>
+            </section>
+
       <section class="section map-section" id="map">
               <div class="section-head reveal">
                 <p class="eyebrow">Контакты</p>
@@ -758,7 +819,7 @@
                 <p>Оставьте заявку, и мы подберем программу с учетом целей, успеваемости, уровня языка, бюджета и сроков поступления.</p>
               </div>
               <button class="primary-button reveal" type="button" data-open-modal>
-                Подобрать университет
+                Получить подбор университетов с грантами
                 <i data-lucide="arrow-right"></i>
               </button>
             </section>
@@ -806,8 +867,8 @@
           <i data-lucide="x"></i>
         </button>
         <p class="eyebrow">Бесплатная консультация</p>
-        <h2 id="modal-title">Получите план поступления</h2>
-        <p>Заполните форму, чтобы эксперт UniQ связался с вами и подсказал лучший маршрут.</p>
+        <h2 id="modal-title">Получить подбор университетов с грантами</h2>
+        <p>Оставьте имя, телефон и интересующую страну — эксперт UniQ свяжется с вами и подготовит варианты.</p>
         <form class="lead-form" id="leadForm">
           <label>
             Имя
@@ -816,36 +877,6 @@
           <label>
             Телефон
             <input name="phone" type="tel" placeholder="+7 (___) ___-__-__" required />
-          </label>
-          <label>
-            В каком вы классе?
-            <select name="grade">
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>Выпускник колледжа</option>
-              <option>Студент / хочу перевестись</option>
-            </select>
-          </label>
-          <label>
-            На какую программу планируете поступать?
-            <select name="program">
-              <option>Бакалавриат</option>
-              <option>Магистратура</option>
-              <option>Foundation</option>
-              <option>Языковые курсы</option>
-              <option>Пока не определился</option>
-            </select>
-          </label>
-          <label>
-            Когда планируете начать обучение?
-            <select name="start">
-              <option>В этом году</option>
-              <option>В следующем году</option>
-              <option>Через 2 года</option>
-              <option>Пока не знаю</option>
-            </select>
           </label>
           <label>
             Интересует страна
@@ -858,7 +889,7 @@
             </select>
           </label>
           <button class="primary-button" type="submit">
-            Отправить заявку
+            Получить подбор университетов с грантами
             <i data-lucide="send"></i>
           </button>
           <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</small>
